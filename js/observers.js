@@ -41,6 +41,11 @@ export function initObserver() {
           el.classList.add("show");
           observer.unobserve(el);
         }
+
+        if (el.classList.contains("about-story")) {
+          el.classList.add("revealed");
+          observer.unobserve(el);
+        }
       });
     },
     { threshold: 0.2, rootMargin: "0px 0px -50px 0px" },

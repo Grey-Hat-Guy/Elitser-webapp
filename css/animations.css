@@ -137,6 +137,71 @@
 }
 
 /* --------------------- ABOUT PAGE ------------------------ */
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fade in right animation */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Text gradient animation */
+@keyframes textGradient {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Glow pulse */
+@keyframes glowPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(216, 4, 44, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(216, 4, 44, 0.4);
+  }
+}
+
+/* Slide up with bounce */
+@keyframes slideUpBounce {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+  80% {
+    transform: translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .about-card {
   opacity: 0;
   transform: translateY(2rem);

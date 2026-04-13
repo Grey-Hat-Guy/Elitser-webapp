@@ -35,11 +35,12 @@ window.addEventListener("componentsLoaded", () => {
   const itamStatCards = document.querySelectorAll(".itam-stat-card");
   itamStatCards.forEach((card) => observer.observe(card));
 
-  // Observe ITAM feature cards
   const itamFeatureCards = document.querySelectorAll(".itam-feature-card");
   itamFeatureCards.forEach((card) => observer.observe(card));
 
-  // Observe ITAM capabilities
   const itamCapabilities = document.querySelectorAll(".itam-capability");
   itamCapabilities.forEach((cap) => observer.observe(cap));
+
+  const aboutStory = document.querySelectorAll(".about-story");
+  aboutStory.forEach((story) => observer.observe(story));
 });

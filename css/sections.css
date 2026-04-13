@@ -680,6 +680,365 @@
 }
 
 /* --------------------- ABOUT PAGE ------------------- */
+.about-story {
+  padding: 8rem 2rem;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fb 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated background pattern */
+.about-story::before {
+  content: "";
+  position: absolute;
+  top: -30%;
+  right: -10%;
+  width: 60%;
+  height: 120%;
+  background: radial-gradient(
+    circle,
+    rgba(216, 4, 44, 0.03) 0%,
+    transparent 70%
+  );
+  animation: floatBgStory 25s infinite ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes floatBgStory {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(-20px, -30px) rotate(3deg);
+  }
+  66% {
+    transform: translate(20px, -15px) rotate(-3deg);
+  }
+}
+
+/* Second floating element */
+.about-story::after {
+  content: "";
+  position: absolute;
+  bottom: -20%;
+  left: -5%;
+  width: 40%;
+  height: 80%;
+  background: radial-gradient(
+    circle,
+    rgba(216, 4, 44, 0.02) 0%,
+    transparent 70%
+  );
+  animation: floatBgStoryReverse 30s infinite ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes floatBgStoryReverse {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(30px, 20px) rotate(-4deg);
+  }
+  66% {
+    transform: translate(-20px, 30px) rotate(4deg);
+  }
+}
+
+.about-story-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.6fr;
+  gap: 4rem;
+  align-items: flex-start;
+  max-width: 1300px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* LEFT SIDE - Premium Design */
+.about-story-left {
+  position: relative;
+  padding-right: 2rem;
+}
+
+/* Animated accent line */
+.story-accent {
+  width: 4rem;
+  height: 4px;
+  background: linear-gradient(90deg, var(--red), rgba(216, 4, 44, 0.3));
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  animation: accentPulse 2s ease-in-out infinite;
+}
+
+@keyframes accentPulse {
+  0%,
+  100% {
+    width: 4rem;
+    opacity: 1;
+  }
+  50% {
+    width: 6rem;
+    opacity: 0.8;
+  }
+}
+
+/* Shimmer effect on accent line */
+.story-accent::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  animation: shimmerAccent 3s infinite;
+}
+
+@keyframes shimmerAccent {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+
+.about-story-left h2 {
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--black);
+  position: relative;
+  display: inline-block;
+  animation: fadeInLeft 0.8s ease;
+}
+
+/* Animated underline effect on hover */
+.about-story-left h2::before {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--red), transparent);
+  transition: width 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.about-story-left:hover h2::before {
+  width: 100%;
+}
+
+/* Decorative element - Red dot pattern */
+.about-story-left::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 30px;
+  height: 30px;
+  border-top: 2px solid rgba(216, 4, 44, 0.3);
+  border-right: 2px solid rgba(216, 4, 44, 0.3);
+  animation: drawCorner 0.6s ease-out;
+}
+
+@keyframes drawCorner {
+  from {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes rotateStar {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* RIGHT CONTENT - Enhanced Typography */
+.about-story-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  position: relative;
+}
+
+/* Vertical red line decoration */
+.about-story-content::before {
+  content: "";
+  position: absolute;
+  left: -2rem;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--red), rgba(216, 4, 44, 0.1));
+  border-radius: 2px;
+}
+
+/* Paragraph styling with animations */
+.about-story-content p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--grey);
+  max-width: 42rem;
+  position: relative;
+  padding-left: 0;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  opacity: 0;
+  transform: translateX(20px);
+  animation: fadeInRight 0.8s ease forwards;
+}
+
+/* Staggered animations for paragraphs */
+.about-story-content p:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.about-story-content p:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.about-story-content p:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* First paragraph - special styling */
+.about-story-content p:first-child {
+  font-weight: 600;
+  color: var(--black);
+  font-size: 1.1rem;
+  position: relative;
+}
+
+/* Drop cap effect for first paragraph */
+.about-story-content p:first-child::first-letter {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--red);
+  margin-right: 0.3rem;
+  float: left;
+  line-height: 1;
+}
+
+/* Hover effects on paragraphs */
+.about-story-content p:hover {
+  transform: translateX(10px);
+  color: #333;
+}
+
+.about-story-content p:hover {
+  background: linear-gradient(90deg, rgba(216, 4, 44, 0.03), transparent);
+  padding-left: 1rem;
+  border-radius: 0.5rem;
+}
+
+/* Add quote mark decoration */
+.about-story-content {
+  position: relative;
+}
+
+.about-story-content::after {
+  content: "“";
+  position: absolute;
+  bottom: -20px;
+  right: 20px;
+  font-size: 6rem;
+  font-family: serif;
+  color: rgba(216, 4, 44, 0.08);
+  pointer-events: none;
+  animation: floatQuote 6s ease-in-out infinite;
+}
+
+@keyframes floatQuote {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
+
+/* Interactive card effect on the whole right side */
+.about-story-content {
+  padding: 1rem;
+  border-radius: 1rem;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  cursor: pointer;
+}
+
+.about-story-content:hover {
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+  transform: translateY(-5px);
+}
+
+/* Glowing effect on hover */
+.about-story-grid:hover .story-accent {
+  box-shadow: 0 0 15px rgba(216, 4, 44, 0.3);
+}
+
+/* Number indicator */
+.about-story-left .story-number {
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  font-size: 4rem;
+  font-weight: 800;
+  color: rgba(216, 4, 44, 0.05);
+  font-family: monospace;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.about-story-left:hover .story-number {
+  transform: scale(1.1);
+  color: rgba(216, 4, 44, 0.08);
+}
+
+/* Add scroll reveal animation */
+.about-story {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.about-story.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .about-core {
   padding: 8rem 2rem;
   background: linear-gradient(135deg, #f8f9fb 0%, #ffffff 100%);
