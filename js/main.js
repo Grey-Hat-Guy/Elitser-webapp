@@ -8,8 +8,6 @@ import { initScrollTop } from "./scrollTop.js";
 document.addEventListener("DOMContentLoaded", () => {
   const observer = initObserver();
 
-  initCounters(observer);
-
   const steps = document.querySelectorAll(".step");
   steps.forEach((step) => observer.observe(step));
 
@@ -29,6 +27,8 @@ window.addEventListener("componentsLoaded", () => {
 
   const observer = initObserver();
 
+  initCounters(observer);
+
   const steps = document.querySelectorAll(".step");
   steps.forEach((step) => observer.observe(step));
 
@@ -43,4 +43,19 @@ window.addEventListener("componentsLoaded", () => {
 
   const aboutStory = document.querySelectorAll(".about-story");
   aboutStory.forEach((story) => observer.observe(story));
+
+  const consultHero = document.querySelectorAll(".consult-hero");
+  consultHero.forEach((el) => observer.observe(el));
+
+  const consultDetails = document.querySelectorAll(".consult-details");
+  consultDetails.forEach((el) => observer.observe(el));
+
+  const consultKeypoints = document.querySelectorAll(".consult-keypoints");
+  consultKeypoints.forEach((el) => observer.observe(el));
+
+  const consultCards = document.querySelectorAll(".consult-card");
+  consultCards.forEach((el) => observer.observe(el));
+
+  const keypointCards = document.querySelectorAll(".keypoint-card");
+  keypointCards.forEach((el) => observer.observe(el));
 });

@@ -2233,7 +2233,6 @@
 }
 
 /* ---------------- ASSET MANAGEMENT ------------------ */
-/* ========== SERVICE HERO - SUPERCHARGED ========== */
 .service-hero {
   padding: 6rem 2rem;
   background: linear-gradient(135deg, #f8f9fb 0%, #eef1f5 100%);
@@ -2429,7 +2428,7 @@
   transform: translateX(5px);
 }
 
-/* ========== ITAM STATS - ENHANCED ========== */
+/* ========== ITAM STATS  ========== */
 .itam-stats {
   padding: 6rem 2rem;
   background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
@@ -2532,7 +2531,7 @@
   font-weight: 500;
 }
 
-/* ========== ITAM FEATURES - ENHANCED ========== */
+/* ========== ITAM FEATURES  ========== */
 .itam-features {
   background: linear-gradient(135deg, var(--red) 0%, #a00321 100%);
   padding: 6rem 2rem;
@@ -2682,7 +2681,7 @@
   line-height: 1.7;
 }
 
-/* ========== ITAM SOLUTIONS - ENHANCED ========== */
+/* ========== ITAM SOLUTIONS ========== */
 .itam-solutions {
   padding: 6rem 2rem;
   background: linear-gradient(135deg, #f8f9fb 0%, #ffffff 100%);
@@ -2894,7 +2893,7 @@
   transform: translateX(5px);
 }
 
-/* ========== ITAM CAPABILITIES - ENHANCED ========== */
+/* ========== ITAM CAPABILITIES ========== */
 .itam-capabilities {
   padding: 6rem 2rem;
   background: linear-gradient(135deg, #ffffff 0%, #f8f9fb 100%);
@@ -2986,7 +2985,7 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
-/* ========== ITAM CTA - ENHANCED ========== */
+/* ========== ITAM CTA ========== */
 .cta-soft {
   padding: 6rem 2rem;
   background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%);
@@ -3180,4 +3179,514 @@
 }
 .itam-capability:nth-child(6) {
   transition-delay: 0.3s;
+}
+
+/* ------------------ CONSULTING ----------------- */
+.consult-hero {
+  padding: 8rem 2rem;
+  background: linear-gradient(135deg, #0a0c0e 0%, #1a1d21 100%);
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.consult-hero::before {
+  content: "";
+  position: absolute;
+  top: -30%;
+  right: -10%;
+  width: 60%;
+  height: 140%;
+  background: radial-gradient(
+    circle,
+    rgba(216, 4, 44, 0.15) 0%,
+    transparent 70%
+  );
+  animation: heroPulse 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.consult-hero::after {
+  content: "";
+  position: absolute;
+  bottom: -20%;
+  left: -5%;
+  width: 40%;
+  height: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(216, 4, 44, 0.08) 0%,
+    transparent 70%
+  );
+  animation: heroFloat 12s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.consult-hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1300px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.consult-hero-content h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 0.8s ease;
+}
+
+.consult-hero-content h1 span {
+  color: var(--red);
+  position: relative;
+  display: inline-block;
+}
+
+.consult-hero-content p {
+  margin: 1.5rem 0 2rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.8;
+  max-width: 32rem;
+  font-size: 1.05rem;
+  animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+.consult-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: var(--red);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.8s ease 0.4s both;
+}
+
+.consult-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.consult-btn:hover::before {
+  left: 100%;
+}
+
+.consult-btn:hover {
+  transform: translateY(-3px);
+  background: #b80325;
+  box-shadow: 0 10px 25px rgba(216, 4, 44, 0.4);
+  gap: 1rem;
+}
+
+.consult-btn i {
+  transition: transform 0.3s ease;
+}
+
+.consult-btn:hover i {
+  transform: translateX(5px);
+}
+
+.consult-hero-image {
+  border-radius: 1.5rem;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.3);
+  animation: fadeInRight 0.8s ease;
+}
+
+.consult-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.consult-hero-image:hover img {
+  transform: scale(1.05);
+}
+
+.consult-hero-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(216, 4, 44, 0.2), transparent);
+  pointer-events: none;
+}
+
+/* ========== CONSULT DETAILS ========== */
+.consult-details {
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, #f8f9fb 0%, #ffffff 100%);
+  position: relative;
+}
+
+.consult-details::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--red), transparent);
+}
+
+.consult-intro {
+  max-width: 55rem;
+  margin: 0 auto 4rem;
+  text-align: center;
+  position: relative;
+}
+
+.consult-intro p {
+  color: var(--grey);
+  line-height: 1.9;
+  font-size: 1.05rem;
+  position: relative;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 1rem;
+  border-left: 3px solid var(--red);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+}
+
+.consult-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.consult-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.consult-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: var(--red);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.4s ease;
+}
+
+.consult-card:hover::before {
+  transform: scaleY(1);
+}
+
+.consult-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(216, 4, 44, 0.03),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.consult-card:hover::after {
+  left: 100%;
+}
+
+.consult-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(216, 4, 44, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.consult-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.consult-card:hover h3 {
+  color: var(--red);
+}
+
+.consult-card p {
+  font-size: 0.95rem;
+  color: var(--grey);
+  line-height: 1.8;
+}
+
+.consult-subsection {
+  text-align: center;
+  margin: 5rem 0 3rem;
+  position: relative;
+}
+
+.consult-subsection::before {
+  content: "";
+  position: absolute;
+  top: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--red);
+  border-radius: 3px;
+}
+
+.consult-subsection h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.consult-subsection p {
+  color: var(--grey);
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+/* ========== CONSULT KEYPOINTS ========== */
+.consult-keypoints {
+  padding: 0rem 2rem;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fb 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.consult-keypoints::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(216, 4, 44, 0.02) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.keypoints-header {
+  display: grid;
+  grid-template-columns: 0.5fr 1.5fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+
+.keypoints-left h2 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  position: relative;
+  display: inline-block;
+}
+
+.keypoints-left h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: var(--red);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.keypoints-left:hover h2::after {
+  width: 100%;
+}
+
+.keypoints-right p {
+  color: var(--grey);
+  line-height: 1.9;
+  max-width: 45rem;
+  font-size: 1rem;
+  padding-left: 1rem;
+  border-left: 3px solid rgba(216, 4, 44, 0.3);
+}
+
+.keypoints-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.keypoint-card {
+  background: white;
+  padding: 2.5rem 1.8rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.keypoint-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(216, 4, 44, 0.03), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.keypoint-card:hover::before {
+  opacity: 1;
+}
+
+.keypoint-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--red), transparent);
+  transition: width 0.4s ease;
+}
+
+.keypoint-card:hover::after {
+  width: 100%;
+}
+
+.keypoint-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(216, 4, 44, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.kp-icon {
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(216, 4, 44, 0.08);
+  color: var(--red);
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.keypoint-card:hover .kp-icon {
+  background: var(--red);
+  color: white;
+  transform: rotate(360deg) scale(1.1);
+}
+
+.keypoint-card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  transition: color 0.3s ease;
+}
+
+.keypoint-card:hover h3 {
+  color: var(--red);
+}
+
+.keypoint-card p {
+  font-size: 0.95rem;
+  color: var(--grey);
+  line-height: 1.7;
+}
+
+.keypoint-card.wide {
+  grid-column: span 3;
+  text-align: center;
+  background: linear-gradient(135deg, white, #fafafa);
+}
+
+.keypoint-card.wide .kp-icon {
+  margin: 0 auto 1.5rem;
+}
+
+/* ========== SCROLL REVEAL CLASSES ========== */
+.consult-hero,
+.consult-details,
+.consult-keypoints,
+.consult-card,
+.keypoint-card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.consult-hero.revealed,
+.consult-details.revealed,
+.consult-keypoints.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.consult-card.revealed,
+.keypoint-card.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered delays */
+.consult-card:nth-child(1).revealed {
+  transition-delay: 0.1s;
+}
+.consult-card:nth-child(2).revealed {
+  transition-delay: 0.2s;
+}
+
+.keypoint-card:nth-child(1).revealed {
+  transition-delay: 0.05s;
+}
+.keypoint-card:nth-child(2).revealed {
+  transition-delay: 0.1s;
+}
+.keypoint-card:nth-child(3).revealed {
+  transition-delay: 0.15s;
+}
+.keypoint-card:nth-child(4).revealed {
+  transition-delay: 0.2s;
 }

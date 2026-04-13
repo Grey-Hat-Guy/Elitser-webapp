@@ -1,12 +1,17 @@
 async function loadComponent(id, file) {
+  const el = document.getElementById(id);
+
+  if (!el) return;
+
   const res = await fetch(file);
   const data = await res.text();
-  document.getElementById(id).innerHTML = data;
+  el.innerHTML = data;
 }
 
 window.addEventListener("DOMContentLoaded", async () => {
   await Promise.all([
     loadComponent("header", "/components/header.html"),
+    loadComponent("stats", "/components/stats.html"),
     loadComponent("footer", "/components/footer.html"),
     loadComponent("scrollTop", "/components/scrollTop.html"),
   ]);

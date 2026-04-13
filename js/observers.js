@@ -46,6 +46,32 @@ export function initObserver() {
           el.classList.add("revealed");
           observer.unobserve(el);
         }
+
+        // Add to your initObserver function
+        if (el.classList.contains("consult-hero")) {
+          el.classList.add("revealed");
+          observer.unobserve(el);
+        }
+
+        if (el.classList.contains("consult-details")) {
+          el.classList.add("revealed");
+          observer.unobserve(el);
+        }
+
+        if (el.classList.contains("consult-keypoints")) {
+          el.classList.add("revealed");
+          observer.unobserve(el);
+        }
+
+        if (el.classList.contains("consult-card")) {
+          el.classList.add("revealed");
+          observer.unobserve(el);
+        }
+
+        if (el.classList.contains("keypoint-card")) {
+          el.classList.add("revealed");
+          observer.unobserve(el);
+        }
       });
     },
     { threshold: 0.2, rootMargin: "0px 0px -50px 0px" },
