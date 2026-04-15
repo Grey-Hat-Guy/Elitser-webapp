@@ -12,6 +12,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   await Promise.all([
     loadComponent("header", "/components/header.html"),
     loadComponent("stats", "/components/stats.html"),
+    loadComponent("cta", "/components//cta.html"),
     loadComponent("footer", "/components/footer.html"),
     loadComponent("scrollTop", "/components/scrollTop.html"),
   ]);

@@ -442,3 +442,418 @@
     transform: translateY(-5px);
   }
 }
+
+/* ========== OS IMAGING PAGE ANIMATIONS ========== */
+
+/* Hero float animation */
+@keyframes floatBg {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-20px, -20px) rotate(5deg);
+  }
+}
+
+/* Step connector pulse animation */
+@keyframes connectorPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.os-steps-wrapper::before {
+  animation: connectorPulse 2s ease-in-out infinite;
+}
+
+/* Step number pulse on hover */
+@keyframes numberPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(216, 4, 44, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(216, 4, 44, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(216, 4, 44, 0);
+  }
+}
+
+.os-step-item:hover .step-number {
+  animation: numberPulse 0.6s ease;
+}
+
+/* Feature items slide in animation */
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.feature-showcase-item {
+  animation: slideInFromLeft 0.5s ease forwards;
+  opacity: 0;
+}
+
+.feature-showcase-item:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.feature-showcase-item:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.feature-showcase-item:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.feature-showcase-item:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.feature-showcase-item:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.feature-showcase-item:nth-child(6) {
+  animation-delay: 0.3s;
+}
+.feature-showcase-item:nth-child(7) {
+  animation-delay: 0.35s;
+}
+
+/* Pill badge hover animation */
+@keyframes pillBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.benefit-pill:hover {
+  animation: pillBounce 0.4s ease;
+}
+
+/* Hero text animations */
+.os-tag {
+  animation: fadeInDown 0.6s ease;
+}
+
+.os-hero h1 {
+  animation: fadeInUp 0.6s ease 0.1s both;
+}
+
+.os-sub {
+  animation: fadeInUp 0.6s ease 0.2s both;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Step items stagger animation */
+.os-step-item {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.os-step-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.os-step-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.os-step-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* MDM Page Animations */
+
+.mdm-hero h1 {
+  animation: fadeInUp 0.6s ease;
+}
+
+.mdm-sub {
+  animation: fadeInUp 0.6s ease 0.2s both;
+}
+
+.mdm-tag {
+  animation: fadeInDown 0.6s ease;
+}
+
+.mdm-overview-card {
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+.mdm-overview-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.mdm-overview-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.mdm-overview-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.mdm-overview-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.apps-feature {
+  animation: slideInLeft 0.5s ease forwards;
+  opacity: 0;
+}
+
+.apps-feature:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.apps-feature:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.apps-feature:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.apps-feature:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.security-stat {
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+.security-stat:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.security-stat:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.security-stat:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.email-item {
+  animation: slideInRight 0.5s ease forwards;
+  opacity: 0;
+}
+
+.email-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.email-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.email-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.feature-block {
+  animation: fadeInUp 0.4s ease forwards;
+  opacity: 0;
+}
+
+.feature-block:nth-child(n) {
+  animation-delay: calc(0.05s * var(--i, 1));
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Patch Management Page Animations */
+
+.patch-hero h1 {
+  animation: fadeInUp 0.6s ease;
+}
+
+.patch-tag {
+  animation: fadeInDown 0.6s ease;
+}
+
+.patch-benefit-card {
+  opacity: 0;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.patch-benefit-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.patch-benefit-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.patch-benefit-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.enterprise-feature {
+  opacity: 0;
+  animation: slideInLeft 0.4s ease forwards;
+}
+
+.enterprise-feature:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.enterprise-feature:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.enterprise-feature:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.enterprise-feature:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.enterprise-feature:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.enterprise-feature:nth-child(6) {
+  animation-delay: 0.3s;
+}
+
+.feature-row {
+  opacity: 0;
+  animation: slideInRight 0.4s ease forwards;
+}
+
+.feature-row:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.feature-row:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.feature-row:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.feature-row:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.feature-row:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.feature-row:nth-child(6) {
+  animation-delay: 0.3s;
+}
+.feature-row:nth-child(7) {
+  animation-delay: 0.35s;
+}
+.feature-row:nth-child(8) {
+  animation-delay: 0.4s;
+}
+.feature-row:nth-child(9) {
+  animation-delay: 0.45s;
+}
+.feature-row:nth-child(10) {
+  animation-delay: 0.5s;
+}
+.feature-row:nth-child(11) {
+  animation-delay: 0.55s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
