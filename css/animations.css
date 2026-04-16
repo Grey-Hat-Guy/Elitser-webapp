@@ -857,3 +857,901 @@
     transform: translateX(0);
   }
 }
+
+/* DLP Page Animations */
+
+.dlp-hero h1 {
+  animation: fadeInUp 0.6s ease;
+}
+
+.dlp-tag {
+  animation: fadeInDown 0.6s ease;
+}
+
+.dlp-sub {
+  animation: fadeInUp 0.6s ease 0.2s both;
+}
+
+.advantage-item {
+  opacity: 0;
+  animation: slideInLeft 0.5s ease forwards;
+}
+
+.advantage-item.reverse {
+  animation: slideInRight 0.5s ease forwards;
+}
+
+.advantage-item:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.advantage-item:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.advantage-item:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.advantage-item:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.advantage-item:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.advantage-item:nth-child(6) {
+  animation-delay: 0.3s;
+}
+.advantage-item:nth-child(7) {
+  animation-delay: 0.35s;
+}
+.advantage-item:nth-child(8) {
+  animation-delay: 0.4s;
+}
+.advantage-item:nth-child(9) {
+  animation-delay: 0.45s;
+}
+
+.beyond-feature {
+  opacity: 0;
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.beyond-feature:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.beyond-feature:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.beyond-feature:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.dlp-feature-item {
+  opacity: 0;
+  animation: fadeInUp 0.3s ease forwards;
+}
+
+.dlp-feature-item:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.dlp-feature-item:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.dlp-feature-item:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.dlp-feature-item:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.dlp-feature-item:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.dlp-feature-item:nth-child(6) {
+  animation-delay: 0.3s;
+}
+.dlp-feature-item:nth-child(7) {
+  animation-delay: 0.35s;
+}
+.dlp-feature-item:nth-child(8) {
+  animation-delay: 0.4s;
+}
+.dlp-feature-item:nth-child(9) {
+  animation-delay: 0.45s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* APM Page Animations */
+.apm-hero h1 {
+  animation: fadeInUp 0.6s ease;
+}
+
+.apm-tag {
+  animation: fadeInDown 0.6s ease;
+}
+
+.apm-sub {
+  animation: fadeInUp 0.6s ease 0.2s both;
+}
+
+.capability-card {
+  opacity: 0;
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.capability-card:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.capability-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.capability-card:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.capability-card:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.capability-card:nth-child(5) {
+  animation-delay: 0.25s;
+}
+
+.platform-card {
+  opacity: 0;
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.platform-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.platform-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.platform-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.platform-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.network-item,
+.server-card,
+.fault-item,
+.visual-card {
+  opacity: 0;
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.network-item:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.network-item:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.network-item:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.network-item:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.network-item:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.network-item:nth-child(6) {
+  animation-delay: 0.3s;
+}
+
+.server-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.server-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.server-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.server-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.server-card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.fault-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.fault-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.fault-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.fault-item:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.fault-item:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.visual-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.visual-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.visual-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.visual-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Network Monitoring Page Animations */
+
+.ntm-hero h1 {
+  animation: fadeInUp 0.6s ease;
+}
+
+.ntm-tag {
+  animation: fadeInDown 0.6s ease;
+}
+
+.ntm-sub {
+  animation: fadeInUp 0.6s ease 0.2s both;
+}
+
+.analysis-card {
+  opacity: 0;
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.analysis-card:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.analysis-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.analysis-card:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.analysis-card:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.analysis-card:nth-child(5) {
+  animation-delay: 0.25s;
+}
+
+.bandwidth-item {
+  opacity: 0;
+  animation: slideInLeft 0.4s ease forwards;
+}
+
+.bandwidth-item:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.bandwidth-item:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.bandwidth-item:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.bandwidth-item:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.bandwidth-item:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.bandwidth-item:nth-child(6) {
+  animation-delay: 0.3s;
+}
+
+.reports-card,
+.integration-card {
+  opacity: 0;
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.reports-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.reports-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.reports-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.reports-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.reports-card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.integration-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.integration-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.integration-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.integration-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.integration-card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.integration-card:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+.security-item {
+  opacity: 0;
+  animation: slideInRight 0.4s ease forwards;
+}
+
+.security-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.security-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.security-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.security-item:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.feature-pill {
+  opacity: 0;
+  animation: fadeInUp 0.3s ease forwards;
+}
+
+.feature-pill:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.feature-pill:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.feature-pill:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.feature-pill:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.feature-pill:nth-child(5) {
+  animation-delay: 0.25s;
+}
+
+/* Network Configuration Manager Page Animations */
+
+.ncm-hero h1 {
+  animation: fadeInUp 0.6s ease;
+}
+
+.ncm-tag {
+  animation: fadeInDown 0.6s ease;
+}
+
+.ncm-sub {
+  animation: fadeInUp 0.6s ease 0.2s both;
+}
+
+.backup-card,
+.vulnerability-card,
+.reports-card {
+  opacity: 0;
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.backup-card:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.backup-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.backup-card:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.backup-card:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.backup-card:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.backup-card:nth-child(6) {
+  animation-delay: 0.3s;
+}
+
+.change-item,
+.compliance-item {
+  opacity: 0;
+  animation: slideInLeft 0.4s ease forwards;
+}
+
+.change-item:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.change-item:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.change-item:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.change-item:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.change-item:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.change-item:nth-child(6) {
+  animation-delay: 0.3s;
+}
+
+.compliance-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.compliance-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.compliance-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.compliance-item:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.compliance-item:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.compliance-item:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+.vulnerability-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.vulnerability-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.vulnerability-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.config-item {
+  opacity: 0;
+  animation: slideInRight 0.4s ease forwards;
+}
+
+.config-item:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.config-item:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.config-item:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.config-item:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.config-item:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.config-item:nth-child(6) {
+  animation-delay: 0.3s;
+}
+
+.reports-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.reports-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.reports-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.reports-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.reports-card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.reports-card:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+/* Bandwidth Monitoring Page Animations */
+
+.bwm-hero h1 {
+  animation: fadeInUp 0.6s ease;
+}
+
+.bwm-tag {
+  animation: fadeInDown 0.6s ease;
+}
+
+.bwm-sub {
+  animation: fadeInUp 0.6s ease 0.2s both;
+}
+
+.real-card,
+.flow-card {
+  opacity: 0;
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.real-card:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.real-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.real-card:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.real-card:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.real-card:nth-child(5) {
+  animation-delay: 0.25s;
+}
+
+.flow-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.flow-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.flow-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.flow-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.dynamic-item,
+.report-card,
+.integration-card {
+  opacity: 0;
+  animation: slideInLeft 0.4s ease forwards;
+}
+
+.dynamic-item:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.dynamic-item:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.dynamic-item:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.dynamic-item:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.dynamic-item:nth-child(5) {
+  animation-delay: 0.25s;
+}
+
+.report-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.report-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.report-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.report-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.integration-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.integration-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.integration-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.integration-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.security-item {
+  opacity: 0;
+  animation: slideInRight 0.4s ease forwards;
+}
+
+.security-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.security-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.security-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.security-item:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.feature-pill {
+  opacity: 0;
+  animation: fadeInUp 0.3s ease forwards;
+}
+
+.feature-pill:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.feature-pill:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.feature-pill:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.feature-pill:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.feature-pill:nth-child(5) {
+  animation-delay: 0.25s;
+}
+
+/* IP & Switch Port Management Page Animations */
+
+.ipm-hero h1 {
+  animation: fadeInUp 0.6s ease;
+}
+
+.ipm-tag {
+  animation: fadeInDown 0.6s ease;
+}
+
+.ipm-sub {
+  animation: fadeInUp 0.6s ease 0.2s both;
+}
+
+.feature-card {
+  opacity: 0;
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.feature-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.feature-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.feature-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.feature-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.core-card {
+  opacity: 0;
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.core-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.core-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.core-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.core-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.core-card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.core-card:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+.tool-card {
+  opacity: 0;
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.tool-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.tool-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.tool-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.tool-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.tool-card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.tool-card:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+/* Full Stack Observability Page Animations */
+
+.fso-hero h1 {
+  animation: fadeInUp 0.6s ease;
+}
+
+.fso-tag {
+  animation: fadeInDown 0.6s ease;
+}
+
+.fso-sub {
+  animation: fadeInUp 0.6s ease 0.2s both;
+}
+
+.solution-card {
+  opacity: 0;
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.solution-card:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.solution-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.solution-card:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.solution-card:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.solution-card:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.solution-card:nth-child(6) {
+  animation-delay: 0.3s;
+}
+.solution-card:nth-child(7) {
+  animation-delay: 0.35s;
+}
+.solution-card:nth-child(8) {
+  animation-delay: 0.4s;
+}
+.solution-card:nth-child(9) {
+  animation-delay: 0.45s;
+}
+.solution-card:nth-child(10) {
+  animation-delay: 0.5s;
+}
+
+.fso-tab-btn {
+  opacity: 0;
+  animation: slideInLeft 0.4s ease forwards;
+}
+
+.fso-tab-btn:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.fso-tab-btn:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.fso-tab-btn:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.fso-tab-btn:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.fso-tab-btn:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.fso-tab-btn:nth-child(6) {
+  animation-delay: 0.3s;
+}
+.fso-tab-btn:nth-child(7) {
+  animation-delay: 0.35s;
+}
+.fso-tab-btn:nth-child(8) {
+  animation-delay: 0.4s;
+}
+.fso-tab-btn:nth-child(9) {
+  animation-delay: 0.45s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

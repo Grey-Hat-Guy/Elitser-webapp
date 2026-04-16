@@ -61,61 +61,56 @@ window.addEventListener("componentsLoaded", () => {
   keypointCards.forEach((el) => observer.observe(el));
 
   initMobileMenu();
+  initApmTabs();
+  initFsoTabs();
+  initAccordionItems();
 });
 
-// Mobile Menu Function
 function initMobileMenu() {
   const menuToggle = document.querySelector(".menu-toggle");
   const menu = document.querySelector(".menu");
   const megaParent = document.querySelector(".mega-parent");
   const serviceParent = document.querySelector(".service-parent");
 
-  // Toggle main menu
   if (menuToggle && menu) {
     menuToggle.addEventListener("click", (e) => {
       e.stopPropagation();
       menu.classList.toggle("active");
 
       const icon = menuToggle.querySelector("i");
-      icon.classList.toggle("fa-bars");
-      icon.classList.toggle("fa-times");
+      if (icon) {
+        icon.classList.toggle("fa-bars");
+        icon.classList.toggle("fa-times");
+      }
     });
   }
 
-  // Handle dropdowns (Products & Services)
   document
     .querySelectorAll(".mega-parent > a, .service-parent > a")
     .forEach((link) => {
       link.addEventListener("click", (e) => {
         if (window.innerWidth <= 992) {
           e.preventDefault();
-
           const parent = link.parentElement;
-
-          // Close others
           document
             .querySelectorAll(".mega-parent, .service-parent")
             .forEach((el) => {
               if (el !== parent) el.classList.remove("active");
             });
-
-          // Toggle current
           parent.classList.toggle("active");
         }
       });
     });
 
-  // Close menu when clicking outside
   document.addEventListener("click", (e) => {
     if (!e.target.closest(".nav")) {
-      menu.classList.remove("active");
-      megaParent?.classList.remove("active");
-      serviceParent?.classList.remove("active");
+      if (menu) menu.classList.remove("active");
+      if (megaParent) megaParent.classList.remove("active");
+      if (serviceParent) serviceParent.classList.remove("active");
     }
   });
 }
 
-// Handle window resize - reset mobile menu state
 window.addEventListener("resize", () => {
   const menu = document.querySelector(".menu");
   const menuToggle = document.querySelector(".menu-toggle");
@@ -135,3 +130,73 @@ window.addEventListener("resize", () => {
     }
   }
 });
+
+function initApmTabs() {
+  const tabButtons = document.querySelectorAll(".apm-tab-btn");
+  const tabPanes = document.querySelectorAll(".apm-tab-pane");
+
+  if (tabButtons.length && tabPanes.length) {
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const tabId = button.getAttribute("data-tab");
+        if (!tabId) return;
+
+        tabButtons.forEach((btn) => btn.classList.remove("active"));
+        tabPanes.forEach((pane) => pane.classList.remove("active"));
+
+        button.classList.add("active");
+        const activePane = document.getElementById(tabId);
+        if (activePane) activePane.classList.add("active");
+      });
+    });
+  }
+}
+
+function initFsoTabs() {
+  const tabButtons = document.querySelectorAll(".fso-tab-btn");
+  const tabPanes = document.querySelectorAll(".fso-tab-pane");
+
+  if (!tabButtons.length || !tabPanes.length) return;
+
+  tabButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const tabId = this.getAttribute("data-tab");
+      if (!tabId) return;
+
+      // remove active from all buttons
+      tabButtons.forEach((btn) => btn.classList.remove("active"));
+
+      // add active to clicked
+      this.classList.add("active");
+
+      // hide all panes
+      tabPanes.forEach((pane) => pane.classList.remove("active"));
+
+      // show selected
+      const activePane = document.getElementById(tabId);
+      if (activePane) {
+        activePane.classList.add("active");
+      }
+    });
+  });
+}
+
+function initAccordionItems() {
+  const accordionItems = document.querySelectorAll(".accordion-item");
+
+  if (accordionItems.length) {
+    accordionItems.forEach((item) => {
+      const header = item.querySelector(".accordion-header");
+      if (header) {
+        header.addEventListener("click", () => {
+          accordionItems.forEach((otherItem) => {
+            if (otherItem !== item && otherItem.classList.contains("active")) {
+              otherItem.classList.remove("active");
+            }
+          });
+          item.classList.toggle("active");
+        });
+      }
+    });
+  }
+}
