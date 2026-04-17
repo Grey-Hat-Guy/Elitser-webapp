@@ -63,7 +63,13 @@ window.addEventListener("componentsLoaded", () => {
   initMobileMenu();
   initApmTabs();
   initFsoTabs();
+  initAdmTabs();
+  initExrTabs();
   initAccordionItems();
+  initLoadMoreButtons();
+  initO365Tabs();
+  initPamTabs();
+  initSiemTabs();
 });
 
 function initMobileMenu() {
@@ -163,22 +169,57 @@ function initFsoTabs() {
       const tabId = this.getAttribute("data-tab");
       if (!tabId) return;
 
-      // remove active from all buttons
       tabButtons.forEach((btn) => btn.classList.remove("active"));
-
-      // add active to clicked
       this.classList.add("active");
 
-      // hide all panes
       tabPanes.forEach((pane) => pane.classList.remove("active"));
 
-      // show selected
       const activePane = document.getElementById(tabId);
-      if (activePane) {
-        activePane.classList.add("active");
-      }
+      if (activePane) activePane.classList.add("active");
     });
   });
+}
+
+function initAdmTabs() {
+  const tabButtons = document.querySelectorAll(".adm-tab-btn");
+  const tabPanes = document.querySelectorAll(".adm-tab-pane");
+
+  if (tabButtons.length && tabPanes.length) {
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const tabId = button.getAttribute("data-tab");
+        if (!tabId) return;
+
+        tabButtons.forEach((btn) => btn.classList.remove("active"));
+        tabPanes.forEach((pane) => pane.classList.remove("active"));
+
+        button.classList.add("active");
+        const activePane = document.getElementById(tabId);
+        if (activePane) activePane.classList.add("active");
+      });
+    });
+  }
+}
+
+function initExrTabs() {
+  const tabButtons = document.querySelectorAll(".exr-tab-btn");
+  const tabPanes = document.querySelectorAll(".exr-tab-pane");
+
+  if (tabButtons.length && tabPanes.length) {
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const tabId = button.getAttribute("data-tab");
+        if (!tabId) return;
+
+        tabButtons.forEach((btn) => btn.classList.remove("active"));
+        tabPanes.forEach((pane) => pane.classList.remove("active"));
+
+        button.classList.add("active");
+        const activePane = document.getElementById(tabId);
+        if (activePane) activePane.classList.add("active");
+      });
+    });
+  }
 }
 
 function initAccordionItems() {
@@ -199,4 +240,107 @@ function initAccordionItems() {
       }
     });
   }
+}
+
+function initLoadMoreButtons() {
+  // Data Source Load More
+  const loadMoreDataBtn = document.getElementById("loadMoreDataBtn");
+  if (loadMoreDataBtn) {
+    const hiddenCards = document.querySelectorAll(
+      "#dataSourceGrid .data-card.hidden",
+    );
+    let isExpanded = false;
+
+    loadMoreDataBtn.addEventListener("click", function () {
+      hiddenCards.forEach((card) => {
+        card.classList.toggle("hidden");
+      });
+
+      if (!isExpanded) {
+        this.innerHTML = 'Show Less <i class="fas fa-chevron-up"></i>';
+        isExpanded = true;
+      } else {
+        this.innerHTML =
+          'Load More Data Sources <i class="fas fa-chevron-down"></i>';
+        isExpanded = false;
+      }
+    });
+  }
+}
+
+function initO365Tabs() {
+  const tabButtons = document.querySelectorAll(".o365-tab-btn");
+  const tabPanes = document.querySelectorAll(".o365-tab-pane");
+
+  if (tabButtons.length && tabPanes.length) {
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const tabId = button.getAttribute("data-tab");
+        if (!tabId) return;
+
+        tabButtons.forEach((btn) => btn.classList.remove("active"));
+        tabPanes.forEach((pane) => pane.classList.remove("active"));
+
+        button.classList.add("active");
+        const activePane = document.getElementById(tabId);
+        if (activePane) activePane.classList.add("active");
+      });
+    });
+  }
+}
+
+function initPamTabs() {
+  const tabButtons = document.querySelectorAll(".pam-tab-btn");
+  const tabPanes = document.querySelectorAll(".pam-tab-pane");
+
+  if (tabButtons.length && tabPanes.length) {
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const tabId = button.getAttribute("data-tab");
+        if (!tabId) return;
+
+        tabButtons.forEach((btn) => btn.classList.remove("active"));
+        tabPanes.forEach((pane) => pane.classList.remove("active"));
+
+        button.classList.add("active");
+        const activePane = document.getElementById(tabId);
+        if (activePane) activePane.classList.add("active");
+      });
+    });
+  }
+}
+
+function initSiemTabs() {
+  const tabButtons = document.querySelectorAll(".siem-tab-btn");
+  const sections = document.querySelectorAll(".siem-section");
+
+  function updateActiveTab() {
+    let currentSection = "";
+    sections.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= 150 && rect.bottom >= 150) {
+        currentSection = section.getAttribute("id");
+      }
+    });
+
+    tabButtons.forEach((btn) => {
+      btn.classList.remove("active");
+      if (btn.getAttribute("data-section") === currentSection) {
+        btn.classList.add("active");
+      }
+    });
+  }
+
+  tabButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const sectionId = btn.getAttribute("data-section");
+      const targetSection = document.getElementById(sectionId);
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  });
+
+  window.addEventListener("scroll", updateActiveTab);
+  updateActiveTab();
 }

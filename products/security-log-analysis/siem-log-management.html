@@ -1,0 +1,678 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SIEM & Log Management - Elitser Group</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body>
+    <div id="header"></div>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="siem-hero">
+        <div class="container siem-hero-inner">
+          <p class="siem-tag">
+            <i class="fas fa-shield-alt"></i> SIEM & Log Management
+          </p>
+          <h1>Log360, a unified SIEM solution for your SOCs.</h1>
+          <p class="siem-sub">
+            Your SOCs command center for seeing threats, not noise. Log360 is
+            your complete solution for log management and network security. This
+            integrated platform combines ADAudit Plus, EventLog Analyzer, O365
+            Manager Plus, Exchange Reporter Plus, and Cloud Security Plus. With
+            Log360, you gain full control, auditing Active Directory changes,
+            network device logs, Microsoft Exchange Servers, Exchange Online,
+            Azure Active Directory, and your public cloud infrastructure—all
+            from one console. Monitor real-time Active Directory changes, ensure
+            compliance with PCI DSS, HIPAA, GDPR, and more. Get detailed audit
+            reports for Azure AD and Exchange Online. Access pre-built reports
+            for Windows, Linux/Unix, web servers, databases, and network
+            security devices like firewalls. Gain visibility into AWS and Azure,
+            receive real-time alerts for blacklisted IPs/URLs, and enhance data
+            security and integrity. Simplify monitoring and auditing of your
+            Microsoft Exchange Servers.
+          </p>
+        </div>
+      </section>
+
+      <!-- Vigil IQ Section -->
+      <section class="siem-vigil">
+        <div class="container">
+          <div class="vigil-wrapper">
+            <i class="fas fa-robot"></i>
+            <div>
+              <h2>Vigil IQ: Your Ultimate Cyber Defense Platform</h2>
+              <p>
+                Protect. Detect. Respond. Comply. Vigil IQ, powered by Log360,
+                offers a comprehensive, AI-driven security solution designed to
+                safeguard your organization from the evolving threat landscape.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Section with Sticky Tabs -->
+      <section class="siem-features">
+        <div class="container siem-features-container">
+          <div class="siem-tabs-wrapper">
+            <div class="siem-tabs-sticky">
+              <h3>Features</h3>
+              <div class="siem-tab-list">
+                <button
+                  class="siem-tab-btn active"
+                  data-section="threat-prevention"
+                >
+                  <i class="fas fa-shield-alt"></i> Threat Prevention
+                </button>
+                <button class="siem-tab-btn" data-section="attack-detection">
+                  <i class="fas fa-bug"></i> Attack Detection
+                </button>
+                <button class="siem-tab-btn" data-section="integrated-dlp">
+                  <i class="fas fa-lock"></i> Integrated DLP
+                </button>
+                <button class="siem-tab-btn" data-section="integrated-casb">
+                  <i class="fas fa-cloud"></i> Integrated CASB
+                </button>
+                <button class="siem-tab-btn" data-section="compliance">
+                  <i class="fas fa-check-double"></i> Compliance Management
+                </button>
+                <button class="siem-tab-btn" data-section="real-time-analytics">
+                  <i class="fas fa-chart-line"></i> Real-time Security Analytics
+                </button>
+                <button class="siem-tab-btn" data-section="soar">
+                  <i class="fas fa-robot"></i> SOAR
+                </button>
+                <button class="siem-tab-btn" data-section="ueba">
+                  <i class="fas fa-brain"></i> UEBA
+                </button>
+                <button class="siem-tab-btn" data-section="log360-soc">
+                  <i class="fas fa-building"></i> Log360 for SOC
+                </button>
+                <button class="siem-tab-btn" data-section="risk-posture">
+                  <i class="fas fa-chart-pie"></i> Security & Risk Posture
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="siem-content-wrapper">
+            <!-- Threat Prevention -->
+            <div id="threat-prevention" class="siem-section">
+              <div class="section-header">
+                <i class="fas fa-shield-alt"></i>
+                <h2>Threat Prevention</h2>
+                <p>Guard your network before threats take hold.</p>
+              </div>
+              <div class="feature-grid">
+                <div class="feature-item">
+                  <i class="fas fa-chart-line"></i>
+                  <div>
+                    <h4>Threat Intelligence</h4>
+                    <p>
+                      Stay ahead of attackers with constantly updated threat
+                      feeds. Block known malicious IPs, domains, and URLs
+                      instantly.
+                    </p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-dark-web"></i>
+                  <div>
+                    <h4>Dark Web Monitoring</h4>
+                    <p>
+                      Uncover hidden risks like credential leaks and sensitive
+                      data exposure on the dark web, providing crucial early
+                      warnings.
+                    </p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-globe"></i>
+                  <div>
+                    <h4>External Threat Mitigation</h4>
+                    <p>
+                      Leverage industry-standard STIX/TAXII feeds for robust
+                      defense against external cyber threats.
+                    </p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-network-wired"></i>
+                  <div>
+                    <h4>Internal Threat Mitigation</h4>
+                    <p>
+                      Real-time alerts and automated actions to block malicious
+                      traffic within your network, preventing insider threats
+                      and containing breaches.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Attack Detection -->
+            <div id="attack-detection" class="siem-section">
+              <div class="section-header">
+                <i class="fas fa-bug"></i>
+                <h2>Attack Detection</h2>
+                <p>
+                  Pinpoint and neutralize cyberattacks with unparalleled
+                  accuracy.
+                </p>
+              </div>
+              <div class="feature-grid">
+                <div class="feature-item">
+                  <i class="fas fa-search"></i>
+                  <div>
+                    <h4>Threat Detection</h4>
+                    <p>
+                      Comprehensive monitoring to identify and block malicious
+                      intruders across your network.
+                    </p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-code-branch"></i>
+                  <div>
+                    <h4>Rule-Based Real-time Correlation</h4>
+                    <p>
+                      Detect sophisticated security threats by correlating
+                      suspicious events across your entire IT infrastructure.
+                    </p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-brain"></i>
+                  <div>
+                    <h4>Behavior-Based (ML-powered UEBA)</h4>
+                    <p>
+                      Uncover insider threats and subtle anomalies using machine
+                      learning to analyze user and entity behavior.
+                    </p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-chart-line"></i>
+                  <div>
+                    <h4>Signature-Based (MITRE ATT&CK Framework)</h4>
+                    <p>
+                      Prioritize critical threats early in the attack chain by
+                      mapping them to the industry-leading MITRE ATT&CK
+                      framework.
+                    </p>
+                  </div>
+                </div>
+                <div class="feature-item highlight">
+                  <i class="fas fa-chart-simple"></i>
+                  <div>
+                    <h4>Simplify Your Defense with Vigil IQ's TDIR Engine</h4>
+                    <p>
+                      Experience immediate visibility into security threats with
+                      real-time correlation, adaptive ML-based alerts, UEBA,
+                      MITRE ATT&CK integration, intuitive security analytics,
+                      and SOAR capabilities.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Integrated DLP -->
+            <div id="integrated-dlp" class="siem-section">
+              <div class="section-header">
+                <i class="fas fa-lock"></i>
+                <h2>Integrated DLP</h2>
+                <p>
+                  Secure your sensitive data and effortlessly meet regulatory
+                  demands.
+                </p>
+              </div>
+              <div class="feature-grid">
+                <div class="feature-item">
+                  <i class="fas fa-shield-alt"></i>
+                  <div>
+                    <h4>Integrated DLP</h4>
+                    <p>
+                      Prevent data exfiltration, identify unusual data access,
+                      and cut off malicious communication to command and control
+                      servers.
+                    </p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-search"></i>
+                  <div>
+                    <h4>eDiscovery</h4>
+                    <p>
+                      Efficiently locate, classify, and preserve electronic
+                      information for legal and compliance requirements.
+                    </p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-eye"></i>
+                  <div>
+                    <h4>Content-Aware Protection</h4>
+                    <p>
+                      Monitor access to sensitive data within your network for
+                      enhanced data security.
+                    </p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-chart-line"></i>
+                  <div>
+                    <h4>Data Risk Assessment</h4>
+                    <p>
+                      Evaluate critical data storage locations to proactively
+                      protect sensitive enterprise information.
+                    </p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-file-alt"></i>
+                  <div>
+                    <h4>File Integrity Monitoring (FIM)</h4>
+                    <p>
+                      Track all file and folder activities (creation, deletion,
+                      modification) and receive instant alerts for suspicious
+                      changes.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Integrated CASB -->
+            <div id="integrated-casb" class="siem-section">
+              <div class="section-header">
+                <i class="fas fa-cloud"></i>
+                <h2>Integrated CASB</h2>
+                <p>
+                  Secure your cloud environment by regulating sensitive data
+                  access, tracking sanctioned/unsanctioned apps, and detecting
+                  Shadow IT.
+                </p>
+              </div>
+              <div class="feature-grid">
+                <div class="feature-item">
+                  <i class="fas fa-eye"></i>
+                  <div>
+                    <h4>Shadow IT Monitoring</h4>
+                    <p>
+                      Discover unauthorized applications, monitor user access,
+                      and gain insights into recently used shadow IT.
+                    </p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-shield-alt"></i>
+                  <div>
+                    <h4>Cloud Security Monitoring</h4>
+                    <p>
+                      Safeguard cloud accounts from unauthorized access and
+                      protect your vital cloud-based data assets.
+                    </p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-filter"></i>
+                  <div>
+                    <h4>Web Content Filtering</h4>
+                    <p>
+                      Defend against web-based attacks by blocking access to
+                      malicious applications and websites.
+                    </p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-database"></i>
+                  <div>
+                    <h4>Cloud Data Protection</h4>
+                    <p>
+                      Prevent unauthorized data downloads and exfiltration
+                      attempts in cloud environments.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Compliance Management -->
+            <div id="compliance" class="siem-section">
+              <div class="section-header">
+                <i class="fas fa-check-double"></i>
+                <h2>Integrated Compliance Management</h2>
+                <p>Simplify regulatory adherence with ease.</p>
+              </div>
+              <div class="feature-grid">
+                <div class="feature-item">
+                  <i class="fas fa-file-alt"></i>
+                  <div>
+                    <h4>Audit-Ready Templates</h4>
+                    <p>
+                      Leverage 150+ pre-built reports for effortless security
+                      audits and compliance reporting (PCI-DSS, HIPAA, FISMA,
+                      SOX, etc.).
+                    </p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-archive"></i>
+                  <div>
+                    <h4>Secured Log Archival</h4>
+                    <p>
+                      Tamper-proof log archives ensure data integrity for
+                      forensic analysis and audits.
+                    </p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-history"></i>
+                  <div>
+                    <h4>Incident Timelines</h4>
+                    <p>
+                      Reconstruct security incidents with detailed timelines for
+                      effective investigation.
+                    </p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-search"></i>
+                  <div>
+                    <h4>Forensic Analysis</h4>
+                    <p>
+                      Conduct comprehensive root cause analysis with advanced
+                      threat analytics, correlation, and workflows.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Real-time Security Analytics -->
+            <div id="real-time-analytics" class="siem-section">
+              <div class="section-header">
+                <i class="fas fa-chart-line"></i>
+                <h2>Real-time Security Analytics</h2>
+                <p>
+                  Monitor critical network resources in real time for instant
+                  threat awareness.
+                </p>
+              </div>
+              <div class="feature-grid">
+                <div class="feature-item">
+                  <i class="fas fa-database"></i>
+                  <div>
+                    <h4>Log and Data Management</h4>
+                    <p>
+                      Collect and analyze logs from all sources, transforming
+                      raw data into actionable security insights through
+                      intuitive reports.
+                    </p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-chart-pie"></i>
+                  <div>
+                    <h4>Unified Analytical Console (Incident Workbench)</h4>
+                    <p>
+                      Integrate user analytics, process hunting, and advanced
+                      threat analytics into a single console for streamlined
+                      investigations.
+                    </p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-server"></i>
+                  <div>
+                    <h4>Real-time AD Auditing</h4>
+                    <p>
+                      Track all Active Directory security events, including
+                      group changes, failed logons, and permission
+                      modifications.
+                    </p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-home"></i>
+                  <div>
+                    <h4>Securing the Remote Workforce</h4>
+                    <p>
+                      Detect and mitigate cloud, VPN, and other remote
+                      work-related security threats.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SOAR -->
+            <div id="soar" class="siem-section">
+              <div class="section-header">
+                <i class="fas fa-robot"></i>
+                <h2>SOAR</h2>
+                <p>
+                  Security Orchestration, Automation, and Response - Expedite
+                  incident resolution by prioritizing threats and automating
+                  responses.
+                </p>
+              </div>
+              <div class="feature-grid">
+                <div class="feature-item">
+                  <i class="fas fa-bell"></i>
+                  <div>
+                    <h4>Incident Response</h4>
+                    <p>
+                      Accelerate threat mitigation with real-time alerts and
+                      automated incident response workflows.
+                    </p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-chart-line"></i>
+                  <div>
+                    <h4>Incident Management</h4>
+                    <p>
+                      Reduce Mean Time to Detect (MTTD) and Mean Time to Resolve
+                      (MTTR) incidents with a centralized, accurate console.
+                    </p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-cogs"></i>
+                  <div>
+                    <h4>Automation</h4>
+                    <p>
+                      Automate threat responses at every stage with prebuilt
+                      workflows and automatic ticket assignment.
+                    </p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-plug"></i>
+                  <div>
+                    <h4>Orchestration</h4>
+                    <p>
+                      Gain contextual security insights and streamline incident
+                      management by integrating with external ticketing tools.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- UEBA -->
+            <div id="ueba" class="siem-section">
+              <div class="section-header">
+                <i class="fas fa-brain"></i>
+                <h2>UEBA</h2>
+                <p>
+                  User and Entity Behavior Analytics - Defend against insider
+                  threats, account compromise, and data exfiltration.
+                </p>
+              </div>
+              <div class="feature-grid">
+                <div class="feature-item">
+                  <i class="fas fa-chart-line"></i>
+                  <div>
+                    <h4>Behavior Analytics</h4>
+                    <p>
+                      Utilize machine learning to detect suspicious activities
+                      from users and entities across your network.
+                    </p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-chart-pie"></i>
+                  <div>
+                    <h4>Integrated Risk Management</h4>
+                    <p>
+                      Gain comprehensive visibility into your organization's
+                      security and risk posture.
+                    </p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-users"></i>
+                  <div>
+                    <h4>Dynamic Peer Grouping</h4>
+                    <p>
+                      Detect granular anomalies by grouping users based on their
+                      behavior, establishing baselines for precise threat
+                      detection.
+                    </p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-shield-alt"></i>
+                  <div>
+                    <h4>UEBA for Threat Detection</h4>
+                    <p>
+                      Effectively detect anomalous behavior and defend against
+                      unusual security threats with ease.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Log360 for SOC -->
+            <div id="log360-soc" class="siem-section">
+              <div class="section-header">
+                <i class="fas fa-building"></i>
+                <h2>Log360 for SOC</h2>
+                <p>
+                  A unified platform for threat detection, anomalous user
+                  behavior identification, suspicious network activity tracing,
+                  real-time alerts, systematic incident resolution, and IT audit
+                  compliance.
+                </p>
+              </div>
+              <div class="feature-grid">
+                <div class="feature-item">
+                  <i class="fas fa-user-shield"></i>
+                  <div>
+                    <h4>Log360 for Security Professionals</h4>
+                    <p>
+                      Monitor all network devices, detect intrusions and
+                      vulnerabilities through event correlation, behavioral
+                      monitoring, and threat intelligence. Get alerted to
+                      high-risk security events.
+                    </p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-chart-line"></i>
+                  <div>
+                    <h4>Optimize SOC Metrics with Log360</h4>
+                    <p>
+                      Streamline security operations and gain visibility into
+                      key metrics like MTTD and MTTR with the intuitive incident
+                      dashboard.
+                    </p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-check-double"></i>
+                  <div>
+                    <h4>Log360 for Compliance Managers</h4>
+                    <p>
+                      Ensure adherence to global compliance regulations and
+                      receive real-time notifications for violations.
+                    </p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-chart-simple"></i>
+                  <div>
+                    <h4>
+                      Machine Learning-enhanced Adaptive Thresholds for Alerts
+                    </h4>
+                    <p>
+                      Revolutionize your SOC with a dual-layered approach,
+                      focusing attention only on significant threats.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Security and Risk Posture Management -->
+            <div id="risk-posture" class="siem-section">
+              <div class="section-header">
+                <i class="fas fa-chart-pie"></i>
+                <h2>Security and Risk Posture Management</h2>
+                <p>
+                  Assess Active Directory (AD) and MS SQL servers for security
+                  risks, gaining granular visibility into weak configurations.
+                </p>
+              </div>
+              <div class="feature-grid">
+                <div class="feature-item">
+                  <i class="fas fa-shield-alt"></i>
+                  <div>
+                    <h4>Active Directory Security</h4>
+                    <p>
+                      Harden your AD risk posture, calculate your AD security
+                      score, and ensure compliance with industry regulations.
+                    </p>
+                  </div>
+                </div>
+                <div class="feature-item">
+                  <i class="fas fa-database"></i>
+                  <div>
+                    <h4>MS SQL Server Security</h4>
+                    <p>
+                      Meet CIS benchmark requirements, assess SQL server risk
+                      percentages, and get actionable insights for remediation.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div id="cta"></div>
+    </main>
+
+    <div id="footer"></div>
+    <div id="scrollTop"></div>
+
+    <script src="/js/loadComponents.js"></script>
+    <script type="module" src="/js/main.js"></script>
+  </body>
+</html>
