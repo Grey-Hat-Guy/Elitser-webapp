@@ -22,7 +22,7 @@
 }
 
 .logo img {
-  height: 3.75rem;
+  height: 5.5rem;
   width: auto;
   object-fit: contain;
   transition: var(--transition-smooth);
@@ -409,6 +409,34 @@
   transform: translateX(3px);
 }
 
+/* ----------------- ZOHO button ------------------*/
+/* Zoho SalesIQ Widget Fix */
+#zsiqwidget {
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  z-index: 9999 !important;
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+/* Ensure the iframe inside loads properly */
+.zsiq_floatmain {
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  z-index: 9999 !important;
+}
+
+/* Force visibility on mobile */
+@media (max-width: 768px) {
+  #zsiqwidget {
+    bottom: 10px !important;
+    right: 10px !important;
+  }
+}
+
 /* ---------------------- SCROLL TO TOP ---------------------- */
 .scroll-top {
   position: fixed;
@@ -468,7 +496,7 @@
 
 .stat {
   background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
-  padding: 2rem;
+  padding: 2rem 1.5rem;
   border-radius: 1rem;
   text-align: center;
   transition: var(--transition-bounce);
@@ -504,10 +532,15 @@
 }
 
 .stat h2 {
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  display: inline-block;
+  white-space: nowrap;
+  font-size: clamp(2rem, 4vw, 3.3rem);
   color: var(--red);
   font-weight: 700;
   margin-bottom: 0.5rem;
+  line-height: 1.2;
+  padding-right: 0.2em;
+  overflow: visible;
   transition: var(--transition-smooth);
 }
 
@@ -662,6 +695,81 @@
   box-shadow: 0 5px 15px rgba(216, 4, 44, 0.3);
 }
 
+/* ========== CLIENTS SECTION ========== */
+.clients {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.clients-title {
+  font-size: 1rem;
+  letter-spacing: 0.15rem;
+  color: var(--grey);
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+.clients-title span {
+  color: var(--red);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.clients-slider {
+  overflow: hidden;
+  position: relative;
+}
+
+.clients-slider::before,
+.clients-slider::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.clients-slider::before {
+  left: 0;
+  background: linear-gradient(90deg, #f8f8f8 0%, transparent 100%);
+}
+
+.clients-slider::after {
+  right: 0;
+  background: linear-gradient(270deg, #f8f8f8 0%, transparent 100%);
+}
+
+.clients-track {
+  display: flex;
+  gap: 3rem;
+  width: max-content;
+  animation: scroll 60s linear infinite;
+}
+
+.clients-slider:hover .clients-track {
+  animation-play-state: paused;
+}
+
+.clients-track img {
+  height: 6rem;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.6;
+  transition: var(--transition-smooth);
+}
+
+.clients-track img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.1);
+}
+
 /* ========== FOOTER ========== */
 .footer {
   background: #0a0a0a;
@@ -701,7 +809,7 @@
 }
 
 .footer-logo img {
-  height: 65px;
+  height: 5.5rem;
   width: auto;
   display: block;
   transition: var(--transition-smooth);
@@ -781,4 +889,30 @@
   color: var(--grey);
   border-top: 1px solid #1a1a1a;
   padding-top: 20px;
+}
+
+.footer-col a {
+  color: var(--grey);
+  font-size: 15px;
+  margin: 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: var(--transition-smooth);
+  text-decoration: none;
+}
+
+.footer-col a:hover {
+  color: var(--white);
+  transform: translateX(5px);
+}
+
+.footer-col.contact a {
+  margin: 12px 0;
+}
+
+.footer-col i {
+  color: var(--red);
+  font-size: 14px;
+  width: 20px;
 }

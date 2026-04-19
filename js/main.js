@@ -19,10 +19,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initHeaderScroll();
   initMobileMenu();
+  initProductsMobileAccordion();
+  initDvaTabs();
+  initMobileAccordion();
+  initApmMobileAccordion();
 });
 
 window.addEventListener("componentsLoaded", () => {
   initMegaMenu();
+  initProductsMobileAccordion();
   initItamTabs();
   initScrollTop();
 
@@ -70,6 +75,11 @@ window.addEventListener("componentsLoaded", () => {
   initO365Tabs();
   initPamTabs();
   initSiemTabs();
+
+  const yearEl = document.getElementById("year");
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
 });
 
 function initMobileMenu() {
@@ -137,6 +147,52 @@ window.addEventListener("resize", () => {
   }
 });
 
+let productsAccordionInitialized = false;
+
+function initProductsMobileAccordion() {
+  if (productsAccordionInitialized) return;
+
+  const checkInterval = setInterval(() => {
+    const accordionContainer = document.querySelector(
+      ".mobile-products-accordion",
+    );
+
+    if (
+      accordionContainer &&
+      accordionContainer.querySelectorAll(".products-accordion-item").length > 0
+    ) {
+      clearInterval(checkInterval);
+      productsAccordionInitialized = true;
+
+      const accordionItems = accordionContainer.querySelectorAll(
+        ".products-accordion-item:not(.direct-link-item)",
+      );
+
+      accordionItems.forEach((item) => {
+        const header = item.querySelector(".products-accordion-header");
+        if (header && !header.hasAttribute("data-listener")) {
+          header.setAttribute("data-listener", "true");
+          header.addEventListener("click", (e) => {
+            e.stopPropagation();
+
+            accordionItems.forEach((otherItem) => {
+              if (
+                otherItem !== item &&
+                otherItem.classList.contains("active")
+              ) {
+                otherItem.classList.remove("active");
+              }
+            });
+            item.classList.toggle("active");
+          });
+        }
+      });
+    }
+  }, 200);
+
+  setTimeout(() => clearInterval(checkInterval), 10000);
+}
+
 function initApmTabs() {
   const tabButtons = document.querySelectorAll(".apm-tab-btn");
   const tabPanes = document.querySelectorAll(".apm-tab-pane");
@@ -156,6 +212,65 @@ function initApmTabs() {
       });
     });
   }
+}
+
+let apmAccordionInitialized = false;
+
+function initApmMobileAccordion() {
+  if (apmAccordionInitialized) return;
+
+  const checkInterval = setInterval(() => {
+    const accordionContainer = document.querySelector(
+      ".apm-accordion-container",
+    );
+
+    if (
+      accordionContainer &&
+      accordionContainer.querySelectorAll(".accordion-item").length > 0
+    ) {
+      clearInterval(checkInterval);
+      apmAccordionInitialized = true;
+
+      const accordionItems =
+        accordionContainer.querySelectorAll(".accordion-item");
+
+      accordionItems.forEach((item) => {
+        const header = item.querySelector(".accordion-header");
+        if (header) {
+          // Remove existing listeners to avoid duplicates
+          const newHeader = header.cloneNode(true);
+          header.parentNode.replaceChild(newHeader, header);
+
+          newHeader.addEventListener("click", (e) => {
+            e.stopPropagation();
+
+            // Close other items
+            accordionItems.forEach((otherItem) => {
+              if (
+                otherItem !== item &&
+                otherItem.classList.contains("active")
+              ) {
+                otherItem.classList.remove("active");
+              }
+            });
+
+            // Toggle current
+            item.classList.toggle("active");
+          });
+        }
+      });
+
+      // Open first accordion by default
+      if (
+        accordionItems.length > 0 &&
+        !accordionItems[0].classList.contains("active")
+      ) {
+        accordionItems[0].classList.add("active");
+      }
+    }
+  }, 200);
+
+  setTimeout(() => clearInterval(checkInterval), 10000);
 }
 
 function initFsoTabs() {
@@ -343,4 +458,80 @@ function initSiemTabs() {
 
   window.addEventListener("scroll", updateActiveTab);
   updateActiveTab();
+}
+
+// Data Visualization Tabs Functionality
+function initDvaTabs() {
+  const tabButtons = document.querySelectorAll(".dva-tab-btn");
+  const tabPanes = document.querySelectorAll(".dva-tab-pane");
+
+  if (tabButtons.length && tabPanes.length) {
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const tabId = button.getAttribute("data-tab");
+
+        tabButtons.forEach((btn) => btn.classList.remove("active"));
+        tabPanes.forEach((pane) => pane.classList.remove("active"));
+
+        button.classList.add("active");
+        const activePane = document.getElementById(tabId);
+        if (activePane) activePane.classList.add("active");
+      });
+    });
+  }
+}
+
+let dvaAccordionInitialized = false;
+
+function initMobileAccordion() {
+  if (dvaAccordionInitialized) return;
+
+  const checkInterval = setInterval(() => {
+    const accordionContainer = document.querySelector(
+      ".dva-accordion-container",
+    );
+
+    if (
+      accordionContainer &&
+      accordionContainer.querySelectorAll(".accordion-item").length > 0
+    ) {
+      clearInterval(checkInterval);
+      dvaAccordionInitialized = true;
+
+      const accordionItems =
+        accordionContainer.querySelectorAll(".accordion-item");
+
+      accordionItems.forEach((item) => {
+        const header = item.querySelector(".accordion-header");
+        if (header) {
+          const newHeader = header.cloneNode(true);
+          header.parentNode.replaceChild(newHeader, header);
+
+          newHeader.addEventListener("click", (e) => {
+            e.stopPropagation();
+
+            accordionItems.forEach((otherItem) => {
+              if (
+                otherItem !== item &&
+                otherItem.classList.contains("active")
+              ) {
+                otherItem.classList.remove("active");
+              }
+            });
+            item.classList.toggle("active");
+          });
+        }
+      });
+
+      // Open first accordion by default
+      if (
+        accordionItems.length > 0 &&
+        !accordionItems[0].classList.contains("active")
+      ) {
+        accordionItems[0].classList.add("active");
+      }
+    }
+  }, 200);
+
+  setTimeout(() => clearInterval(checkInterval), 10000);
 }
