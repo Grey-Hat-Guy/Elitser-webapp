@@ -420,6 +420,26 @@
   }
 }
 
+@media (max-width: 992px) {
+  .tab-pane a {
+    padding: 0.6rem;
+  }
+
+  .tab-link-title {
+    font-size: 0.85rem;
+  }
+
+  .tab-link-desc {
+    font-size: 0.7rem;
+  }
+
+  .tab-pane a i {
+    width: 1.6rem;
+    height: 1.6rem;
+    font-size: 0.75rem;
+  }
+}
+
 /* Mobile Products Accordion */
 .mobile-products-accordion {
   display: none;
@@ -8890,5 +8910,127 @@
 
   .office-card {
     padding: 1.2rem;
+  }
+}
+
+/* ---------------------- SSL Certificate -------------*/
+@media (max-width: 1024px) {
+  .ssl-flip-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ssl-hover-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .ssl-hero {
+    padding: 3rem 1.5rem;
+  }
+
+  .ssl-flip-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ssl-hover-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .flip-card {
+    height: 200px;
+  }
+
+  .hover-card {
+    height: 180px;
+  }
+}
+
+/* Key Manager Plus Page Responsive */
+@media (max-width: 1024px) {
+  .kmp-capabilities-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .kmp-identity-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .kmp-why-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .kmp-hero {
+    padding: 3rem 1.5rem;
+  }
+
+  .kmp-intro-wrapper h2 {
+    font-size: 1.5rem;
+  }
+
+  .kmp-identity-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .capability-item {
+    padding: 1.2rem;
+  }
+
+  .why-card {
+    padding: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .kmp-hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .kmp-intro-wrapper h2 {
+    font-size: 1.3rem;
+  }
+
+  .kmp-section-header h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* ---------------- DEX Page Responsive -------------------*/
+@media (max-width: 1024px) {
+  .dex-challenge-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dex-solution-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-subgrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .dex-hero {
+    padding: 3rem 1.5rem;
+  }
+
+  .dex-challenge-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-subgrid {
+    grid-template-columns: 1fr;
+  }
+
+  .step-card {
+    padding: 1.5rem;
+  }
+
+  .feature-block-header {
+    flex-direction: column;
+    text-align: center;
   }
 }

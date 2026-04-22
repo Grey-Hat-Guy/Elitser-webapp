@@ -2980,3 +2980,198 @@
     transform: translateX(0);
   }
 }
+
+/* ---------------- SSL Page Animations -------------------*/
+.ssl-hero h1 {
+  animation: fadeInUp 0.6s ease;
+}
+
+.ssl-tag {
+  animation: fadeInDown 0.6s ease;
+}
+
+.ssl-sub {
+  animation: fadeInUp 0.6s ease 0.2s both;
+}
+
+.flip-card {
+  opacity: 0;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.flip-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.flip-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.flip-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.flip-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.hover-card {
+  opacity: 0;
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.hover-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.hover-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.hover-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.hover-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.hover-card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+/* ------------------- Key Manager Plus Page Animations -----------------*/
+.kmp-hero h1 {
+  animation: fadeInUp 0.6s ease;
+}
+
+.kmp-tag {
+  animation: fadeInDown 0.6s ease;
+}
+
+.kmp-sub {
+  animation: fadeInUp 0.6s ease 0.2s both;
+}
+
+.capability-item {
+  opacity: 0;
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.capability-item:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.capability-item:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.capability-item:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.capability-item:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.capability-item:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.capability-item:nth-child(6) {
+  animation-delay: 0.3s;
+}
+
+.identity-card {
+  opacity: 0;
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.identity-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.identity-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.identity-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.why-card {
+  opacity: 0;
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.why-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.why-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.why-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.why-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+/* -------------- DEX Page Animations -------------------*/
+.dex-hero h1 {
+  animation: fadeInUp 0.6s ease;
+}
+
+.dex-tag {
+  animation: fadeInDown 0.6s ease;
+}
+
+.dex-sub {
+  animation: fadeInUp 0.6s ease 0.2s both;
+}
+
+.challenge-item {
+  opacity: 0;
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.challenge-item:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.challenge-item:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.challenge-item:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.challenge-item:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.challenge-item:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.challenge-item:nth-child(6) {
+  animation-delay: 0.3s;
+}
+
+.step-card {
+  opacity: 0;
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.step-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.step-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.step-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.feature-block {
+  opacity: 0;
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.feature-block:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.feature-block:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.feature-block:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.feature-block:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.feature-block:nth-child(5) {
+  animation-delay: 0.5s;
+}

@@ -22,7 +22,7 @@
 }
 
 .logo img {
-  height: 5.5rem;
+  height: 6.5rem;
   width: auto;
   object-fit: contain;
   transition: var(--transition-smooth);
@@ -106,29 +106,31 @@
 .mega-menu {
   position: absolute;
   top: 100%;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(1rem);
+  width: 90%;
+  max-width: 1200px;
   background: var(--white);
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.08);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(1rem);
   transition: var(--transition-smooth);
   z-index: 999;
+  border-radius: 1rem;
 }
 
 .mega-parent:hover .mega-menu,
 .mega-parent.active .mega-menu {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0);
+  transform: translateX(-50%) translateY(0);
 }
 
 .mega-container {
-  max-width: 80rem;
-  margin: auto;
+  max-width: 100%;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: 20rem 1fr;
+  grid-template-columns: 18rem 1fr 20rem;
   padding: 2rem 1.5rem;
   gap: 2rem;
 }
@@ -144,6 +146,7 @@
 .tab-btn {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   gap: 0.6rem;
   padding: 0.7rem 0.8rem;
   border-radius: 0.4rem;
@@ -156,6 +159,24 @@
   transition: var(--transition-smooth);
   position: relative;
   overflow: hidden;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.tab-btn::after {
+  content: "\f054";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 0.7rem;
+  color: var(--grey);
+  transition: var(--transition-smooth);
+  opacity: 0.6;
+}
+
+.tab-btn:hover::after,
+.tab-btn.active::after {
+  transform: translateX(5px);
+  color: var(--red);
+  opacity: 1;
 }
 
 .tab-btn::before {
@@ -211,13 +232,20 @@
 .tab-pane h4 {
   font-size: 1.1rem;
   font-weight: 600;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
   color: var(--black);
   grid-column: span 2;
 }
 
+.tab-pane .tab-desc {
+  font-size: 0.85rem;
+  color: var(--grey);
+  margin-bottom: 1rem;
+  grid-column: span 2;
+}
+
 .tab-pane a {
-  display: flex;
+  /* display: flex;
   align-items: center;
   gap: 0.75rem;
   padding: 0.6rem 0.8rem;
@@ -227,11 +255,19 @@
   color: var(--grey);
   font-size: 0.95rem;
   font-weight: 500;
+  transition: var(--transition-smooth); */
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  background: transparent;
+  text-decoration: none;
   transition: var(--transition-smooth);
 }
 
 .tab-pane a i {
-  width: 1.5rem;
+  /* width: 1.5rem;
   height: 1.5rem;
   display: flex;
   align-items: center;
@@ -240,19 +276,164 @@
   border-radius: 0.4rem;
   color: var(--red);
   font-size: 0.8rem;
-  transition: var(--transition-smooth);
+  transition: var(--transition-smooth); */
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(216, 4, 44, 0.08);
+  border-radius: 0.4rem;
+  color: var(--red);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.tab-link-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.tab-link-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 0.2rem;
+}
+
+.tab-link-desc {
+  font-size: 0.75rem;
+  color: var(--grey);
+  line-height: 1.4;
 }
 
 .tab-pane a:hover {
   background: rgba(216, 4, 44, 0.05);
-  color: var(--black);
+  /* color: var(--black); */
   transform: translateX(8px);
 }
 
+.tab-pane a:hover .tab-link-title {
+  color: var(--red);
+}
+
 .tab-pane a:hover i {
-  transform: rotate(360deg) scale(1.1);
+  /* transform: rotate(360deg) scale(1.1);
+  background: var(--red);
+  color: var(--white); */
   background: var(--red);
   color: var(--white);
+  transform: rotate(360deg) scale(1.05);
+}
+
+.mega-image {
+  background: linear-gradient(135deg, #f8f9fb 0%, #ffffff 100%);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.tab-image {
+  display: none;
+}
+
+.tab-image.active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+.tab-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.tab-image h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--black);
+}
+
+.tab-image p {
+  font-size: 0.85rem;
+  color: var(--grey);
+  line-height: 1.5;
+}
+
+/* Mobile Accordion Description */
+.products-accordion-body .accordion-desc {
+  font-size: 0.75rem;
+  color: var(--grey);
+  padding: 0.5rem 0.8rem;
+  margin-bottom: 0.5rem;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 0.4rem;
+}
+
+/* Accordion Link with Content */
+.products-accordion-body a {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  padding: 0.6rem 0.8rem;
+  text-decoration: none;
+  color: var(--grey);
+  font-size: 0.85rem;
+  border-radius: 0.4rem;
+  transition: all 0.3s ease;
+}
+
+.products-accordion-body a i {
+  width: 1.8rem;
+  height: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(216, 4, 44, 0.08);
+  border-radius: 0.4rem;
+  color: var(--red);
+  font-size: 0.8rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.accordion-link-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.accordion-link-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 0.2rem;
+}
+
+.accordion-link-desc {
+  font-size: 0.7rem;
+  color: var(--grey);
+  line-height: 1.4;
+}
+
+.products-accordion-body a:hover {
+  background: rgba(216, 4, 44, 0.05);
+  transform: translateX(5px);
+}
+
+.products-accordion-body a:hover .accordion-link-title {
+  color: var(--red);
+}
+
+.products-accordion-body a:hover i {
+  background: var(--red);
+  color: var(--white);
+  transform: rotate(360deg) scale(1.05);
 }
 
 .tab-btn.direct-link {
@@ -263,7 +444,7 @@
   padding: 0.7rem 0.8rem;
   border-radius: 0.4rem;
   background: transparent;
-  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   cursor: pointer;
   font-size: 0.95rem;
   font-weight: 500;
