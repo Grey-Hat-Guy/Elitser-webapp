@@ -305,26 +305,7 @@ From physical asset tagging to real-time inventory management, we help IT and OT
             <p>With accurate asset tagging, centralized management, and unified visibility, we help organizations transform asset management from an operational necessity into a strategic business capability.</p>
         </div>
     </section>
- <div id="cta"></div></main>
-    <script>
-        const counters = document.querySelectorAll('.counter');
-        counters.forEach(counter => {
-            const updateCount = () => {
-                const target = +counter.getAttribute('data-target');
-                const count = +counter.innerText;
-                const speed = 200; 
-                const inc = target / speed;
-
-                if (count < target) {
-                    counter.innerText = Math.ceil(count + inc);
-                    setTimeout(updateCount, 10);
-                } else {
-                    counter.innerText = target;
-                }
-            };
-            updateCount();
-        });
-    </script>
+ <div id="cta"></div></main>    
 	<div id="footer"></div>
     <div id="scrollTop"></div>
 
