@@ -1,12 +1,10 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IT & OT Asset Management Services</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-	 <link
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Managed Services</title>
+    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
@@ -15,142 +13,12 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/style.css" />
-    <style>
-        :root {
-            --primary-red: #d8042c;
-            --bg-light: #f9fafb;
-            --text-main: #000000;
-            --text-sub: #777777;
-            --white: #ffffff;
-        }
+  </head>
+  <body>
+    <div id="header"></div>
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }       
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        section {
-            padding: 60px 0;
-        }
-      
-
-        p {
-            margin-bottom: 1.5rem;
-            color: var(--text-main);
-        }
-
-        ul {
-            list-style: none;
-            margin-bottom: 1.5rem;
-        }
-
-        ul li {
-            position: relative;
-            padding-left: 25px;
-            margin-bottom: 0.5rem;
-        }
-
-        ul li::before {
-            content: "\f00c";
-            font-family: "Font Awesome 5 Free";
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            color: var(--primary-red);
-        }
-
-        
-
-        /* Stats Section */
-        .itam-stats {
-            background: var(--white);
-            text-align: center;
-        }
-
-        .itam-stats-header p {
-            color: var(--text-sub);
-        }
-
-        .itam-stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .itam-stat-card {
-            padding: 30px;
-            background: var(--bg-light);
-            border-radius: 8px;
-            transition: transform 0.3s ease;
-        }
-
-        .itam-stat-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .itam-stat-icon {
-            font-size: 2.5rem;
-            color: var(--primary-red);
-            margin-bottom: 15px;
-        }
-
-        .itam-stat-card h3 {
-            font-size: 2.5rem;
-            margin-bottom: 5px;
-        }
-
-        .itam-stat-card p {
-            margin-bottom: 0;
-            font-weight: 600;
-            color: var(--text-sub);
-        }
-
-        /* Grid Layout for Content */
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 40px;
-        }
-
-        .feature-box {
-            background: var(--bg-light);
-            padding: 30px;
-            border-left: 5px solid var(--primary-red);
-            height: 100%;
-        }
-
-        .full-width-callout {
-            background-color: var(--primary-red);
-            color: var(--white);
-            text-align: center;
-            padding: 40px 20px;
-        }
-
-        .full-width-callout h2, .full-width-callout p {
-            color: var(--white);
-        }
-
-        /* Responsive Adjustments */
-        @media (max-width: 768px) {
-            .content-grid {
-                grid-template-columns: 1fr;
-            }
-            
-           
-        }
-    </style>
-</head>
-<body>
-<div id="header"></div>
-    <main><section class="itam-hero">
+    <main>
+      <section class="itam-hero">
         <div class="container itam-hero-grid">
           <div class="itam-hero-content">
             <h1>
@@ -171,146 +39,294 @@ From physical asset tagging to real-time inventory management, we help IT and OT
         </div>
       </section>
 
-    <section class="itam-stats">
+      <section class="itam-stats">
         <div class="container">
-            <div class="itam-stats-header">
-                <h2>Measured Impact</h2>
-                <p>Real results delivered through structured IT asset management</p>
+          <div class="itam-stats-header">
+            <h2>Measured Impact</h2>
+            <p>Real results delivered through structured IT asset management</p>
+          </div>
+
+          <div class="itam-stats-grid">
+            <div class="itam-stat-card">
+              <div class="itam-stat-icon">
+                <i class="fas fa-eye"></i>
+              </div>
+              <h3>
+                <span class="counter" data-target="99.8" data-suffix="%">0</span>
+              </h3>
+              <p>Improved Asset Visibility</p>
             </div>
 
-            <div class="itam-stats-grid">
-                <div class="itam-stat-card">
-                    <div class="itam-stat-icon"><i class="fas fa-eye"></i></div>
-                    <h3><span class="counter" data-target="99.8">0</span>%</h3>
-                    <p>Improved Asset Visibility</p>
-                </div>
-
-                <div class="itam-stat-card">
-                    <div class="itam-stat-icon"><i class="fas fa-shield-alt"></i></div>
-                    <h3><span class="counter" data-target="500">0</span>K</h3>
-                    <p>Assets Managed</p>
-                </div>
-
-                <div class="itam-stat-card">
-                    <div class="itam-stat-icon"><i class="fas fa-coins"></i></div>
-                    <h3><span class="counter" data-target="40">0</span>%</h3>
-                    <p>Cost Reduction</p>
-                </div>
+            <div class="itam-stat-card">
+              <div class="itam-stat-icon">
+                <i class="fas fa-shield"></i>
+              </div>
+              <h3>
+                <span class="counter" data-target="500" data-suffix="K+">0</span>
+              </h3>             
+              <p>Assets Managed</p>
             </div>
-        </div>
-    </section>
 
-    <section>
-        <div class="container">
-            <h2>Our Asset Management Approach</h2>
-            <p class="subheading">A structured and scalable framework for the entire asset lifecycle.</p>
-            <div class="content-grid">
-                <div>
-                    <ul>
-                        <li>Asset identification and tagging</li>
-                        <li>Centralized asset inventory</li>
-                        <li>Lifecycle tracking and status monitoring</li>
-                        <li>Compliance and audit readiness</li>
-                        <li>Risk and performance optimization</li>
-                    </ul>
-                </div>
+            <div class="itam-stat-card">
+              <div class="itam-stat-icon">
+                <i class="fas fa-coins"></i>
+              </div>
+              <h3>
+                <span class="counter" data-target="40" data-suffix="%">0</span>
+              </h3>
+              <p>Cost Reduction</p>
             </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <section style="background-color: var(--bg-light);">
+      <section class="itam-features">
         <div class="container">
-            <div class="content-grid">
-                <div class="feature-box" style="background: white;">
-                    <h3>Asset Tagging Services</h3>
-                    <p>We provide professional asset tagging services to uniquely identify and track every IT and OT asset.</p>
-                    <p><strong>Capabilities:</strong></p>
-                    <ul>
-                        <li>Barcode, QR code, and RFID tagging</li>
-                        <li>Durable tags for harsh environments</li>
-                        <li>Labeling based on organizational standards</li>
-                        <li>Physical verification and reconciliation</li>
-                    </ul>
-                </div>
+          <!-- TOP CONTENT -->
+          <div class="itam-features-top">
+            <h2>Your Trusted IT Asset<br />Management Partner</h2>
 
-                <div class="feature-box" style="background: white;">
-                    <h3>IT Asset Management (ITAM)</h3>
-                    <p>Complete visibility into your IT environment to reduce costs and maintain compliance.</p>
-                    <p><strong>Assets Covered:</strong></p>
-                    <ul>
-                        <li>Servers, desktops, laptops</li>
-                        <li>Network and storage devices</li>
-                        <li>Software licenses and subscriptions</li>
-                        <li>Cloud and virtual assets</li>
-                    </ul>
-                </div>
+            <p>
+              Elitser enables enterprises to optimize IT operations by
+              implementing efficient IT Asset Management (ITAM) and tagging
+              solutions. Our proven approach ensures complete lifecycle
+              tracking, compliance, and cost-effective asset utilization.
+            </p>
+          </div>
+
+          <!-- CARDS -->
+          <div class="itam-features-grid">
+            <div class="itam-feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-briefcase"></i>
+              </div>
+              <h3>Lifecycle Efficiency</h3>
+              <p>
+                Design and implement IMAC (Install, Move, Add, Change) best
+                practices to ensure every asset is tracked, utilized, and
+                maintained efficiently.
+              </p>
             </div>
-        </div>
-    </section>
 
-    <section>
-        <div class="container">
-            <div class="content-grid">
-                <div>
-                    <h3>OT Asset Management (OTAM)</h3>
-                    <p class="subheading">Secure and Manage Critical Operational Assets</p>
-                    <p>Specialized handling for critical PLCs, SCADA, DCS, RTUs, and Industrial Control Systems (ICS) using non-disruptive discovery.</p>
-                    <p><strong>Key Benefits:</strong></p>
-                    <ul>
-                        <li>Safe, non-intrusive asset discovery</li>
-                        <li>Improved reliability and uptime</li>
-                        <li>Enhanced cybersecurity readiness</li>
-                        <li>Industrial compliance support</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>Integrated IT–OT Visibility</h3>
-                    <p class="subheading">One Source of Truth</p>
-                    <p>We unify IT and OT asset data into a single, centralized view enabling collaboration between IT, security, and management.</p>
-                    <ul>
-                        <li>Faster incident response</li>
-                        <li>Informed risk decisions</li>
-                        <li>Optimized asset utilization</li>
-                        <li>Stronger cybersecurity posture</li>
-                    </ul>
-                </div>
+            <div class="itam-feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-chart-bar"></i>
+              </div>
+              <h3>Seamless Integration</h3>
+              <p>
+                Integrate asset management with your existing ITSM and CMDB
+                systems to enable real-time visibility and control of your IT
+                infrastructure.
+              </p>
             </div>
-        </div>
-    </section>
 
-    <section style="background-color: var(--bg-light);">
-        <div class="container">
-            <div class="content-grid">
-                <div>
-                    <h3>Compliance & Audit Readiness</h3>
-                    <p>Our services support compliance with standards including <strong>ISO 27001, IEC 62443, and NIST</strong>. Comprehensive records simplify audits and ensure continuous compliance.</p>
-                </div>
-                <div>
-                    <h3>Why Choose Us</h3>
-                    <ul>
-                        <li>Proven expertise in IT and OT</li>
-                        <li>Reliable and scalable processes</li>
-                        <li>Vendor-neutral approach</li>
-                        <li>Minimal operational disruption</li>
-                        <li>Customized reporting dashboards</li>
-                    </ul>
-                </div>
+            <div class="itam-feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-face-smile"></i>
+              </div>
+              <h3>Governance & Compliance</h3>
+              <p>
+                Gain control of hardware and software inventories while ensuring
+                compliance with licensing, contracts, warranties, and regulatory
+                policies.
+              </p>
             </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <section class="full-width-callout">
+      <section class="itam-solutions">
         <div class="container">
-            <h2>Turn Asset Management Into a Strategic Advantage</h2>
-            <p>With accurate asset tagging, centralized management, and unified visibility, we help organizations transform asset management from an operational necessity into a strategic business capability.</p>
+          <!-- HEADER -->
+          <div class="itam-solutions-header">
+            <h2>ITAM Solutions For Every Business</h2>
+            <p>
+              We provide scalable solutions tailored to diverse IT environments
+              — from SMEs to large enterprises.
+            </p>
+          </div>
+
+          <!-- TABS -->
+          <div class="itam-tabs">
+            <button class="itam-tab active" data-tab="tab1">
+              Our Asset Management Approach
+            </button>
+            <button class="itam-tab" data-tab="tab2">
+              Asset Tagging Services
+            </button>
+            <button class="itam-tab" data-tab="tab3">
+              IT Asset Management (ITAM)
+            </button>
+            <button class="itam-tab" data-tab="tab4">
+              OT Asset Management (OTAM)
+            </button>
+          </div>
+
+          <!-- CONTENT -->
+          <div class="itam-content-wrapper">
+            <!-- TAB 1 -->
+            <div class="itam-pane active" id="tab1">
+              <div class="itam-content">                
+                <div class="itam-text">
+                  <h3>Our Asset Management Approach</h3>
+                  <p>
+                    We deliver a structured and scalable asset management framework that covers the entire asset lifecycle, from onboarding to retirement.
+<ul><li>Asset identification and tagging</li>
+<li>Centralized asset inventory</li>
+<li>Lifecycle tracking and status monitoring</li>
+<li>Compliance and audit readiness</li>
+<li>Risk and performance optimization</li></ul>
+                  </p>                  
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB 2 -->
+            <div class="itam-pane" id="tab2">
+              <div class="itam-content">                
+                <div class="itam-text">
+                  <h3>Asset Tagging Services</h3>
+                  <p>
+                   Asset tagging is the foundation of effective asset management. We provide professional asset tagging services to uniquely identify and track every IT and OT asset.</p>
+
+                  <span>><b>Our Asset Tagging Capabilities Include:</b></span>
+<ul><li>	Barcode, QR code, and RFID tagging</li>
+<li>Durable tags suitable for industrial and harsh environments</li>
+<li>Asset labeling based on organizational standards</li>
+<li>Integration with asset management systems</li>
+<li>Physical verification and reconciliation</li></ul>
+                  
+<span><b>Benefits of Asset Tagging:</b></span>
+<ul><li>Eliminates asset loss and misidentification</li>
+<li>Enables faster audits and inventory checks</li>
+<li>Improves accountability and ownership</li>
+<li>Enhances lifecycle and warranty tracking</li></ul> 
+               </div>
+              </div>
+            </div>
+
+            <!-- TAB 3 -->
+            <div class="itam-pane" id="tab3">
+              <div class="itam-content">                
+                <div class="itam-text">
+                  <h3>IT Asset Management (ITAM)</h3>
+                  <p>
+                    Our IT Asset Management services ensure complete visibility into your IT environment, helping reduce costs and maintain compliance.                  
+                  </p>
+                  <span><b>Assets Covered:</b></span>
+                  <ul><li>Servers, desktops, laptops</li>
+<li>Network and storage devices</li>
+<li>Software licenses and subscriptions</li>
+<li>Cloud and virtual assets</li></ul>
+                  <span><b>Key Benefits</b></span>
+<ul><li>Accurate IT asset inventory</li>
+<li>Software compliance and audit readiness</li>
+<li>Reduced operational and licensing costs</li>
+<li>Improved IT governance and reporting</li></ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB 4 -->
+            <div class="itam-pane" id="tab4">
+              <div class="itam-content">                
+                <div class="itam-text">
+                  <h3>OT Asset Management (OTAM)</h3>
+                  <p>
+                    <b>Secure and Manage Critical Operational Assets</b>
+Operational Technology assets require specialized handling due to their critical nature. We provide non-disruptive asset discovery and management for OT environments.
+                  </p>
+                  <span><b>Assets Covered:</b></span>
+                  <ul><li>PLCs, SCADA, DCS, RTUs</li>
+<li>Industrial control systems (ICS)</li>
+<li>Field devices, sensors, and controllers</li></ul>
+                  <span><b>Key Benefits</b></span>
+<ul><li>Safe, non-intrusive asset discovery</li>
+<li>Improved reliability and uptime</li>
+<li>Enhanced cybersecurity readiness</li>
+<li>Support for industrial compliance standards</li></ul>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </section>
- <div id="cta"></div></main>    
-	<div id="footer"></div>
+      </section>
+
+      <section class="itam-capabilities">
+        <div class="container">
+          <div class="itam-capabilities-header">
+            <h2>Optimize IT Operations & Empower Your Teams</h2>
+            <p>
+              Our goal is to help you get the most out of your IT investments
+              while minimizing risk and enhancing service delivery.
+            </p>
+          </div>
+
+          <div class="itam-capabilities-grid">
+            <div class="itam-capability">
+              <i class="fas fa-lightbulb"></i>
+              <h3>Consulting Services</h3>
+              <p>
+                We design and implement tailored ITAM frameworks based on ITIL
+                and industry best practices.
+              </p>
+            </div>
+
+            <div class="itam-capability">
+              <i class="fas fa-building"></i>
+              <h3>Center of Excellence</h3>
+              <p>
+                Establish ITAM Centers of Excellence to drive governance and
+                long-term process improvements.
+              </p>
+            </div>
+
+            <div class="itam-capability">
+              <i class="fas fa-database"></i>
+              <h3>Asset Data Management</h3>
+              <p>
+                Ensure accurate, structured, and actionable asset data through
+                tagging and reconciliation.
+              </p>
+            </div>
+
+            <div class="itam-capability">
+              <i class="fas fa-file-alt"></i>
+              <h3>Policy & Process Development</h3>
+              <p>
+                Continuous improvement of policies and processes for compliance
+                and operational efficiency.
+              </p>
+            </div>
+
+            <div class="itam-capability">
+              <i class="fas fa-headset"></i>
+              <h3>Support Services</h3>
+              <p>
+                End-to-end support for discovery, tracking, and governance of IT
+                assets.
+              </p>
+            </div>
+
+            <div class="itam-capability">
+              <i class="fas fa-chart-line"></i>
+              <h3>Reporting & Analytics</h3>
+              <p>
+                Gain insights into asset performance, lifecycle, and compliance
+                through advanced reporting.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div id="cta"></div>
+    </main>
+
+    <div id="footer"></div>
     <div id="scrollTop"></div>
 
     <script type="module" src="/js/loadComponents.js"></script>
     <script type="module" src="/js/main.js"></script>
-
-</body>
+  </body>
 </html>
