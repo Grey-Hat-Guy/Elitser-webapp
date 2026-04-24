@@ -17,12 +17,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const timelineItems = document.querySelectorAll(".timeline-item");
   timelineItems.forEach((item) => observer.observe(item));
 
+  initHeroParticles();
+  initAboutAnimation();
   initHeaderScroll();
   initMobileMenu();
   initProductsMobileAccordion();
   initDvaTabs();
   initMobileAccordion();
   initApmMobileAccordion();
+  initClientsPage();
 });
 
 window.addEventListener("componentsLoaded", () => {
@@ -534,4 +537,230 @@ function initMobileAccordion() {
   }, 200);
 
   setTimeout(() => clearInterval(checkInterval), 10000);
+}
+
+// Hero Particles Animation
+function initHeroParticles() {
+  const particlesContainer = document.getElementById("hero-particles");
+  if (!particlesContainer) return;
+
+  const particleCount = 60;
+
+  function createParticle() {
+    const particle = document.createElement("div");
+    particle.className = "particle";
+
+    const size = Math.random() * 3 + 1;
+    particle.style.width = `${size}px`;
+    particle.style.height = `${size}px`;
+
+    resetParticle(particle);
+    particlesContainer.appendChild(particle);
+    animateParticle(particle);
+  }
+
+  function resetParticle(particle) {
+    const posX = Math.random() * 100;
+    const posY = Math.random() * 100;
+
+    particle.style.left = `${posX}%`;
+    particle.style.top = `${posY}%`;
+    particle.style.opacity = "0";
+
+    return { x: posX, y: posY };
+  }
+
+  function animateParticle(particle) {
+    const pos = resetParticle(particle);
+    const duration = Math.random() * 10 + 10;
+    const delay = Math.random() * 5;
+
+    setTimeout(() => {
+      particle.style.transition = `all ${duration}s linear`;
+      particle.style.opacity = Math.random() * 0.3 + 0.1;
+
+      const moveX = pos.x + (Math.random() * 20 - 10);
+      const moveY = pos.y - Math.random() * 30;
+
+      particle.style.left = `${moveX}%`;
+      particle.style.top = `${moveY}%`;
+
+      setTimeout(() => {
+        animateParticle(particle);
+      }, duration * 1000);
+    }, delay * 1000);
+  }
+
+  for (let i = 0; i < particleCount; i++) {
+    createParticle();
+  }
+
+  // Mouse interaction
+  document.addEventListener("mousemove", (e) => {
+    const mouseX = (e.clientX / window.innerWidth) * 100;
+    const mouseY = (e.clientY / window.innerHeight) * 100;
+
+    const particle = document.createElement("div");
+    particle.className = "particle";
+
+    const size = Math.random() * 4 + 2;
+    particle.style.width = `${size}px`;
+    particle.style.height = `${size}px`;
+    particle.style.left = `${mouseX}%`;
+    particle.style.top = `${mouseY}%`;
+    particle.style.opacity = "0.5";
+    particle.style.background = "#D8042C";
+
+    particlesContainer.appendChild(particle);
+
+    setTimeout(() => {
+      particle.style.transition = "all 2s ease-out";
+      particle.style.left = `${mouseX + (Math.random() * 10 - 5)}%`;
+      particle.style.top = `${mouseY + (Math.random() * 10 - 5)}%`;
+      particle.style.opacity = "0";
+
+      setTimeout(() => {
+        particle.remove();
+      }, 2000);
+    }, 10);
+
+    const spheres = document.querySelectorAll(".gradient-sphere");
+    const moveX = (e.clientX / window.innerWidth - 0.5) * 5;
+    const moveY = (e.clientY / window.innerHeight - 0.5) * 5;
+
+    spheres.forEach((sphere) => {
+      sphere.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    });
+  });
+}
+
+// About Page Visible Animation
+function initAboutAnimation() {
+  const container = document.querySelector(".about-bg-animation");
+  if (!container) return;
+
+  for (let i = 1; i <= 4; i++) {
+    const line = document.createElement("div");
+    line.className = `moving-line line-${i}`;
+    container.appendChild(line);
+  }
+
+  function createParticle() {
+    const particle = document.createElement("div");
+    particle.className = "floating-particle";
+
+    const size = Math.random() * 6 + 3;
+    particle.style.width = `${size}px`;
+    particle.style.height = `${size}px`;
+    particle.style.left = `${Math.random() * 100}%`;
+    particle.style.top = `${Math.random() * 100}%`;
+
+    const isRight = Math.random() > 0.6;
+    const duration = Math.random() * 8 + 6;
+
+    particle.style.animation = `${isRight ? "particleFloatRight" : "particleFloat"} ${duration}s ease-in-out infinite`;
+    particle.style.animationDelay = `${Math.random() * 5}s`;
+
+    container.appendChild(particle);
+
+    setTimeout(() => particle.remove(), (duration + 5) * 1000);
+  }
+
+  for (let i = 0; i < 25; i++) {
+    setTimeout(() => createParticle(), i * 200);
+  }
+
+  setInterval(() => {
+    if (container.querySelectorAll(".floating-particle").length < 30) {
+      createParticle();
+    }
+  }, 1500);
+}
+
+// Clients Page Functionality
+function initClientsPage() {
+  const clientsGrid = document.getElementById("clientsGrid");
+  let loadMoreBtn = document.getElementById("loadMoreBtn");
+
+  if (!clientsGrid) return;
+
+  const imagePaths = [];
+  const totalImages = 243;
+
+  for (let i = 1; i <= totalImages; i++) {
+    imagePaths.push(`/assets/clients/${i}.jpg`);
+  }
+
+  let itemsToShow = 24;
+  let allCards = [];
+
+  function createClientCard(imagePath, index) {
+    const card = document.createElement("div");
+    card.className = "client-card";
+    if (index >= itemsToShow) card.classList.add("hidden");
+
+    const img = document.createElement("img");
+    img.src = imagePath;
+    img.alt = `Client ${index + 1}`;
+    img.loading = "lazy";
+
+    img.onerror = function () {
+      this.style.display = "none";
+      const placeholder = document.createElement("div");
+      placeholder.style.cssText =
+        "height: 80px; display: flex; align-items: center; justify-content: center; background: #f8f9fb; border-radius: 0.5rem;";
+      placeholder.innerHTML =
+        '<i class="fas fa-building" style="font-size: 2rem; color: #ddd;"></i>';
+      card.appendChild(placeholder);
+    };
+
+    card.appendChild(img);
+    return card;
+  }
+
+  function renderCards() {
+    clientsGrid.innerHTML = "";
+    allCards = [];
+
+    for (let i = 0; i < imagePaths.length; i++) {
+      const card = createClientCard(imagePaths[i], i);
+      clientsGrid.appendChild(card);
+      allCards.push(card);
+    }
+  }
+
+  function updateLoadMoreButton() {
+    if (!loadMoreBtn) return;
+
+    if (itemsToShow >= allCards.length) {
+      loadMoreBtn.style.display = "none";
+    } else {
+      loadMoreBtn.style.display = "inline-flex";
+    }
+  }
+
+  function loadMore() {
+    if (itemsToShow >= allCards.length) {
+      if (loadMoreBtn) loadMoreBtn.style.display = "none";
+      return;
+    }
+
+    itemsToShow += Math.min(24, allCards.length - itemsToShow);
+
+    // Show newly visible cards
+    for (let i = 0; i < itemsToShow; i++) {
+      if (allCards[i]) allCards[i].classList.remove("hidden");
+    }
+
+    updateLoadMoreButton();
+  }
+
+  // Initialize
+  renderCards();
+  updateLoadMoreButton();
+
+  // Event listener
+  if (loadMoreBtn) {
+    loadMoreBtn.addEventListener("click", loadMore);
+  }
 }
