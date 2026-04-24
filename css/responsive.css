@@ -9034,3 +9034,61 @@
     text-align: center;
   }
 }
+
+/* Client Page */
+@media (max-width: 1200px) {
+  .clients-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .clients-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .clients-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .clients-hero {
+    padding: 3rem 1.5rem;
+  }
+
+  .clients-grid-section {
+    padding: 3rem 1rem;
+  }
+
+  .clients-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+  }
+
+  .client-card img {
+    height: 60px;
+  }
+
+  .stat-card {
+    padding: 1rem;
+  }
+
+  .stat-number {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .clients-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .clients-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .client-card img {
+    height: 50px;
+  }
+}
