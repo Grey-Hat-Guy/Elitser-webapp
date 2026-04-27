@@ -1361,7 +1361,7 @@
 .global-presence {
   display: flex;
   justify-content: center;
-  gap: 3rem;
+  gap: 7rem;
   max-width: 800px;
   margin: 3rem auto 0;
   padding-top: 2rem;
