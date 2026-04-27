@@ -297,6 +297,50 @@
 
 /* Horizontal Timeline Animations */
 
+.timeline-track {
+  animation: autoScroll 30s linear infinite;
+}
+
+@keyframes autoScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 1rem));
+  }
+}
+
+/* Pause on hover */
+.timeline-scroll-container:hover .timeline-track {
+  animation-play-state: paused;
+}
+
+/* Fade edges for better UX */
+.timeline-scroll-container {
+  position: relative;
+}
+
+.timeline-scroll-container::before,
+.timeline-scroll-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.timeline-scroll-container::before {
+  left: 0;
+  background: linear-gradient(90deg, #f7f8fa 0%, transparent 100%);
+}
+
+.timeline-scroll-container::after {
+  right: 0;
+  background: linear-gradient(270deg, #ffffff 0%, transparent 100%);
+}
+
 .timeline-card {
   opacity: 0;
   transform: translateX(30px);

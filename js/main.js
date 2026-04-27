@@ -4,6 +4,7 @@ import { initMegaMenu } from "./megaMenu.js";
 import { initItamTabs } from "./tabs.js";
 import { initHeaderScroll } from "./header.js";
 import { initScrollTop } from "./scrollTop.js";
+import { initContactForm } from "./contact.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const observer = initObserver();
@@ -17,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const timelineItems = document.querySelectorAll(".timeline-item");
   timelineItems.forEach((item) => observer.observe(item));
 
-  initHeroParticles();
+  initHeroGridCanvas();
   initAboutAnimation();
   initHeaderScroll();
   initMobileMenu();
@@ -26,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initMobileAccordion();
   initApmMobileAccordion();
   initClientsPage();
+  initContactForm();
 });
 
 window.addEventListener("componentsLoaded", () => {
@@ -78,6 +80,7 @@ window.addEventListener("componentsLoaded", () => {
   initO365Tabs();
   initPamTabs();
   initSiemTabs();
+  initContactForm();
 
   const yearEl = document.getElementById("year");
   if (yearEl) {
@@ -539,99 +542,116 @@ function initMobileAccordion() {
   setTimeout(() => clearInterval(checkInterval), 10000);
 }
 
-// Hero Particles Animation
-function initHeroParticles() {
-  const particlesContainer = document.getElementById("hero-particles");
-  if (!particlesContainer) return;
+// Hero Canvas Grid Animation
+function initHeroGridCanvas() {
+  const canvas = document.getElementById("hero-grid-canvas");
+  if (!canvas) return;
 
-  const particleCount = 60;
+  const ctx = canvas.getContext("2d");
 
-  function createParticle() {
-    const particle = document.createElement("div");
-    particle.className = "particle";
+  let width = (canvas.width = window.innerWidth);
+  let height = (canvas.height = window.innerHeight);
 
-    const size = Math.random() * 3 + 1;
-    particle.style.width = `${size}px`;
-    particle.style.height = `${size}px`;
+  let mouse = { x: -9999, y: -9999 };
+  const squareSize = 80;
+  let grid = [];
 
-    resetParticle(particle);
-    particlesContainer.appendChild(particle);
-    animateParticle(particle);
+  function initGrid() {
+    grid = [];
+    for (let x = 0; x < width; x += squareSize) {
+      for (let y = 0; y < height; y += squareSize) {
+        grid.push({
+          x: x,
+          y: y,
+          alpha: 0,
+          fading: false,
+          lastTouched: 0,
+        });
+      }
+    }
   }
 
-  function resetParticle(particle) {
-    const posX = Math.random() * 100;
-    const posY = Math.random() * 100;
-
-    particle.style.left = `${posX}%`;
-    particle.style.top = `${posY}%`;
-    particle.style.opacity = "0";
-
-    return { x: posX, y: posY };
+  function getCellAt(x, y) {
+    return grid.find(
+      (cell) =>
+        x >= cell.x &&
+        x < cell.x + squareSize &&
+        y >= cell.y &&
+        y < cell.y + squareSize,
+    );
   }
 
-  function animateParticle(particle) {
-    const pos = resetParticle(particle);
-    const duration = Math.random() * 10 + 10;
-    const delay = Math.random() * 5;
+  function handleMouseMove(e) {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
 
-    setTimeout(() => {
-      particle.style.transition = `all ${duration}s linear`;
-      particle.style.opacity = Math.random() * 0.3 + 0.1;
-
-      const moveX = pos.x + (Math.random() * 20 - 10);
-      const moveY = pos.y - Math.random() * 30;
-
-      particle.style.left = `${moveX}%`;
-      particle.style.top = `${moveY}%`;
-
-      setTimeout(() => {
-        animateParticle(particle);
-      }, duration * 1000);
-    }, delay * 1000);
+    const cell = getCellAt(mouse.x, mouse.y);
+    if (cell && cell.alpha === 0) {
+      cell.alpha = 1;
+      cell.lastTouched = Date.now();
+      cell.fading = false;
+    }
   }
 
-  for (let i = 0; i < particleCount; i++) {
-    createParticle();
+  function handleResize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+    initGrid();
   }
 
-  // Mouse interaction
-  document.addEventListener("mousemove", (e) => {
-    const mouseX = (e.clientX / window.innerWidth) * 100;
-    const mouseY = (e.clientY / window.innerHeight) * 100;
+  function drawGrid() {
+    ctx.clearRect(0, 0, width, height);
+    const now = Date.now();
 
-    const particle = document.createElement("div");
-    particle.className = "particle";
+    for (let i = 0; i < grid.length; i++) {
+      const cell = grid[i];
 
-    const size = Math.random() * 4 + 2;
-    particle.style.width = `${size}px`;
-    particle.style.height = `${size}px`;
-    particle.style.left = `${mouseX}%`;
-    particle.style.top = `${mouseY}%`;
-    particle.style.opacity = "0.5";
-    particle.style.background = "#D8042C";
+      if (cell.alpha > 0 && !cell.fading && now - cell.lastTouched > 500) {
+        cell.fading = true;
+      }
 
-    particlesContainer.appendChild(particle);
+      if (cell.fading) {
+        cell.alpha -= 0.02;
+        if (cell.alpha <= 0) {
+          cell.alpha = 0;
+          cell.fading = false;
+        }
+      }
 
-    setTimeout(() => {
-      particle.style.transition = "all 2s ease-out";
-      particle.style.left = `${mouseX + (Math.random() * 10 - 5)}%`;
-      particle.style.top = `${mouseY + (Math.random() * 10 - 5)}%`;
-      particle.style.opacity = "0";
+      if (cell.alpha > 0) {
+        const centerX = cell.x + squareSize / 2;
+        const centerY = cell.y + squareSize / 2;
 
-      setTimeout(() => {
-        particle.remove();
-      }, 2000);
-    }, 10);
+        const gradient = ctx.createRadialGradient(
+          centerX,
+          centerY,
+          5,
+          centerX,
+          centerY,
+          squareSize,
+        );
+        gradient.addColorStop(0, `rgba(216, 4, 44, ${cell.alpha * 0.8})`);
+        gradient.addColorStop(1, `rgba(216, 4, 44, 0)`);
 
-    const spheres = document.querySelectorAll(".gradient-sphere");
-    const moveX = (e.clientX / window.innerWidth - 0.5) * 5;
-    const moveY = (e.clientY / window.innerHeight - 0.5) * 5;
+        ctx.strokeStyle = gradient;
+        ctx.lineWidth = 1.5;
+        ctx.strokeRect(
+          cell.x + 0.5,
+          cell.y + 0.5,
+          squareSize - 1,
+          squareSize - 1,
+        );
+      }
+    }
 
-    spheres.forEach((sphere) => {
-      sphere.style.transform = `translate(${moveX}px, ${moveY}px)`;
-    });
-  });
+    requestAnimationFrame(drawGrid);
+  }
+
+  window.addEventListener("mousemove", handleMouseMove);
+  window.addEventListener("resize", handleResize);
+
+  initGrid();
+  drawGrid();
 }
 
 // About Page Visible Animation

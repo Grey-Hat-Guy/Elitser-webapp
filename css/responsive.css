@@ -974,12 +974,12 @@
 /* Hero Section */
 @media (max-width: 1024px) {
   .hero {
-    padding: 4rem 2rem;
+    padding: 3rem 1.5rem;
   }
 
   .hero-grid {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 2rem;
     text-align: center;
   }
 
@@ -1643,11 +1643,6 @@
 
   .quote-author {
     font-size: 0.7rem;
-  }
-
-  .quote-card .card-badge {
-    font-size: 0.6rem;
-    padding: 0.2rem 0.6rem;
   }
 }
 
