@@ -145,8 +145,8 @@
 
 .tab-btn {
   display: flex;
-  align-items: left;
-  justify-content: left;
+  align-items: center;
+  justify-content: flex-start;
   gap: 0.6rem;
   padding: 0.7rem 0.8rem;
   border-radius: 0.4rem;
