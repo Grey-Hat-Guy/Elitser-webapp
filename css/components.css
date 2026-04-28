@@ -130,7 +130,7 @@
   max-width: 100%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 18rem 1fr 20rem;
+  grid-template-columns: 18rem 1fr 3rem;
   padding: 2rem 1.5rem;
   gap: 2rem;
 }
