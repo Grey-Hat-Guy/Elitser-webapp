@@ -138,6 +138,7 @@
 .mega-sidebar {
   display: flex;
   flex-direction: column;
+  align-content: left;
   gap: 0.5rem;
   border-right: 1px solid #eee;
   padding-right: 1rem;
