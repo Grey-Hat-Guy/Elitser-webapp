@@ -13,157 +13,124 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/style.css" />
-     <style>
+    <style>
         :root {
             --red: #d8042c;
             --black: #000;
             --grey: #777;
             --white: #fff;
             --light-bg: #fafafa;
-            --transition: all 0.3s ease;
         }
 
-       
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
 
         body {
             background-color: var(--light-bg);
             color: var(--black);
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
-       
-
-
-        header p {
-            font-size: 1.2rem;
-            color: var(--grey);
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* Container */
         .container {
             max-width: 1100px;
-            margin: 40px auto;
-            padding: 0 20px;
+            margin: 0 auto;
+            padding: 40px 20px;
         }
 
-        .intro-text {
-            text-align: center;
-            margin-bottom: 50px;
-            font-size: 1.1rem;
-        }
-
-        /* Grid System */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        /* Cards */
-        .card {
+        /* Section Layouts */
+        .content-section {
+            margin-bottom: 60px;
             background: var(--white);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-top: 4px solid transparent;
-            transition: var(--transition);
-            cursor: default;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            border-top: 4px solid var(--red);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        .content-section:hover {
+            transform: translateY(-5px);
         }
 
-        .card i {
-            color: var(--red);
-            font-size: 2.5rem;
+        h3 {
+            color: var(--black);
+            font-size: 1.8rem;
             margin-bottom: 20px;
-        }
-
-        .card h3 {
-            margin-bottom: 15px;
-            font-size: 1.4rem;
-        }
-
-        .card ul {
-            list-style: none;
-            margin-top: 15px;
-        }
-
-        .card ul li {
-            padding: 5px 0;
-            font-size: 0.95rem;
             display: flex;
             align-items: center;
+            gap: 15px;
         }
 
-        .card ul li::before {
-            content: "→";
+        h3 i {
             color: var(--red);
-            margin-right: 10px;
-            font-weight: bold;
+            font-size: 1.5rem;
         }
 
-        /* Section Specific Styles */
-        .section-title {
-            text-align: center;
-            margin: 60px 0 30px;
-            position: relative;
+        h4 {
+            margin: 20px 0 10px;
+            color: var(--black);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
         }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: var(--red);
-            margin: 10px auto;
+        p {
+            margin-bottom: 15px;
+            color: var(--black);
         }
 
-        /* Footer Call to Action */
-        .cta {
-            background: var(--black);
-            color: var(--white);
-            padding: 50px 20px;
-            text-align: center;
-            margin-top: 80px;
-        }
-
-        .btn {
-            background: var(--red);
-            color: var(--white);
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 4px;
-            display: inline-block;
+        ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px;
             margin-top: 20px;
-            font-weight: bold;
-            transition: var(--transition);
         }
 
-        .btn:hover {
-            background: #b00324;
-            transform: scale(1.05);
+        ul li {
+            position: relative;
+            padding-left: 25px;
+            color: var(--black);
         }
 
-        /* Animation class */
-        .reveal {
+        ul li::before {
+            content: "\f058"; /* FontAwesome check circle */
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--red);
+        }
+
+        /* Responsive Grid for Services */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: 1fr; }
+            header h1 { font-size: 2rem; }
+        }
+
+        /* JS Scroll Animation Class */
+        .fade-in {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
 
-        .reveal.active {
+        .fade-in.appear {
             opacity: 1;
             transform: translateY(0);
         }
 
-    </style>
+       
+    </style> 
   </head>
   <body>
     <div id="header"></div>
@@ -230,109 +197,141 @@
       </section>
 
 
-       <div class="container">
-        <div class="intro-text reveal">
-            <p>Managing IT and OT assets effectively is critical for operational efficiency, cybersecurity, and regulatory compliance. Our services provide end-to-end visibility and control over your technology and operational assets.</p>
+<div class="container">
+    <div class="content-section fade-in">
+        <h3><i class="fas fa-layer-group"></i> Our Asset Management Approach</h3>
+        <p>We deliver a structured and scalable asset management framework that covers the entire asset lifecycle, from onboarding to retirement.</p>
+        <ul>
+            <li>Asset identification and tagging</li>
+            <li>Centralized asset inventory</li>
+            <li>Lifecycle tracking and status monitoring</li>
+            <li>Compliance and audit readiness</li>
+            <li>Risk and performance optimization</li>
+        </ul>
+    </div>
+
+    <div class="content-section fade-in">
+        <h3><i class="fas fa-tags"></i> Asset Tagging Services</h3>
+        <p>Asset tagging is the foundation of effective asset management. We provide professional asset tagging services to uniquely identify and track every IT and OT asset.</p>
+        
+        <h4>Our Asset Tagging Capabilities Include:</h4>
+        <ul>
+            <li>Barcode, QR code, and RFID tagging</li>
+            <li>Durable tags suitable for industrial and harsh environments</li>
+            <li>Asset labeling based on organizational standards</li>
+            <li>Integration with asset management systems</li>
+            <li>Physical verification and reconciliation</li>
+        </ul>
+
+        <h4>Benefits of Asset Tagging:</h4>
+        <ul>
+            <li>Eliminates asset loss and misidentification</li>
+            <li>Enables faster audits and inventory checks</li>
+            <li>Improves accountability and ownership</li>
+            <li>Enhances lifecycle and warranty tracking</li>
+        </ul>
+    </div>
+
+    <div class="grid">
+        <div class="content-section fade-in">
+            <h3><i class="fas fa-laptop"></i> IT Asset Management (ITAM)</h3>
+            <p>Our IT Asset Management services ensure complete visibility into your IT environment, helping reduce costs and maintain compliance.</p>
+            <h4>Assets Covered:</h4>
+            <ul>
+                <li>Servers, desktops, laptops</li>
+                <li>Network and storage devices</li>
+                <li>Software licenses and subscriptions</li>
+                <li>Cloud and virtual assets</li>
+            </ul>
+            <h4>Key Benefits:</h4>
+            <ul>
+                <li>Accurate IT asset inventory</li>
+                <li>Software compliance and audit readiness</li>
+                <li>Reduced operational and licensing costs</li>
+                <li>Improved IT governance and reporting</li>
+            </ul>
         </div>
 
-        <h2 class="section-title">Our Management Framework</h2>
-        <div class="grid">
-            <div class="card reveal">
-                <i class="fas fa-barcode"></i>
-                <h3>Asset Tagging</h3>
-                <p>The foundation of management. We use Barcode, QR, and RFID for durable tracking in harsh environments.</p>
-                <ul>
-                    <li>Durable Industrial Tags</li>
-                    <li>Physical Reconciliation</li>
-                    <li>System Integration</li>
-                </ul>
-            </div>
-
-            <div class="card reveal">
-                <i class="fas fa-laptop-code"></i>
-                <h3>IT Asset Management</h3>
-                <p>Ensure complete visibility into your IT environment to reduce costs and maintain compliance.</p>
-                <ul>
-                    <li>Servers & Laptops</li>
-                    <li>Software Licensing</li>
-                    <li>Cloud & Virtual Assets</li>
-                </ul>
-            </div>
-
-            <div class="card reveal">
-                <i class="fas fa-industry"></i>
-                <h3>OT Asset Management</h3>
-                <p>Specialized handling for critical operational technology without disrupting production.</p>
-                <ul>
-                    <li>PLCs, SCADA & DCS</li>
-                    <li>Industrial Control Systems</li>
-                    <li>Safe Asset Discovery</li>
-                </ul>
-            </div>
-        </div>
-
-        <h2 class="section-title">Integrated Visibility & Compliance</h2>
-        <div class="grid">
-            <div class="card reveal">
-                <i class="fas fa-shield-halved"></i>
-                <h3>Compliance & Audit</h3>
-                <p>We support industry standards ensuring your records are always audit-ready.</p>
-                <ul>
-                    <li>ISO 27001 & NIST</li>
-                    <li>IEC 62443 Standards</li>
-                    <li>Internal Audit Prep</li>
-                </ul>
-            </div>
-
-            <div class="card reveal">
-                <i class="fas fa-chart-line"></i>
-                <h3>Strategic Benefits</h3>
-                <p>Transforming operational necessity into a competitive business advantage.</p>
-                <ul>
-                    <li>Eliminate Asset Loss</li>
-                    <li>Faster Incident Response</li>
-                    <li>Optimized Utilization</li>
-                </ul>
-            </div>
-
-            <div class="card reveal">
-                <i class="fas fa-check-circle"></i>
-                <h3>Why Choose Us</h3>
-                <p>Proven expertise in both IT and OT environments with a vendor-neutral approach.</p>
-                <ul>
-                    <li>Scalable Processes</li>
-                    <li>Minimal Disruption</li>
-                    <li>Custom Dashboards</li>
-                </ul>
-            </div>
+        <div class="content-section fade-in">
+            <h3><i class="fas fa-microchip"></i> OT Asset Management (OTAM)</h3>
+            <p><strong>Secure and Manage Critical Operational Assets</strong></p>
+            <p>Operational Technology assets require specialized handling due to their critical nature. We provide non-disruptive asset discovery and management for OT environments.</p>
+            <h4>Assets Covered:</h4>
+            <ul>
+                <li>PLCs, SCADA, DCS, RTUs</li>
+                <li>Industrial control systems (ICS)</li>
+                <li>Field devices, sensors, and controllers</li>
+            </ul>
+            <h4>Key Benefits:</h4>
+            <ul>
+                <li>Safe, non-intrusive asset discovery</li>
+                <li>Improved reliability and uptime</li>
+                <li>Enhanced cybersecurity readiness</li>
+                <li>Support for industrial compliance standards</li>
+            </ul>
         </div>
     </div>
 
-    <section class="cta">
-        <h2>Ready to Secure Your Asset Landscape?</h2>
-        <p>Contact us today for a customized asset management roadmap.</p>
-        <a href="#" class="btn">Get Started Now</a>
-    </section>
+    <div class="content-section fade-in">
+        <h3><i class="fas fa-network-wired"></i> Integrated IT–OT Asset Visibility</h3>
+        <p><strong>One Source of Truth Across the Organization</strong></p>
+        <p>We unify IT and OT asset data into a single, centralized view—enabling collaboration between IT, OT, security, and management teams.</p>
+        <h4>Unified Visibility Enables:</h4>
+        <ul>
+            <li>Faster incident response</li>
+            <li>Informed risk and compliance decisions</li>
+            <li>Optimized asset utilization</li>
+            <li>Stronger cybersecurity posture</li>
+        </ul>
+    </div>
 
-    <script>
-        // Scroll Reveal Animation Logic
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
+    <div class="content-section fade-in">
+        <h3><i class="fas fa-clipboard-check"></i> Compliance & Audit Readiness</h3>
+        <p>Our asset management services support compliance with industry and regulatory standards such as:</p>
+        <ul>
+            <li>ISO 27001</li>
+            <li>IEC 62443</li>
+            <li>NIST</li>
+            <li>Industry-specific and internal audit requirements</li>
+        </ul>
+        <p>Comprehensive asset records simplify audits and ensure continuous compliance.</p>
+    </div>
+
+    <div class="content-section fade-in" style="border-left: 5px solid var(--red);">
+        <h3><i class="fas fa-star"></i> Why Choose Us</h3>
+        <ul>
+            <li>Proven expertise in both IT and OT environments</li>
+            <li>Reliable and scalable asset tagging processes</li>
+            <li>Vendor-neutral and standards-based approach</li>
+            <li>Minimal operational disruption</li>
+            <li>Customized reporting and dashboards</li>
+        </ul>
+    </div>
+
+    <div class="content-section fade-in" style="text-align:center; background: var(--black); color: var(--white);">
+        <h3 style="color: var(--white); justify-content: center;">Turn Asset Management Into a Strategic Advantage</h3>
+        <p style="color: #ccc;">With accurate asset tagging, centralized management, and unified visibility, we help organizations transform asset management from an operational necessity into a strategic business capability.</p>
+    </div>
+</div>
+
+
+<script>
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('appear');
             }
-        }
+        });
+    }, observerOptions);
 
-        window.addEventListener("scroll", reveal);
-
-        // Run once on load to show elements already in view
-        window.onload = reveal;
-    </script>
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+      
 
       <!-- <section class="itam-features">
         <div class="container">
