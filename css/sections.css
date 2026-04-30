@@ -1363,12 +1363,12 @@
   transform: translateY(-2px);
 }
 
-.global-presence {
+. {
   display: flex;
   justify-content: center;
   gap: 5rem;
   max-width: 800px;
-  margin: 3rem auto 0;
+  margin: 3rem auto 30px;
   padding-top: 2rem;
   border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
