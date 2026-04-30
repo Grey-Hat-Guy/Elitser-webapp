@@ -148,7 +148,8 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  text-align-last: left;
+  text-align: left;
+  text-align-last: justify;
   gap: 0.6rem;
   padding: 0.7rem 0.8rem;
   border-radius: 0.4rem;
