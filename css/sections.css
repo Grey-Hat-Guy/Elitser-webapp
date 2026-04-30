@@ -268,7 +268,12 @@
   max-width: 1200px;
   margin: 0 auto;
 }
-
+.process-imagen img {
+  width: 210%;
+  border-radius: 1rem;
+  object-fit: cover;
+  transition: var(--transition-smooth);
+}
 .process-image img {
   width: 100%;
   border-radius: 1rem;
