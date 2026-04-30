@@ -992,7 +992,7 @@
 }
 
 .footer-logo img {
-  height: 9.5rem;
+  height: 10rem;
   width: auto;
   display: block;
   transition: var(--transition-smooth);
