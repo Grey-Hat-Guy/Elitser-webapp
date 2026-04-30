@@ -547,7 +547,7 @@
   background: var(--white);
   border-radius: 0.6rem;
 
-  min-width: 14rem;
+  min-width: 22rem;
   padding: 0.6rem;
 
   box-shadow: 0 0.8rem 2rem rgba(0, 0, 0, 0.08);
@@ -576,7 +576,7 @@
 
   text-decoration: none;
   color: var(--black);
-  font-size: 0.95rem;
+  font-size: 0.85rem;
 
   transition: 0.2s;
 }
