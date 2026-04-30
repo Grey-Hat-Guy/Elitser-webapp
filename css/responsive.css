@@ -190,7 +190,7 @@
     opacity: 1;
     visibility: visible;
     max-height: 80vh;
-    overflow-y: auto;
+    overflow-x: auto;
     padding: 1rem;
     margin-top: 0.5rem;
   }
