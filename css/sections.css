@@ -1363,7 +1363,7 @@
   transform: translateY(-2px);
 }
 
-. {
+.global-presence {
   display: flex;
   justify-content: center;
   gap: 5rem;
