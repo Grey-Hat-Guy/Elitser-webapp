@@ -520,10 +520,16 @@
   height: 300px;
 }
 
-.btn-primary:hover {
+/* .btn-primary:hover {
   background: #b80325;
   transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(216, 4, 44, 0.3);
+} */
+
+.btn-primary:hover {
+  background: #b80325;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgb(0, 0, 0, 94%);
 }
 
 .btn-primary i {
