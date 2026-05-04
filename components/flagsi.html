@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Uniform Round Flags</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            padding: 50px;
+        }
+
+        .flag-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 600px;
+        }
+
+        .flag-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 12px;
+        }
+
+        /* THE CSS THAT MAKES THEM THE SAME SIZE */
+        .flag-icon {
+            width: 80px;      /* Exact Width */
+            height: 80px;     /* Exact Height */
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            display: block;
+        }
+
+        /* SVG symbols usually need this to fill the round container */
+        svg.flag-icon use {
+            width: 100%;
+            height: 100%;
+        }
+
+        .flag-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HIDDEN SVG LIBRARY -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="flag-uae" viewBox="0 0 6 3"><rect width="6" height="3" fill="#00732f"/><rect width="6" height="2" y="1" fill="#fff"/><rect width="6" height="1" y="2" fill="#000"/><rect width="1.5" height="3" fill="red"/></symbol>
+        <symbol id="flag-india" viewBox="0 0 225 150"><rect width="225" height="150" fill="#f93"/><rect width="225" height="100" y="50" fill="#fff"/><rect width="225" height="50" y="100" fill="#128807"/><circle cx="112.5" cy="75" r="20" fill="none" stroke="#000080" stroke-width="2"/><circle cx="112.5" cy="75" r="3" fill="#000080"/></symbol>
+        <symbol id="flag-saudi" viewBox="0 0 3 2"><rect width="3" height="2" fill="#006c35"/><path d="M0.5 1.2h2m-1.5 0.2l1.5-0.4" stroke="#fff" stroke-width="0.1"/></symbol>
+        <symbol id="flag-bahrain" viewBox="0 0 5 3"><rect width="5" height="3" fill="#ce1126"/><polygon points="0,0 1,0 1.5,0.3 1,0.6 1.5,0.9 1,1.2 1.5,1.5 1,1.8 1.5,2.1 1,2.4 1.5,2.7 1,3 0,3" fill="#fff"/></symbol>
+        <symbol id="flag-singapore" viewBox="0 0 3 2"><rect width="3" height="2" fill="#fff"/><rect width="3" height="1" fill="#ef3340"/><circle cx="0.6" cy="0.5" r="0.3" fill="#fff"/></symbol>
+        <symbol id="flag-indonesia" viewBox="0 0 3 2"><rect width="3" height="2" fill="#fff"/><rect width="3" height="1" fill="#ff0000"/></symbol>
+        <symbol id="flag-egypt" viewBox="0 0 3 2"><rect width="3" height="0.66" fill="#ce1126"/><rect width="3" height="0.66" y="0.66" fill="#fff"/><rect width="3" height="0.66" y="1.33" fill="#000"/><circle cx="1.5" cy="1" r="0.15" fill="#c09304"/></symbol>
+        <symbol id="flag-oman" viewBox="0 0 3 2"><rect width="3" height="2" fill="#fff"/><rect width="3" height="1.33" y="0.66" fill="#008000"/><rect width="3" height="0.66" y="1.33" fill="#ff0000"/><rect width="0.8" height="2" fill="#ff0000"/></symbol>
+        <symbol id="flag-bangladesh" viewBox="0 0 5 3"><rect width="5" height="3" fill="#006a4e"/><circle cx="2.2" cy="1.5" r="1" fill="#f42a41"/></symbol>
+    </svg>
+
+    <div class="flag-grid">
+        <div class="flag-item"><svg class="flag-icon"><use href="#flag-uae"/></svg><div class="flag-label">UAE</div></div>
+        <div class="flag-item"><svg class="flag-icon"><use href="#flag-india"/></svg><div class="flag-label">India</div></div>
+        <div class="flag-item"><svg class="flag-icon"><use href="#flag-saudi"/></svg><div class="flag-label">Saudi Arabia</div></div>
+        <div class="flag-item"><svg class="flag-icon"><use href="#flag-bahrain"/></svg><div class="flag-label">Bahrain</div></div>
+        <div class="flag-item"><svg class="flag-icon"><use href="#flag-singapore"/></svg><div class="flag-label">Singapore</div></div>
+        <div class="flag-item"><svg class="flag-icon"><use href="#flag-indonesia"/></svg><div class="flag-label">Indonesia</div></div>
+        <div class="flag-item"><svg class="flag-icon"><use href="#flag-egypt"/></svg><div class="flag-label">Egypt</div></div>
+        <div class="flag-item"><svg class="flag-icon"><use href="#flag-oman"/></svg><div class="flag-label">Oman</div></div>
+        <div class="flag-item"><svg class="flag-icon"><use href="#flag-bangladesh"/></svg><div class="flag-label">Bangladesh</div></div>
+    </div>
+
+</body>
+</html>
