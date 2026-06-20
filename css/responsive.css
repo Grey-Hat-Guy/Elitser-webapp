@@ -9120,3 +9120,124 @@
     font-size: 2rem;
   }
 }
+
+/*  key solutions */
+/* Desktop Positions */
+@media (min-width: 1025px) {
+  .solution-node[data-pos="0"] {
+    top: 7%;
+    left: 2%;
+  }
+  .solution-node[data-pos="1"] {
+    top: 14%;
+    right: -1%;
+  }
+  .solution-node[data-pos="2"] {
+    bottom: 32%;
+    right: 2%;
+  }
+  .solution-node[data-pos="3"] {
+    bottom: 9%;
+    right: 18%;
+  }
+  .solution-node[data-pos="4"] {
+    bottom: 22%;
+    left: 0%;
+  }
+  .solution-node[data-pos="5"] {
+    top: 48%;
+    left: -2%;
+  }
+  .solution-node[data-pos="6"] {
+    top: 70%;
+    right: 4%;
+  }
+  .solution-node[data-pos="7"] {
+    top: 34%;
+    left: 12%;
+  }
+  .solution-node[data-pos="8"] {
+    bottom: 44%;
+    left: 18%;
+  }
+}
+
+/* Tablet: 2-column layout */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .ecosystem {
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+    gap: 48px;
+  }
+  .center-core {
+    margin: 30px auto;
+    order: 1;
+  }
+  .solution-node {
+    position: relative !important;
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+  }
+  .nodes-grid-tablet {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    width: 100%;
+    order: 2;
+    margin-top: 20px;
+  }
+  .connectors-svg {
+    display: none;
+  }
+}
+
+/* Mobile: vertical timeline style */
+@media (max-width: 767px) {
+  .key-solutions {
+    padding: 70px 0 90px;
+  }
+  .solutions-container {
+    padding: 0 24px;
+  }
+  .solutions-heading {
+    font-size: 2rem;
+  }
+  .ecosystem {
+    flex-direction: column;
+    min-height: auto;
+  }
+  .center-core {
+    margin: 0 auto 50px auto;
+    width: 180px;
+    height: 180px;
+    order: 1;
+  }
+  .center-core h3 {
+    font-size: 1.3rem;
+  }
+  .nodes-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    order: 2;
+  }
+  .solution-node {
+    position: relative !important;
+    width: 100%;
+    margin: 0;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+  }
+  .connectors-svg {
+    display: none;
+  }
+}

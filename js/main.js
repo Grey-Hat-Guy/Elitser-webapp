@@ -5,6 +5,7 @@ import { initItamTabs } from "./tabs.js";
 import { initHeaderScroll } from "./header.js";
 import { initScrollTop } from "./scrollTop.js";
 import { initContactForm } from "./contact.js";
+import { initKeySolutions } from "./keySolutions.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const observer = initObserver();
@@ -28,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initApmMobileAccordion();
   initClientsPage();
   initContactForm();
+  initKeySolutions();
 });
 
 window.addEventListener("componentsLoaded", () => {
