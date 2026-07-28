@@ -1,4 +1,4 @@
-const API_URL = "http://elitser-me.com/etlblogs/wp-json/wp/v2/posts";
+const API_URL = "https://elitser-me.com/etlblogs/wp-json/wp/v2/posts";
 const POSTS_PER_PAGE = 6;
 
 let allPosts = [];
