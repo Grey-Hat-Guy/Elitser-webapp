@@ -892,3 +892,19 @@ export function initTestimonials() {
   goToSlide(0);
   startAutoPlay();
 }
+
+// Add this to your existing GSAP code in main.js
+gsap.utils.toArray(".tile").forEach((tile, i) => {
+  gsap.from(tile, {
+    scrollTrigger: {
+      trigger: tile,
+      start: "top bottom",
+      toggleActions: "play none none reverse"
+    },
+    opacity: 0,
+    y: 100,
+    duration: 0.8,
+    delay: i * 0.1, // Staggered entry
+    ease: "power2.out"
+  });
+});
