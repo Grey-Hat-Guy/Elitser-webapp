@@ -8,6 +8,30 @@
    The SVG paths remain available for GSAP, but their strokes
    are hidden so only the plane remains visible.
    ============================================================ */
+.tiles-section {
+    padding: 100px 0;
+    overflow: hidden;
+}
+
+.tiles-wrap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Adjust grid as needed */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tile {
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+}
+
+.tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    will-change: transform;
+} 
 
 .meet20-journey {
   --pink: #ff3ec9;
