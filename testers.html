@@ -47,6 +47,11 @@
     ::-webkit-scrollbar-thumb:hover {
       background: #d8042c;
     }
+
+    /* Subtle interactive mouse-move effect utility */
+    .mouse-tilt {
+      transition: transform 0.1s ease-out;
+    }
   </style>
 </head>
 <body class="bg-black text-black antialiased overflow-hidden font-sans">
@@ -54,7 +59,45 @@
   <!-- Main Scroll Container -->
   <main class="snap-container">
 
-    <!-- SECTION 1: HERO (BLACK BACKGROUND) -->
+    <!-- SECTION 1: ANIMATED ART HERO (WHITE BACKGROUND) -->
+    <section class="snap-section relative flex items-center justify-center px-6 lg:px-20 bg-white text-neutral-950 overflow-hidden">
+      <!-- Decorative background accent elements -->
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#d8042c]/5 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-4xl text-center space-y-6 relative z-10 flex flex-col items-center">
+        
+        <!-- Animated 20 Art Logo Container -->
+        <div class="relative group cursor-pointer w-full max-w-lg mx-auto" id="art-container">
+          <!-- Subtle glow behind graphic -->
+          <div class="absolute -inset-2 bg-gradient-to-r from-[#d8042c]/20 to-neutral-200 rounded-3xl blur-xl opacity-70 group-hover:opacity-100 transition duration-700 animate-pulse"></div>
+          
+          <!-- Image with scale and hover animation -->
+          <img 
+            src="white-for-Black-BG.788.png" 
+            alt="20 Years of Trust - Elitser & ManageEngine Art" 
+            class="relative w-full h-auto object-contain drop-shadow-2xl transition-transform duration-300 ease-out mouse-tilt transform hover:scale-[1.02]"
+            id="tilt-image"
+          />
+        </div>
+
+        <div class="space-y-3 pt-2">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#d8042c]/10 border border-[#d8042c]/30 text-[#d8042c] text-xs font-semibold tracking-wider uppercase">
+            <span>Two Decades of Excellence</span>
+          </div>
+          <p class="text-neutral-600 text-sm sm:text-base font-light tracking-wide">
+            Scroll down to explore the journey of trust, technology, and transformation.
+          </p>
+        </div>
+
+        <div class="pt-2">
+          <span class="inline-block w-5 h-8 border-2 border-neutral-400 rounded-full p-1 relative">
+            <span class="absolute top-1 left-1/2 -translate-x-1/2 w-1 h-2 bg-[#d8042c] rounded-full animate-bounce"></span>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: HERO TEXT TITLE (BLACK BACKGROUND) -->
     <section class="snap-section relative flex items-center justify-center px-6 lg:px-20 bg-black text-white">
       <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#d8042c]/10 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -74,7 +117,7 @@
       </div>
     </section>
 
-    <!-- SECTION 2: THE STORY (WHITE BACKGROUND) -->
+    <!-- SECTION 3: THE STORY (WHITE BACKGROUND) -->
     <section class="snap-section relative flex items-center justify-center px-6 lg:px-20 bg-white text-neutral-900">
       <div class="max-w-5xl w-full py-12 space-y-8">
         
@@ -154,7 +197,7 @@
       </div>
     </section>
 
-    <!-- SECTION 3: KEY METRICS (BLACK BACKGROUND) -->
+    <!-- SECTION 4: KEY METRICS (BLACK BACKGROUND) -->
     <section class="snap-section relative flex items-center justify-center px-6 lg:px-20 bg-black text-white">
       <div class="max-w-5xl w-full text-center space-y-12">
         <div class="space-y-3">
@@ -184,7 +227,7 @@
       </div>
     </section>
 
-    <!-- SECTION 4: THANK YOU MESSAGE (WHITE BACKGROUND) -->
+    <!-- SECTION 5: THANK YOU MESSAGE (WHITE BACKGROUND) -->
     <section class="snap-section relative flex items-center justify-center px-6 lg:px-20 bg-white text-neutral-900">
       <div class="max-w-4xl w-full text-center space-y-8">
         <div class="space-y-3">
@@ -213,7 +256,7 @@
       </div>
     </section>
 
-    <!-- SECTION 5: VIDEO & TESTIMONIAL ZONES (BLACK BACKGROUND) -->
+    <!-- SECTION 6: VIDEO & TESTIMONIAL ZONES (BLACK BACKGROUND) -->
     <section class="snap-section relative flex items-center justify-center px-6 lg:px-20 bg-black text-white">
       <div class="max-w-5xl w-full text-center space-y-8">
         <div class="space-y-3">
@@ -236,7 +279,7 @@
       </div>
     </section>
 
-    <!-- SECTION 6: PLEDGES (WHITE BACKGROUND) -->
+    <!-- SECTION 7: PLEDGES (WHITE BACKGROUND) -->
     <section class="snap-section relative flex items-center justify-center px-6 lg:px-20 bg-white text-neutral-900">
       <div class="max-w-5xl w-full text-center space-y-8">
         <div class="space-y-3">
@@ -262,6 +305,28 @@
     </section>
 
   </main>
+
+  <!-- Interactive Mouse Tilt Script -->
+  <script>
+    const container = document.getElementById('art-container');
+    const image = document.getElementById('tilt-image');
+
+    container.addEventListener('mousemove', (e) => {
+      const rect = container.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      
+      // Calculate slight rotation based on mouse position
+      const xRotation = (y / (rect.height / 2)) * -8;
+      const yRotation = (x / (rect.width / 2)) * 8;
+
+      image.style.transform = `perspective(1000px) rotateX(${xRotation}deg) rotateY(${yRotation}deg) scale3d(1.03, 1.03, 1.03)`;
+    });
+
+    container.addEventListener('mouseleave', () => {
+      image.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+    });
+  </script>
 
 </body>
 </html>
