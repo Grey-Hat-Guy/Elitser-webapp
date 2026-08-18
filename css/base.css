@@ -6,6 +6,16 @@
   --light-bg: #fafafa;
   --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  --bg-black: #0a0a0a;
+  --bg-panel: #111110;
+  --gold: #c9a24a;
+  --gold-light: #e6c878;
+  --gold-dim: #8a6f34;
+  --bronze-line: #3a3226;
+  --ivory: #f4eee0;
+  --ivory-soft: #c9c2af;
+  --muted: #8f8a7a;
 }
 
 * {

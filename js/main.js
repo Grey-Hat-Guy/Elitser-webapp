@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initClientsPage();
   initContactForm();
   initKeySolutions();
+  initTestimonials();
 });
 
 window.addEventListener("componentsLoaded", () => {
@@ -83,6 +84,7 @@ window.addEventListener("componentsLoaded", () => {
   initPamTabs();
   initSiemTabs();
   initContactForm();
+  initTestimonials();
 
   const yearEl = document.getElementById("year");
   if (yearEl) {
@@ -785,4 +787,106 @@ function initClientsPage() {
   if (loadMoreBtn) {
     loadMoreBtn.addEventListener("click", loadMore);
   }
+}
+
+// ===== TESTIMONIALS SLIDER =====
+export function initTestimonials() {
+  const track = document.getElementById("testimonialsTrack");
+  const dots = document.querySelectorAll(".dot");
+  const prevBtn = document.querySelector(".testimonials-prev");
+  const nextBtn = document.querySelector(".testimonials-next");
+  const cards = document.querySelectorAll(".testimonials-card");
+
+  if (!track || cards.length === 0) return;
+
+  let currentIndex = 0;
+  const totalCards = cards.length;
+  let autoPlayInterval = null;
+  const autoPlayDelay = 3000;
+
+  function goToSlide(index) {
+    // Clamp index
+    if (index < 0) index = totalCards - 1;
+    if (index >= totalCards) index = 0;
+
+    currentIndex = index;
+
+    // Update track position
+    track.style.transform = `translateX(-${index * 100}%)`;
+
+    // Update cards active state
+    cards.forEach((card, i) => {
+      card.classList.toggle("active", i === index);
+    });
+
+    // Update dots
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("active", i === index);
+    });
+  }
+
+  function nextSlide() {
+    goToSlide(currentIndex + 1);
+  }
+
+  function prevSlide() {
+    goToSlide(currentIndex - 1);
+  }
+
+  function startAutoPlay() {
+    stopAutoPlay();
+    autoPlayInterval = setInterval(nextSlide, autoPlayDelay);
+  }
+
+  function stopAutoPlay() {
+    if (autoPlayInterval) {
+      clearInterval(autoPlayInterval);
+      autoPlayInterval = null;
+    }
+  }
+
+  // Event Listeners
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      nextSlide();
+      startAutoPlay();
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      prevSlide();
+      startAutoPlay();
+    });
+  }
+
+  dots.forEach((dot) => {
+    dot.addEventListener("click", () => {
+      const index = parseInt(dot.getAttribute("data-index"));
+      goToSlide(index);
+      startAutoPlay();
+    });
+  });
+
+  // Pause on hover
+  const slider = document.querySelector(".testimonials-slider");
+  if (slider) {
+    slider.addEventListener("mouseenter", stopAutoPlay);
+    slider.addEventListener("mouseleave", startAutoPlay);
+  }
+
+  // Keyboard navigation
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") {
+      prevSlide();
+      startAutoPlay();
+    } else if (e.key === "ArrowRight") {
+      nextSlide();
+      startAutoPlay();
+    }
+  });
+
+  // Initialize
+  goToSlide(0);
+  startAutoPlay();
 }

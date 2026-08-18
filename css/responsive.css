@@ -9241,3 +9241,65 @@
     display: none;
   }
 }
+
+/* MEET 20  */
+@media (max-width: 1024px) {
+  .meet20-images {
+    padding: 3rem 1.5rem;
+  }
+
+  .meet20-images-grid {
+    gap: 1.5rem;
+  }
+
+  .logo-wrapper img {
+    max-height: 350px;
+    padding: 1.5rem;
+  }
+
+  .bottom-wrapper img {
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .meet20-images {
+    padding: 2rem 1rem;
+  }
+
+  .meet20-images-grid {
+    gap: 1rem;
+  }
+
+  .meet20-image-wrapper {
+    border-radius: 1rem;
+  }
+
+  .logo-wrapper img {
+    max-height: 250px;
+    padding: 1rem;
+  }
+
+  .bottom-wrapper img {
+    max-height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .meet20-images {
+    padding: 1.5rem 0.8rem;
+  }
+
+  .meet20-image-wrapper {
+    border-radius: 0.8rem;
+  }
+
+  .logo-wrapper img {
+    max-height: 180px;
+    padding: 0.8rem;
+  }
+
+  .bottom-wrapper img {
+    max-height: 150px;
+  }
+}
