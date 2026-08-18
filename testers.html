@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elitser & ManageEngine | 20 Years of Partnership</title>
+  <!-- Tailwind CSS CDN for quick implementation -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Enable native smooth snap scrolling across the page */
+    .snap-container {
+      height: 100vh;
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+    }
+    .snap-section {
+      height: 100vh;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased overflow-hidden">
+
+  <!-- Main Scroll Container -->
+  <main class="snap-container">
+
+    <!-- SECTION 1: HERO -->
+    <section class="snap-section relative flex items-center justify-center px-6 lg:px-20 bg-gradient-to-br from-slate-900 via-slate-950 to-blue-950">
+      <div class="max-w-4xl text-center space-y-6">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium tracking-wide">
+          <span>20 Years of Excellence</span>
+        </div>
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.1]">
+          Twenty years of <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">trust</span>, partnership & progress
+        </h1>
+        <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto font-light">
+          Celebrating two decades as the sole partner of ManageEngine in the UAE.
+        </p>
+        <div class="pt-4 flex justify-center gap-3">
+          <span class="text-xs uppercase tracking-widest text-slate-500 font-semibold">Scroll Down to Explore</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: THE SPARK (History Chapter 1) -->
+    <section class="snap-section relative flex items-center justify-center px-6 lg:px-20 bg-slate-900">
+      <div class="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6">
+          <div class="flex items-center gap-3">
+            <span class="h-px w-8 bg-blue-500"></span>
+            <span class="text-blue-400 font-mono text-sm tracking-widest uppercase">The Spark (2006)</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white">
+            A bold start in a shifting landscape
+          </h2>
+          <p class="text-slate-300 leading-relaxed font-light">
+            Back in 2006, when the UAE's technological landscape was rapidly evolving, Elitser set out to find a visionary partner and found it in ManageEngine—delivering genuine value, fair pricing, and robust features without compromise.
+          </p>
+          <div class="border-l-2 border-blue-500 pl-4 text-sm text-slate-400 italic">
+            "The turning point came with an early high-stakes win, saving a frustrated Abu Dhabi bank from restrictive vendor practices."
+          </div>
+        </div>
+        <div class="relative group">
+          <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur opacity-30 group-hover:opacity-50 transition duration-500"></div>
+          <div class="relative rounded-xl overflow-hidden bg-slate-800 border border-slate-700 aspect-video shadow-2xl">
+            <img src="/assets/images/chapter-1.jpg" alt="The Spark" class="w-full h-full object-cover">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: KEY METRICS -->
+    <section class="snap-section relative flex items-center justify-center px-6 lg:px-20 bg-slate-950">
+      <div class="max-w-5xl w-full text-center space-y-12">
+        <div class="space-y-3">
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white">The Partnership in Numbers</h2>
+          <p class="text-slate-400">Impact built on decades of consistency and trust.</p>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800/80 space-y-2">
+            <div class="text-4xl lg:text-5xl font-extrabold text-blue-400">20+</div>
+            <div class="text-sm text-slate-400 font-medium uppercase tracking-wider">Years of Excellence</div>
+          </div>
+          <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800/80 space-y-2">
+            <div class="text-4xl lg:text-5xl font-extrabold text-blue-400">850+</div>
+            <div class="text-sm text-slate-400 font-medium uppercase tracking-wider">Enterprise Clients</div>
+          </div>
+          <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800/80 space-y-2">
+            <div class="text-4xl lg:text-5xl font-extrabold text-blue-400">3,000+</div>
+            <div class="text-sm text-slate-400 font-medium uppercase tracking-wider">Projects Delivered</div>
+          </div>
+          <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800/80 space-y-2">
+            <div class="text-4xl lg:text-5xl font-extrabold text-blue-400">94%+</div>
+            <div class="text-sm text-slate-400 font-medium uppercase tracking-wider">Retention Rate</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>
