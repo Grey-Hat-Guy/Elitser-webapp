@@ -16853,11 +16853,9 @@
 
 /* ===== FOOTER IMAGE ===== */
 .footer-image-wrapper {
-  width: 100%;
+  width: 120%;
   position: relative;
-  border-radius: 1.2rem 1.2rem 0 0;
   overflow: hidden;
-  margin-top: 1rem;
 }
 
 .footer-bottom-image {
@@ -17001,5 +16999,255 @@
 
   .footer-image-wrapper {
     border-radius: 0.5rem 0.5rem 0 0;
+  }
+}
+
+.meet20-journey {
+  background: #0d0d0d;
+  color: #f4eee0;
+}
+
+.meet20-journey-intro {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.meet20-eyebrow {
+  display: inline-block;
+  color: #d8042c;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.meet20-journey-title {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+/* ---- STORY CHAPTERS ---- */
+.meet20-story-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.meet20-story-chapter {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  padding: 3rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.meet20-story-chapter:last-child {
+  border-bottom: none;
+}
+
+/* ---- CONTENT SIDE ---- */
+.meet20-story-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.meet20-story-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #f4eee0;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.meet20-story-text p {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.meet20-story-text p:last-child {
+  margin-bottom: 0;
+}
+
+.meet20-story-text strong {
+  color: #ffffff;
+}
+
+.meet20-quote {
+  font-size: 1.05rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  padding-left: 1.2rem;
+  border-left: 2px solid #d8042c;
+  margin: 1.5rem 0;
+}
+
+/* ---- IMAGE SIDE ---- */
+.meet20-story-image {
+  border-radius: 1rem;
+  overflow: hidden;
+  background: #1a1a1a;
+  aspect-ratio: 16 / 10;
+}
+
+.meet20-story-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---- METRICS ---- */
+.meet20-metrics {
+  padding: 3rem 0;
+}
+
+.meet20-section-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #f4eee0;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.meet20-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.meet20-metric-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.8rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.meet20-metric-number {
+  display: block;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #d8042c;
+  line-height: 1.2;
+}
+
+.meet20-metric-label {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  margin-top: 0.3rem;
+}
+
+/* ---- EXPERTISE ---- */
+.meet20-expertise {
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.meet20-expertise-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.meet20-expertise-content p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+}
+
+@media (max-width: 1024px) {
+  .meet20-story-chapter {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2.5rem 0;
+  }
+
+  .meet20-story-image {
+    order: -1;
+    aspect-ratio: 16 / 9;
+  }
+
+  .meet20-story-content {
+    order: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .meet20-journey {
+    padding: 3rem 1rem 4rem;
+  }
+
+  .meet20-journey-title {
+    font-size: 1.8rem;
+  }
+
+  .meet20-eyebrow {
+    font-size: 11px;
+  }
+
+  .meet20-story-title {
+    font-size: 1.4rem;
+  }
+
+  .meet20-story-text p {
+    font-size: 0.85rem;
+  }
+
+  .meet20-story-chapter {
+    padding: 2rem 0;
+  }
+
+  .meet20-metrics-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .meet20-metric-number {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .meet20-journey {
+    padding: 2rem 0.8rem 3rem;
+  }
+
+  .meet20-journey-title {
+    font-size: 1.4rem;
+  }
+
+  .meet20-story-title {
+    font-size: 1.2rem;
+  }
+
+  .meet20-story-text p {
+    font-size: 0.8rem;
+  }
+
+  .meet20-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .meet20-metric-item {
+    padding: 1rem;
+  }
+
+  .meet20-metric-number {
+    font-size: 1.5rem;
+  }
+
+  .meet20-quote {
+    font-size: 0.9rem;
+    padding-left: 0.8rem;
   }
 }

@@ -6,6 +6,7 @@ import { initHeaderScroll } from "./header.js";
 import { initScrollTop } from "./scrollTop.js";
 import { initContactForm } from "./contact.js";
 import { initKeySolutions } from "./keySolutions.js";
+import { initMeet20Animation } from "./meet20-animation.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const observer = initObserver();
@@ -31,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initContactForm();
   initKeySolutions();
   initTestimonials();
+  initMeet20Animation();
 });
 
 window.addEventListener("componentsLoaded", () => {

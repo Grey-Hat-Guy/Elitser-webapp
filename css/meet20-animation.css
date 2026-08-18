@@ -1,0 +1,428 @@
+/* ============================================================
+   meet20-animation.css
+
+   Continuous journey:
+   title → connector0 → loop1 → connector1 → loop2
+   → connector2 → loop3 → connector3 → loop4
+
+   The SVG paths remain available for GSAP, but their strokes
+   are hidden so only the plane remains visible.
+   ============================================================ */
+
+.meet20-journey {
+  --pink: #ff3ec9;
+  --lane-width: 170px;
+  --loop-size: 124px;
+
+  position: relative;
+  overflow: clip;
+  padding: 2rem 0 4rem;
+  color: #f4eee0;
+  background: #0d0d0d;
+}
+
+.meet20-hero-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem 2rem;
+}
+
+.meet20-journey-intro {
+  position: relative;
+  z-index: 2;
+  text-align: left;
+}
+
+.meet20-eyebrow {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: #d8042c;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+}
+
+.meet20-journey-title {
+  position: relative;
+  max-width: 900px;
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* The entire story region is the animation coordinate system. */
+.meet20-story-wrapper {
+  position: relative;
+  display: flex;
+  gap: 2rem;
+  max-width: 1400px;
+  min-height: 400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Compact left-side visual lane. */
+.journey-visual-layer {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 2rem;
+  width: var(--lane-width);
+  pointer-events: none;
+}
+
+.journey-svg {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+/*
+  Keep the SVG paths in the DOM for MotionPathPlugin.
+  Hide only their visual strokes.
+*/
+.journey-svg .loop,
+.journey-svg .connector {
+  fill: none;
+  stroke: transparent;
+  stroke-width: 0;
+  opacity: 0;
+  pointer-events: none;
+  vector-effect: non-scaling-stroke;
+}
+
+/*
+  Disable the loop shadow as well.
+*/
+.journey-svg .loop {
+  filter: none;
+}
+
+/*
+  The plane remains visible and animated.
+*/
+.plane {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  width: 86px;
+  height: 86px;
+  overflow: visible;
+  opacity: 0;
+  filter: drop-shadow(0 8px 16px rgba(255, 62, 201, 0.25));
+  pointer-events: none;
+}
+
+/*
+  These anchors are inline elements inside the actual story headings.
+  JavaScript reads their DOM positions, so the path follows responsive text.
+*/
+.story-anchor {
+  display: inline-block;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.meet20-story-title {
+  position: relative;
+}
+
+/* Story content stays to the right of the animation lane. */
+.story-content {
+  position: relative;
+  z-index: 2;
+  flex: 1 1 auto;
+  min-width: 0;
+  margin-left: calc(var(--lane-width) + 2rem);
+}
+
+.meet20-story-container {
+  width: 100%;
+  max-width: 100%;
+}
+
+.meet20-story-chapter {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 3rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.meet20-story-chapter:last-child {
+  border-bottom: none;
+}
+
+.meet20-story-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.meet20-story-title {
+  margin: 0 0 1rem;
+  color: #f4eee0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.meet20-story-text p {
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.meet20-story-text p:last-child {
+  margin-bottom: 0;
+}
+
+.meet20-story-text strong {
+  color: #ffffff;
+}
+
+.meet20-quote {
+  margin: 1.5rem 0;
+  padding-left: 1.2rem;
+  border-left: 2px solid #d8042c;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.meet20-story-image {
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  border-radius: 1rem;
+  background: #1a1a1a;
+}
+
+.meet20-story-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Metrics */
+.meet20-metrics {
+  padding: 3rem 0;
+}
+
+.meet20-section-title {
+  margin-bottom: 2rem;
+  color: #f4eee0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.meet20-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.meet20-metric-item {
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.8rem;
+  background: rgba(255, 255, 255, 0.03);
+  text-align: center;
+}
+
+.meet20-metric-number {
+  display: block;
+  color: #d8042c;
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.meet20-metric-label {
+  display: block;
+  margin-top: 0.3rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+/* Expertise */
+.meet20-expertise {
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.meet20-expertise-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.meet20-expertise-content p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .meet20-journey {
+    --lane-width: 120px;
+    --loop-size: 110px;
+  }
+
+  .meet20-story-wrapper {
+    gap: 1.5rem;
+    padding: 0 1.5rem;
+  }
+
+  .journey-visual-layer {
+    left: 1.5rem;
+  }
+
+  .story-content {
+    margin-left: calc(var(--lane-width) + 1.5rem);
+  }
+
+  .meet20-story-chapter {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 2rem 0;
+  }
+
+  .meet20-story-image {
+    order: -1;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .meet20-journey {
+    --lane-width: 78px;
+    --loop-size: 74px;
+  }
+
+  .meet20-hero-wrapper {
+    padding: 0 1rem 1rem;
+  }
+
+  .meet20-story-wrapper {
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .journey-visual-layer {
+    left: 1rem;
+  }
+
+  .story-content {
+    margin-left: calc(var(--lane-width) + 1rem);
+  }
+
+  .meet20-journey-title {
+    font-size: 1.6rem;
+  }
+
+  .meet20-story-title {
+    font-size: 1.3rem;
+  }
+
+  .meet20-story-text p {
+    font-size: 0.85rem;
+  }
+
+  .meet20-metrics-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .meet20-metric-number {
+    font-size: 1.6rem;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .meet20-journey {
+    --lane-width: 58px;
+    --loop-size: 58px;
+    padding: 1.5rem 0 3rem;
+  }
+
+  .meet20-hero-wrapper {
+    padding: 0 0.75rem 1rem;
+  }
+
+  .meet20-story-wrapper {
+    gap: 0.75rem;
+    padding: 0 0.75rem;
+  }
+
+  .journey-visual-layer {
+    left: 0.75rem;
+  }
+
+  .story-content {
+    margin-left: calc(var(--lane-width) + 0.75rem);
+  }
+
+  .plane {
+    width: 62px;
+    height: 62px;
+  }
+
+  .meet20-journey-title {
+    font-size: 1.3rem;
+  }
+
+  .meet20-story-title {
+    font-size: 1.1rem;
+  }
+
+  .meet20-story-text p {
+    font-size: 0.8rem;
+  }
+
+  .meet20-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .meet20-metric-item {
+    padding: 1rem;
+  }
+
+  .meet20-metric-number {
+    font-size: 1.3rem;
+  }
+
+  .meet20-quote {
+    padding-left: 0.6rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Respect users who request reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  .journey-visual-layer {
+    display: none;
+  }
+}
