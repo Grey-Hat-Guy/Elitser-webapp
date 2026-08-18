@@ -14935,7 +14935,7 @@
 }
 
 .meet20-images {
-  padding: 2rem;
+  padding: 1rem;
   background: var(--white);
   position: relative;
 }
@@ -14945,6 +14945,7 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  gap: 0;
 }
 
 .meet20-image-wrapper img {
@@ -14956,19 +14957,19 @@
 
 /* Large Logo - Top */
 .logo-wrapper {
-  max-width: 900px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
 .logo-wrapper img {
-  max-height: 500px;
+  max-height: 350px;
   object-fit: contain;
   background: #ffffff;
   padding: 2rem;
 }
 
 .bottom-wrapper {
-  max-width: 1400px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
