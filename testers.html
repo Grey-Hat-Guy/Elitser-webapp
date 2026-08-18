@@ -1,332 +1,168 @@
+
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Elitser & ManageEngine | 20 Years of Partnership</title>
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              DEFAULT: '#d8042c',
-              hover: '#b50324',
-              light: '#fde8ec',
-            }
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    /* Enable native smooth snap scrolling across the page */
-    .snap-container {
-      height: 100vh;
-      overflow-y: scroll;
-      scroll-snap-type: y mandatory;
-    }
-    .snap-section {
-      height: 100vh;
-      scroll-snap-align: start;
-      scroll-snap-stop: always;
-    }
-    /* Custom scrollbar styling */
-    ::-webkit-scrollbar {
-      width: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #000000;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #333333;
-      border-radius: 3px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #d8042c;
-    }
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Image Tiles Scroll Animation | Demo 1 | Codrops</title>
+		<meta name="description" content="Scroll animations for image grids powered by Locomotive Scroll">
+		<meta name="keywords" content="locomotive scroll, scroll animation, website, javascript, demo">
+		<meta name="author" content="Codrops">
+		<link rel="shortcut icon" href="favicon.26242483.ico">
+		<link rel="stylesheet" href="https://use.typekit.net/rmd7deq.css">
+		<link rel="stylesheet" type="text/css" href="base.98fd6c19.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+		<script>document.documentElement.className = "js";
 
-    /* Subtle interactive mouse-move effect utility */
-    .mouse-tilt {
-      transition: transform 0.1s ease-out;
-    }
-  </style>
-</head>
-<body class="bg-black text-black antialiased overflow-hidden font-sans">
+var supportsCssVars = function supportsCssVars() {
+  var e,
+      t = document.createElement("style");
+  return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e;
+};
 
-  <!-- Main Scroll Container -->
-  <main class="snap-container">
-
-    <!-- SECTION 1: ANIMATED ART HERO (WHITE BACKGROUND) -->
-    <section class="snap-section relative flex items-center justify-center px-6 lg:px-20 bg-white text-neutral-950 overflow-hidden">
-      <!-- Decorative background accent elements -->
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#d8042c]/5 rounded-full blur-3xl pointer-events-none"></div>
-
-      <div class="max-w-4xl text-center space-y-6 relative z-10 flex flex-col items-center">
-        
-        <!-- Animated 20 Art Logo Container -->
-        <div class="relative group cursor-pointer w-full max-w-lg mx-auto" id="art-container">
-          <!-- Subtle glow behind graphic -->
-          <div class="absolute -inset-2 bg-gradient-to-r from-[#d8042c]/20 to-neutral-200 rounded-3xl blur-xl opacity-70 group-hover:opacity-100 transition duration-700 animate-pulse"></div>
-          
-          <!-- Image with scale and hover animation -->
-          <img 
-            src="/assets/images/20-Years-logo.png"
-            alt="20 Years of Trust - Elitser & ManageEngine Art" 
-            class="relative w-full h-auto object-contain drop-shadow-2xl transition-transform duration-300 ease-out mouse-tilt transform hover:scale-[1.02]"
-            id="tilt-image"
-          />
-        </div>
-
-        <div class="space-y-3 pt-2">
-          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#d8042c]/10 border border-[#d8042c]/30 text-[#d8042c] text-xs font-semibold tracking-wider uppercase">
-            <span>Two Decades of Excellence</span>
-          </div>
-          <p class="text-neutral-600 text-sm sm:text-base font-light tracking-wide">
-            Scroll down to explore the journey of trust, technology, and transformation.
-          </p>
-        </div>
-
-        <div class="pt-2">
-          <span class="inline-block w-5 h-8 border-2 border-neutral-400 rounded-full p-1 relative">
-            <span class="absolute top-1 left-1/2 -translate-x-1/2 w-1 h-2 bg-[#d8042c] rounded-full animate-bounce"></span>
-          </span>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 2: HERO TEXT TITLE (BLACK BACKGROUND) -->
-    <section class="snap-section relative flex items-center justify-center px-6 lg:px-20 bg-black text-white">
-      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#d8042c]/10 rounded-full blur-3xl pointer-events-none"></div>
-
-      <div class="max-w-4xl text-center space-y-6 relative z-10">
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#d8042c]/10 border border-[#d8042c]/30 text-[#d8042c] text-sm font-semibold tracking-wide">
-          <span>20 Years of Excellence</span>
-        </div>
-        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.1]">
-          Twenty years of <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-300 to-[#d8042c]">trust</span>, partnership & progress
-        </h1>
-        <p class="text-lg sm:text-xl text-neutral-400 max-w-2xl mx-auto font-light">
-          Celebrating two decades as the sole partner of ManageEngine in the UAE.
-        </p>
-        <div class="pt-4 flex justify-center">
-          <span class="text-xs uppercase tracking-widest text-neutral-600 font-bold animate-pulse">Scroll Down to Explore</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 3: THE STORY (WHITE BACKGROUND) -->
-    <section class="snap-section relative flex items-center justify-center px-6 lg:px-20 bg-white text-neutral-900">
-      <div class="max-w-5xl w-full py-12 space-y-8">
-        
-        <!-- Story Header -->
-        <div class="text-center space-y-3">
-          <div class="inline-flex items-center gap-2">
-            <span class="h-px w-6 bg-[#d8042c]"></span>
-            <span class="text-[#d8042c] font-mono text-xs tracking-widest uppercase font-semibold">Two Decades of Digital Trust</span>
-            <span class="h-px w-6 bg-[#d8042c]"></span>
-          </div>
-          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-neutral-900">The Elitser & ManageEngine Story</h2>
-        </div>
-
-        <!-- Scrollable Narrative Box -->
-        <div class="bg-neutral-100 border border-neutral-200 rounded-2xl p-6 sm:p-10 space-y-8 max-h-[60vh] overflow-y-auto shadow-sm">
-          
-          <!-- Chapter 1 -->
-          <div class="space-y-3">
-            <h3 class="text-xl font-bold text-neutral-900 flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-[#d8042c]"></span> The Spark (2006)
-            </h3>
-            <p class="text-neutral-700 font-light leading-relaxed text-sm sm:text-base">
-              Back in 2006, when the UAE's technological landscape was rapidly evolving, Elitser set out to find a visionary partner. They found it in ManageEngine. In a market dominated by rigid and costly IT vendors, the partnership launched with a different philosophy: deliver genuine value, fair pricing, and robust features without compromise.
-            </p>
-            <p class="text-neutral-700 font-light leading-relaxed text-sm sm:text-base">
-              The turning point came with an early, high-stakes win, saving a frustrated Abu Dhabi bank from restrictive vendor practices with ManageEngine’s helpdesk solution. That single success sparked an extraordinary journey.
-            </p>
-          </div>
-
-          <div class="h-px bg-neutral-200"></div>
-
-          <!-- Chapter 2 -->
-          <div class="space-y-3">
-            <h3 class="text-xl font-bold text-neutral-900 flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-[#d8042c]"></span> Building a Legacy of Trust
-            </h3>
-            <p class="text-neutral-700 font-light leading-relaxed text-sm sm:text-base">
-              Over the past 20 years, what started as a simple vendor-partner agreement evolved into an extended family. Avoiding a transactional mindset, Elitser and ManageEngine weathered economic shifts, market disruptions, and a global pandemic together, bound by mutual respect, transparency, and a shared vision.
-            </p>
-          </div>
-
-          <div class="h-px bg-neutral-200"></div>
-
-          <!-- Chapter 3 -->
-          <div class="space-y-4">
-            <h3 class="text-xl font-bold text-neutral-900 flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-[#d8042c]"></span> Looking Ahead: The Next Horizon
-            </h3>
-            <p class="text-neutral-700 font-light leading-relaxed text-sm sm:text-base">
-              As artificial intelligence, cloud adoption, cybersecurity, and Enterprise Service Management (ESM) reshape the future, Elitser and ManageEngine are gearing up for their next chapter. With regional goals to onboard 100+ new customers annually and expand their global footprint, the mission remains unchanged:
-            </p>
-            <blockquote class="border-l-2 border-[#d8042c] pl-4 italic text-neutral-800 text-sm sm:text-base font-normal">
-              "Products may start the relationship, but shared values make it last for decades. Here is to celebrating 20 years of partnership, the people who made it possible, and an even brighter future ahead."
-            </blockquote>
-          </div>
-
-          <div class="h-px bg-neutral-200"></div>
-
-          <!-- Today & Expertise -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
-            <div class="bg-white p-5 rounded-xl border border-neutral-200 shadow-sm space-y-2">
-              <h4 class="font-bold text-[#d8042c] text-sm uppercase tracking-wider">Today</h4>
-              <p class="text-neutral-700 text-xs sm:text-sm font-light leading-relaxed">
-                The partnership proudly serves over <strong class="text-neutral-900">850 enterprise customers</strong> across <strong class="text-neutral-900">20+ industries</strong> [spanning 4 to 5 of the top 10 enterprises in most sectors] with a <strong class="text-neutral-900">94%+ retention rate</strong> and over <strong class="text-neutral-900">3,000 successful projects</strong> delivered.
-              </p>
-            </div>
-            <div class="bg-white p-5 rounded-xl border border-neutral-200 shadow-sm space-y-2">
-              <h4 class="font-bold text-[#d8042c] text-sm uppercase tracking-wider">Unmatched Expertise</h4>
-              <p class="text-neutral-700 text-xs sm:text-sm font-light leading-relaxed">
-                Powered by 100+ specialized consultants out of Elitser's 350+ workforce, positioning ManageEngine behind critical compliance frameworks like <strong class="text-neutral-900">ISO 20000, ISO 27001, and COBIT</strong>.
-              </p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- SECTION 4: KEY METRICS (BLACK BACKGROUND) -->
-    <section class="snap-section relative flex items-center justify-center px-6 lg:px-20 bg-black text-white">
-      <div class="max-w-5xl w-full text-center space-y-12">
-        <div class="space-y-3">
-          <div class="inline-block h-1 w-12 bg-[#d8042c] mb-2 rounded-full"></div>
-          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white">The Partnership in Numbers</h2>
-          <p class="text-neutral-500">Impact built on decades of consistency and trust.</p>
-        </div>
-        
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div class="p-6 rounded-2xl bg-neutral-900/80 border border-neutral-800 space-y-2 hover:border-[#d8042c]/50 transition-colors">
-            <div class="text-4xl lg:text-5xl font-extrabold text-[#d8042c]">20+</div>
-            <div class="text-xs text-neutral-400 font-semibold uppercase tracking-wider">Years of Excellence</div>
-          </div>
-          <div class="p-6 rounded-2xl bg-neutral-900/80 border border-neutral-800 space-y-2 hover:border-[#d8042c]/50 transition-colors">
-            <div class="text-4xl lg:text-5xl font-extrabold text-white">8+</div>
-            <div class="text-xs text-neutral-400 font-semibold uppercase tracking-wider">Global Offices</div>
-          </div>
-          <div class="p-6 rounded-2xl bg-neutral-900/80 border border-neutral-800 space-y-2 hover:border-[#d8042c]/50 transition-colors">
-            <div class="text-4xl lg:text-5xl font-extrabold text-white">3,000+</div>
-            <div class="text-xs text-neutral-400 font-semibold uppercase tracking-wider">Projects Delivered</div>
-          </div>
-          <div class="p-6 rounded-2xl bg-neutral-900/80 border border-neutral-800 space-y-2 hover:border-[#d8042c]/50 transition-colors">
-            <div class="text-4xl lg:text-5xl font-extrabold text-[#d8042c]">94%+</div>
-            <div class="text-xs text-neutral-400 font-semibold uppercase tracking-wider">Retention Rate</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 5: THANK YOU MESSAGE (WHITE BACKGROUND) -->
-    <section class="snap-section relative flex items-center justify-center px-6 lg:px-20 bg-white text-neutral-900">
-      <div class="max-w-4xl w-full text-center space-y-8">
-        <div class="space-y-3">
-          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900">Thank You to Everyone Who Made This Possible</h2>
-          <p class="text-neutral-600 text-sm sm:text-base font-light">Celebrating two decades as the sole UAE partner of ManageEngine.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
-          <div class="bg-neutral-50 p-5 rounded-xl border border-neutral-200 shadow-sm space-y-2">
-            <span class="text-[#d8042c] font-bold text-xs uppercase tracking-wider">To Our Customers</span>
-            <p class="text-neutral-700 text-xs sm:text-sm font-light leading-relaxed">Your trust is the driving force behind everything we do. Thank you for letting us be part of your IT journey.</p>
-          </div>
-          <div class="bg-neutral-50 p-5 rounded-xl border border-neutral-200 shadow-sm space-y-2">
-            <span class="text-[#d8042c] font-bold text-xs uppercase tracking-wider">To ManageEngine & Partners</span>
-            <p class="text-neutral-700 text-xs sm:text-sm font-light leading-relaxed">Thank you for world-class technology, collaboration, and unwavering support in shaping the UAE's digital landscape.</p>
-          </div>
-          <div class="bg-neutral-50 p-5 rounded-xl border border-neutral-200 shadow-sm space-y-2">
-            <span class="text-[#d8042c] font-bold text-xs uppercase tracking-wider">To Our Team & Employees</span>
-            <p class="text-neutral-700 text-xs sm:text-sm font-light leading-relaxed">Your dedication, talent, and passion are the true heartbeat of Elitser. Thank you for turning vision into reality daily.</p>
-          </div>
-        </div>
-
-        <div class="text-neutral-800 text-sm font-medium italic pt-2">
-          "Here is to celebrating the past, present, and an even brighter future together."
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 6: VIDEO & TESTIMONIAL ZONES (BLACK BACKGROUND) -->
-    <section class="snap-section relative flex items-center justify-center px-6 lg:px-20 bg-black text-white">
-      <div class="max-w-5xl w-full text-center space-y-8">
-        <div class="space-y-3">
-          <span class="text-[#d8042c] font-mono text-xs tracking-widest uppercase font-semibold">Voices & Stories</span>
-          <h2 class="text-3xl font-bold tracking-tight text-white">The People & Client Voices</h2>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="p-8 rounded-2xl bg-neutral-900 border border-neutral-800 text-left space-y-4">
-            <div class="inline-block p-3 rounded-lg bg-[#d8042c]/10 text-[#d8042c] font-bold text-sm">VIDEO ZONE</div>
-            <h3 class="text-xl font-bold text-white">Leadership Perspectives</h3>
-            <p class="text-neutral-400 text-sm font-light">Watch executive reflections, partner messages, and milestone highlights from the core leadership team.</p>
-          </div>
-          <div class="p-8 rounded-2xl bg-neutral-900 border border-neutral-800 text-left space-y-4">
-            <div class="inline-block p-3 rounded-lg bg-[#d8042c]/10 text-[#d8042c] font-bold text-sm">CLIENT VOICES</div>
-            <h3 class="text-xl font-bold text-white">Transformative Experiences</h3>
-            <p class="text-neutral-400 text-sm font-light">Real perspectives from CIOs and IT directors across 20+ industries detailing operational shifts and reliable growth.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 7: PLEDGES (WHITE BACKGROUND) -->
-    <section class="snap-section relative flex items-center justify-center px-6 lg:px-20 bg-white text-neutral-900">
-      <div class="max-w-5xl w-full text-center space-y-8">
-        <div class="space-y-3">
-          <span class="text-[#d8042c] font-mono text-xs tracking-widest uppercase font-semibold">Commitment to Tomorrow</span>
-          <h2 class="text-3xl font-bold tracking-tight text-neutral-900">Our Shared Pledges</h2>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
-          <div class="p-6 rounded-2xl bg-neutral-50 border border-neutral-200 shadow-sm space-y-3">
-            <div class="text-[#d8042c] font-bold text-xs uppercase tracking-wider">1. IT Training Boot Camp Pledge</div>
-            <p class="text-neutral-700 text-xs sm:text-sm font-light italic leading-relaxed">
-              "As a future innovator and technology professional, we pledge to harness the power of code and digital tools not just for progress, but with a deep sense of responsibility. We promise to embrace continuous learning, uphold the highest standards of digital ethics, and build solutions that are secure, inclusive, and beneficial to society."
-            </p>
-          </div>
-          <div class="p-6 rounded-2xl bg-neutral-50 border border-neutral-200 shadow-sm space-y-3">
-            <div class="text-[#d8042c] font-bold text-xs uppercase tracking-wider">2. Sapling Tree Plantation Pledge</div>
-            <p class="text-neutral-700 text-xs sm:text-sm font-light italic leading-relaxed">
-              "Standing together for the green future of our nation, we proudly pledge to nurture and protect our environment. We commit to planting saplings, guarding them as they grow, and honoring the life they bring to our soil and air, preserving a greener, healthier Earth for generations to come."
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Interactive Mouse Tilt Script -->
-  <script>
-    const container = document.getElementById('art-container');
-    const image = document.getElementById('tilt-image');
-
-    container.addEventListener('mousemove', (e) => {
-      const rect = container.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
-      
-      // Calculate slight rotation based on mouse position
-      const xRotation = (y / (rect.height / 2)) * -8;
-      const yRotation = (x / (rect.width / 2)) * 8;
-
-      image.style.transform = `perspective(1000px) rotateX(${xRotation}deg) rotateY(${yRotation}deg) scale3d(1.03, 1.03, 1.03)`;
-    });
-
-    container.addEventListener('mouseleave', () => {
-      image.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
-    });
-  </script>
-
-</body>
+supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+		<script src="//tympanus.net/codrops/adpacks/analytics.js"></script>
+	</head>
+	<body class="demo-1 loading">
+		<main data-scroll-container="">
+			<section id="header" class="content content--numbered">
+				<div class="frame">
+					<div class="frame__title-wrap">
+						<h1 class="frame__title">Image Tiles Scroll Animation with <a href="https://locomotivemtl.github.io/locomotive-scroll/">Locomotive Scroll</a></h1>
+					</div>
+					<div class="frame__links">
+						<a href="https://tympanus.net/Development/videoTransitions/">Previous demo</a>
+						<a href="https://tympanus.net/codrops/?p=51396">Article</a>
+						<a href="https://github.com/codrops/TileScroll/">GitHub</a>
+					</div>
+					<div class="frame__demos">
+						<a href="index.html" class="frame__demo frame__demo--current">Demo 1</a>
+						<a href="index2.html" class="frame__demo">Demo 2</a>
+						<a href="index3.html" class="frame__demo">Demo 3</a>
+					</div>
+				</div>
+				<p class="content__pretitle">Unseeing the seen</p>
+				<h1 class="content__title" data-scroll="" data-scroll-speed="2">decondition yourself</h1>
+			</section>
+			<section class="tiles tiles--rotated" id="grid2">
+				<div class="tiles__wrap">
+					<div class="tiles__line" data-scroll="" data-scroll-speed="1" data-scroll-target="#grid2" data-scroll-direction="horizontal">
+						<div class="tiles__line-img"></div>
+						<div class="tiles__line-img"></div>
+						<div class="tiles__line-img"></div>
+						<div class="tiles__line-img" style="background-image:url(4.8ed29d64.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(5.7795c51e.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(6.ac3cd742.jpg)"></div>
+					</div>
+					<div class="tiles__line" data-scroll="" data-scroll-speed="-1" data-scroll-target="#grid2" data-scroll-direction="horizontal">
+						<div class="tiles__line-img"></div>
+						<div class="tiles__line-img" style="background-image:url(8.698e0dbd.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(9.16738e2f.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(10.e7aba2b1.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(11.e75a941d.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(12.4061d1aa.jpg)"></div>
+					</div>
+					<div class="tiles__line" data-scroll="" data-scroll-speed="1" data-scroll-target="#grid2" data-scroll-direction="horizontal">
+						<div class="tiles__line-img" style="background-image:url(13.1bbeab4e.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(14.fab38393.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(15.73adc2fc.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(16.a7efd02b.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(17.71510293.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(18.c5d0ab34.jpg)"></div>
+					</div>
+					<div class="tiles__line" data-scroll="" data-scroll-speed="-1" data-scroll-target="#grid2" data-scroll-direction="horizontal">
+						<div class="tiles__line-img" style="background-image:url(19.8091b01d.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(20.5528d5b7.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(21.5ac924ec.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(22.699471d5.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(23.dbfd7b5e.jpg)"></div>
+						<div class="tiles__line-img"></div>
+					</div>
+					<div class="tiles__line" data-scroll="" data-scroll-speed="1" data-scroll-target="#grid2" data-scroll-direction="horizontal">
+						<div class="tiles__line-img"></div>
+						<div class="tiles__line-img" style="background-image:url(26.20dd68bc.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(27.8a0dc9c0.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(28.ed5abea3.jpg)"></div>
+						<div class="tiles__line-img"></div>
+						<div class="tiles__line-img"></div>
+					</div>
+				</div>
+			</section>
+			<section class="content content--numbered">
+				<p class="content__text" data-scroll="" data-scroll-speed="2">The human world is exploding at the seams. Human creativity and the implementation of human inventions and technology is now at an accelerated fever pitch like nothing ever before seen in the history of the world. Well, where is it leading, and how does one integrate this stuff into one’s own life? What does it mean about the experience of being human? I have proposed the existence of an invisible, permeating <em>Something</em> that is throughout all being, all time, all space, all bodies, all thought, which I call <em>Novelty</em>; and the interesting thing about novelty is that it’s increasing constantly. </p>
+			</section>
+			<section class="tiles" id="grid">
+				<div class="tiles__wrap">
+					<div class="tiles__line" data-scroll="" data-scroll-speed="1" data-scroll-target="#grid" data-scroll-direction="horizontal">
+						<div class="tiles__line-img" style="background-image:url(30.1e685d15.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(29.31146de1.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(28.ed5abea3.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(27.8a0dc9c0.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(26.20dd68bc.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(25.31fbca33.jpg)"></div>
+					</div>
+					<div class="tiles__line" data-scroll="" data-scroll-speed="2" data-scroll-target="#grid" data-scroll-direction="horizontal">
+						<div class="tiles__line-img" style="background-image:url(24.ec1a04ff.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(23.dbfd7b5e.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(22.699471d5.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(19.8091b01d.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(18.c5d0ab34.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(17.71510293.jpg)"></div>
+					</div>
+					<div class="tiles__line" data-scroll="" data-scroll-speed="1" data-scroll-target="#grid" data-scroll-direction="horizontal">
+						<div class="tiles__line-img" style="background-image:url(16.a7efd02b.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(15.73adc2fc.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(14.fab38393.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(13.1bbeab4e.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(12.4061d1aa.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(11.e75a941d.jpg)"></div>
+					</div>
+				</div>
+			</section>
+			<section class="content content--feature">
+				<p class="content__breakout content__breakout--big" data-scroll="" data-scroll-speed="3" data-scroll-direction="horizontal">endless acceleration toward infinity</p>
+				<p class="content__breakout content__breakout--medium" data-scroll="" data-scroll-speed="-1" data-scroll-direction="horizontal">the greatest barrier to your enlightenment</p>
+			</section>
+			<section class="content content--numbered">
+				<p class="content__text" data-scroll="" data-scroll-speed="2">The conservation of novelty is simply that, over time, the universe has become more complicated. New levels of complexity become the foundations for yet deeper levels of complexity. And this phenomenon of the production and conservation of what I call novelty is not something which goes on only in the biological domain or only in the cultural domain or only in the domain of physics. It is a trans-categorical impulse in reality, meaning: it’s everywhere. <em>Everywhere!</em></p>
+			</section>
+			<section class="tiles tiles--columns" id="grid3">
+				<div class="tiles__wrap">
+					<div class="tiles__line" data-scroll="" data-scroll-speed="1" data-scroll-target="#grid3" data-scroll-direction="vertical">
+						<div class="tiles__line-img" style="background-image:url(20.79785ea9.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(19.70099d5f.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(18.8ad6a6a5.jpg)"></div>
+					</div>
+					<div class="tiles__line" data-scroll="" data-scroll-speed="-1" data-scroll-target="#grid3" data-scroll-direction="vertical">
+						<div class="tiles__line-img" style="background-image:url(16.bf2e6aed.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(3.449799ca.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(14.e53accbf.jpg)"></div>
+					</div>
+					<div class="tiles__line" data-scroll="" data-scroll-speed="1" data-scroll-target="#grid3" data-scroll-direction="vertical">
+						<div class="tiles__line-img" style="background-image:url(12.d01438d5.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(11.bc61a1e3.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(10.4f66b9bf.jpg)"></div>
+					</div>
+					<div class="tiles__line" data-scroll="" data-scroll-speed="-1" data-scroll-target="#grid3" data-scroll-direction="vertical">
+						<div class="tiles__line-img" style="background-image:url(8.2c69e487.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(7.0a1756e3.jpg)"></div>
+						<div class="tiles__line-img" style="background-image:url(6.3ade7d4e.jpg)"></div>
+					</div>
+				</div>
+			</section>
+			<section class="content">
+				<a class="backtop" data-scroll="" data-scroll-speed="4">Back to the top</a>
+				<div class="frame frame--footer">
+					<a href="https://twitter.com/codrops" class="frame__author">@codrops</a>
+					<div class="frame__demos">
+						<a href="index.html" class="frame__demo frame__demo--current">Demo 1</a>
+						<a href="index2.html" class="frame__demo">Demo 2</a>
+						<a href="index3.html" class="frame__demo">Demo 3</a>
+					</div>
+				</div>
+			</section>
+		</main>
+		<script src="https://tympanus.net/codrops/adpacks/cda.js"></script>
+		<script src="js.00a46daa.js"></script>
+	</body>
 </html>
