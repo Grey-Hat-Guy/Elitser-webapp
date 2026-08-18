@@ -14961,7 +14961,7 @@
 }
 
 .logo-wrapper img {
-  max-height: 500px;
+  max-height: 200px;
   object-fit: contain;
   background: #ffffff;
   padding: 2rem;
