@@ -7,14 +7,7 @@
             --wood-dark: #271609;
         }
 
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #0c0906;
-            font-family: 'Poppins', sans-serif;
-            overflow-x: hidden;
-        }
-
+       
         .page-spacer {
             height: 40vh;
             display: flex;
