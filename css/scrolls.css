@@ -1,12 +1,18 @@
 <style>
-        :root {
+        :oot {
             --parchment-base: #f7f0e3;
             --ink-primary: #1a120b;
             --ink-muted: #4a3b2c;
             --gold-accent: #9a7625;
             --wood-dark: #271609;
         }
-
+body {
+            margin: 0;
+            padding: 0;
+            background-color: #0c0906;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
        
         .page-spacer {
             height: 40vh;
