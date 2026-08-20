@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-<link rel="stylesheet" href="/css/stylem.css">
+
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/meet20-animation.css" />
     <style>
@@ -39,6 +39,79 @@
   font-size: 0.8rem;
   color: var(--grey);
 }
+
+
+		.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Creates 3 columns in a row */
+  gap: 30px; /* Space between the cards */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.video-card {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Keeps the iframe responsive and maintains a 16:9 aspect ratio */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.video-info {
+  padding: 15px;
+}
+
+.video-info h3 {
+  margin: 0 0 5px 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.video-info .designation {
+  margin: 0 0 3px 0;
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.video-info .company {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #0066cc;
+  font-weight: 600;
+}
+
+/* Responsive adjustment for tablets and mobile devices */
+@media (max-width: 900px) {
+  .video-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .video-grid {
+    grid-template-columns: 1fr; /* 1 column on mobile phones */
+  }
+}
+		
     </style>
     
 
@@ -190,6 +263,47 @@
         <source src="/assets/video.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
+		  <div class="video-grid">
+  
+  <!-- Video Card 1 -->
+  <div class="video-card">
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="video-info">
+      <h3>John Doe</h3>
+      <p class="designation">Lead Software Engineer</p>
+      <p class="company">TechCorp Solutions</p>
+    </div>
+  </div>
+
+  <!-- Video Card 2 -->
+  <div class="video-card">
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="video-info">
+      <h3>Jane Smith</h3>
+      <p class="designation">Product Marketing Manager</p>
+      <p class="company">Innovate Labs</p>
+    </div>
+  </div>
+
+  <!-- Video Card 3 -->
+  <div class="video-card">
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="video-info">
+      <h3>Alex Johnson</h3>
+      <p class="designation">Chief Executive Officer</p>
+      <p class="company">Future Ventures</p>
+    </div>
+  </div>
+
+  <!-- Repeat the block above to add more videos (they will automatically form new rows) -->
+
+</div>
       </div>
     </section>
     
@@ -262,26 +376,7 @@
             </g>
           </svg>
         </div>
-<section class="codrops_mwg">
-			<p class="content-effect">
-                <span>Move your mouse to make</span>
-                <span>memories fall and bounce</span>
-            </p>
-            <div class="medias">
-                <img src="/assets/images/20.jpg" alt="" style="width: 100%; max-width: 400px;">
-               <img src="/assets/images/10.jpg" alt="" style="width: 100%; max-width: 400px;">
-				 <img src="/assets/images/11.jpg" alt="" style="width: 100%; max-width: 400px;">
-				 <img src="/assets/images/12.jpg" alt="" style="width: 100%; max-width: 400px;">
-				 <img src="/assets/images/15.jpg" alt="" style="width: 100%; max-width: 400px;">
-				 <img src="/assets/images/30.jpg" alt="" style="width: 100%; max-width: 400px;">
-				 <img src="/assets/images/32.jpg" alt="" style="width: 100%; max-width: 400px;">
-				 <img src="/assets/images/31.jpg" alt="" style="width: 100%; max-width: 400px;">
-				 <img src="/assets/images/45.jpg" alt="" style="width: 100%; max-width: 400px;">
-				 <img src="/assets/images/37.jpg" alt="" style="width: 100%; max-width: 400px;">
-				 <img src="/assets/images/16.jpg" alt="" style="width: 100%; max-width: 400px;">
-				 <img src="/assets/images/24.jpg" alt="" style="width: 100%; max-width: 400px;">
-            </div>
-		</section>
+
 		
         <div class="story-content">
           <div class="meet20-story-container">
@@ -518,10 +613,5 @@
 
     <script src="/js/loadComponents.js"></script>
     <script type="module" src="/js/main.js"></script>
-	<!-- GSAP -->
-		<script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
-
-		<!-- EFFECT CODE -->
-		<script src="/js/mouse.js"></script>
   </body>
 </html>
