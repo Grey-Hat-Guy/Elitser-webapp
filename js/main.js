@@ -7,6 +7,7 @@ import { initScrollTop } from "./scrollTop.js";
 import { initContactForm } from "./contact.js";
 import { initKeySolutions } from "./keySolutions.js";
 import { initMeet20Animation } from "./meet20-animation.js";
+import { initTeamVideos } from "./team-video.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const observer = initObserver();
@@ -33,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initKeySolutions();
   initTestimonials();
   initMeet20Animation();
+  initTeamVideos();
 });
 
 window.addEventListener("componentsLoaded", () => {
@@ -899,12 +901,12 @@ gsap.utils.toArray(".tile").forEach((tile, i) => {
     scrollTrigger: {
       trigger: tile,
       start: "top bottom",
-      toggleActions: "play none none reverse"
+      toggleActions: "play none none reverse",
     },
     opacity: 0,
     y: 100,
     duration: 0.8,
     delay: i * 0.1, // Staggered entry
-    ease: "power2.out"
+    ease: "power2.out",
   });
 });

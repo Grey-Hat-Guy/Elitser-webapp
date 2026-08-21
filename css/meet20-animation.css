@@ -1,239 +1,128 @@
-/* ============================================================
-   meet20-animation.css
-
-   Continuous journey:
-   title → connector0 → loop1 → connector1 → loop2
-   → connector2 → loop3 → connector3 → loop4
-
-   The SVG paths remain available for GSAP, but their strokes
-   are hidden so only the plane remains visible.
-   ============================================================ */
-.tiles-section {
-    padding: 100px 0;
-    overflow: hidden;
-}
-
-.tiles-wrap {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Adjust grid as needed */
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.tile {
-    overflow: hidden;
-    aspect-ratio: 1 / 1;
-}
-
-.tile img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    will-change: transform;
-} 
-
 .meet20-journey {
-  --pink: #ff3ec9;
-  --lane-width: 170px;
-  --loop-size: 124px;
-
   position: relative;
   overflow: clip;
-  padding: 2rem 0 4rem;
-  color: #f4eee0;
-  background: #0d0d0d;
+  padding: 2rem 0 0rem;
+  color: var(--ivory, #f4eee0);
+  background: var(--bg-black, #0a0a0a);
 }
 
-.meet20-hero-wrapper {
+.meet20-journey > .footer-heading {
+  position: relative;
+  z-index: 10;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 2rem 2rem;
+  padding: 0 2rem 4rem;
 }
 
-.meet20-journey-intro {
-  position: relative;
-  z-index: 2;
-  text-align: left;
+.meet20-journey > .footer-heading .footer-eyebrow {
+  color: var(--red, #d8042c);
+}
+.meet20-journey > .footer-heading h2 {
+  color: var(--white, #fff);
 }
 
-.meet20-eyebrow {
-  display: inline-block;
-  margin-bottom: 1rem;
-  color: #d8042c;
-  font-family: "Montserrat", sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.42em;
-  text-transform: uppercase;
-}
-
-.meet20-journey-title {
-  position: relative;
-  max-width: 900px;
-  margin: 0;
-  color: #ffffff;
-  font-size: clamp(2rem, 3.5vw, 3rem);
-  font-weight: 700;
-  line-height: 1.2;
-}
-
-/* The entire story region is the animation coordinate system. */
 .meet20-story-wrapper {
   position: relative;
-  display: flex;
-  gap: 2rem;
+  width: 100%;
   max-width: 1400px;
-  min-height: 400px;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
-/* Compact left-side visual lane. */
-.journey-visual-layer {
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  bottom: 0;
-  left: 2rem;
-  width: var(--lane-width);
-  pointer-events: none;
+.meet20-story-stage {
+  position: relative;
+  width: 100%;
+  height: clamp(540px, 70vh, 700px);
+  min-height: 540px;
+  overflow: hidden;
+  isolation: isolate;
 }
 
-.journey-svg {
+.meet20-story-stage .meet20-story-chapter {
   position: absolute;
   inset: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-  pointer-events: none;
-}
+  z-index: 1;
 
-/*
-  Keep the SVG paths in the DOM for MotionPathPlugin.
-  Hide only their visual strokes.
-*/
-.journey-svg .loop,
-.journey-svg .connector {
-  fill: none;
-  stroke: transparent;
-  stroke-width: 0;
-  opacity: 0;
-  pointer-events: none;
-  vector-effect: non-scaling-stroke;
-}
-
-/*
-  Disable the loop shadow as well.
-*/
-.journey-svg .loop {
-  filter: none;
-}
-
-/*
-  The plane remains visible and animated.
-*/
-.plane {
-  position: absolute;
-  z-index: 3;
-  top: 0;
-  left: 0;
-  width: 86px;
-  height: 86px;
-  overflow: visible;
-  opacity: 0;
-  filter: drop-shadow(0 8px 16px rgba(255, 62, 201, 0.25));
-  pointer-events: none;
-}
-
-/*
-  These anchors are inline elements inside the actual story headings.
-  JavaScript reads their DOM positions, so the path follows responsive text.
-*/
-.story-anchor {
-  display: inline-block;
-  width: 1px;
-  height: 1px;
-  margin: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.meet20-story-title {
-  position: relative;
-}
-
-/* Story content stays to the right of the animation lane. */
-.story-content {
-  position: relative;
-  z-index: 2;
-  flex: 1 1 auto;
-  min-width: 0;
-  margin-left: calc(var(--lane-width) + 2rem);
-}
-
-.meet20-story-container {
-  width: 100%;
-  max-width: 100%;
-}
-
-.meet20-story-chapter {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  padding: 3rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-}
+  align-items: center;
+  gap: clamp(2.5rem, 5vw, 5rem);
 
-.meet20-story-chapter:last-child {
-  border-bottom: none;
+  width: 100%;
+  max-width: min(1400px, calc(100% - 80px));
+  margin: 0 auto;
+  padding: 2rem 0;
+
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .meet20-story-content {
+  min-width: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .meet20-story-title {
-  margin: 0 0 1rem;
-  color: #f4eee0;
-  font-size: 1.8rem;
+  margin: 0 0 1.2rem;
+  color: var(--ivory, #f4eee0);
+  font-size: clamp(2rem, 3vw, 3rem);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.15;
+}
+
+.meet20-story-text {
+  max-width: 680px;
 }
 
 .meet20-story-text p {
-  margin-bottom: 1rem;
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 0.95rem;
-  line-height: 1.7;
+  margin: 0 0 1.15rem;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: clamp(0.95rem, 1.1vw, 1.08rem);
+  line-height: 1.75;
 }
 
 .meet20-story-text p:last-child {
   margin-bottom: 0;
 }
 
-.meet20-story-text strong {
-  color: #ffffff;
-}
-
 .meet20-quote {
-  margin: 1.5rem 0;
-  padding-left: 1.2rem;
-  border-left: 2px solid #d8042c;
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 1.05rem;
+  margin: 1.5rem 0 0;
+  padding: 0 0 0 1.25rem;
+  border-left: 2px solid var(--red, #d8042c);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: clamp(1rem, 1.15vw, 1.15rem);
   font-style: italic;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 .meet20-story-image {
+  position: relative;
+  width: 100%;
+  height: min(62vh, 560px);
+  min-height: 360px;
   overflow: hidden;
-  aspect-ratio: 16 / 10;
-  border-radius: 1rem;
-  background: #1a1a1a;
+  border-radius: 1.25rem;
+  background: #191919;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.35);
+}
+
+.meet20-story-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.07),
+    transparent 45%
+  );
 }
 
 .meet20-story-image img {
@@ -241,212 +130,204 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
-/* Metrics */
-.meet20-metrics {
-  padding: 3rem 0;
+.journey-visual-layer,
+.journey-svg,
+#plane,
+.plane,
+.story-anchor {
+  display: none !important;
 }
 
-.meet20-section-title {
-  margin-bottom: 2rem;
-  color: #f4eee0;
-  font-size: 1.8rem;
-  font-weight: 700;
-  text-align: center;
+.story-content {
+  margin-left: 0 !important;
 }
 
-.meet20-metrics-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1.5rem;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.meet20-metric-item {
-  padding: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 0.8rem;
-  background: rgba(255, 255, 255, 0.03);
-  text-align: center;
-}
-
-.meet20-metric-number {
-  display: block;
-  color: #d8042c;
-  font-size: 2.2rem;
-  font-weight: 800;
-  line-height: 1.2;
-}
-
-.meet20-metric-label {
-  display: block;
-  margin-top: 0.3rem;
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-}
-
-/* Expertise */
-.meet20-expertise {
-  padding: 3rem 0;
-  text-align: center;
-}
-
-.meet20-expertise-content {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.meet20-expertise-content p {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 1rem;
-  line-height: 1.7;
-}
-
-/* Tablet */
-@media (max-width: 1024px) {
-  .meet20-journey {
-    --lane-width: 120px;
-    --loop-size: 110px;
-  }
-
-  .meet20-story-wrapper {
-    gap: 1.5rem;
-    padding: 0 1.5rem;
-  }
-
-  .journey-visual-layer {
-    left: 1.5rem;
-  }
-
-  .story-content {
-    margin-left: calc(var(--lane-width) + 1.5rem);
-  }
-
-  .meet20-story-chapter {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 2rem 0;
-  }
-
-  .meet20-story-image {
-    order: -1;
-    aspect-ratio: 16 / 9;
-  }
-}
-
-/* Mobile */
 @media (max-width: 768px) {
   .meet20-journey {
-    --lane-width: 78px;
-    --loop-size: 74px;
+    padding-bottom: 4rem;
   }
 
-  .meet20-hero-wrapper {
-    padding: 0 1rem 1rem;
+  .meet20-journey > .footer-heading {
+    padding: 0 1rem 2.5rem;
   }
 
   .meet20-story-wrapper {
-    gap: 1rem;
     padding: 0 1rem;
   }
 
-  .journey-visual-layer {
-    left: 1rem;
+  .meet20-story-stage {
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
   }
 
-  .story-content {
-    margin-left: calc(var(--lane-width) + 1rem);
+  .meet20-story-stage .meet20-story-chapter {
+    position: relative !important;
+    inset: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 1.5rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto 50px auto !important;
+    padding: 2rem 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
   }
 
-  .meet20-journey-title {
-    font-size: 1.6rem;
-  }
-
-  .meet20-story-title {
-    font-size: 1.3rem;
-  }
-
-  .meet20-story-text p {
-    font-size: 0.85rem;
-  }
-
-  .meet20-metrics-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
-
-  .meet20-metric-number {
-    font-size: 1.6rem;
-  }
-}
-
-/* Small mobile */
-@media (max-width: 480px) {
-  .meet20-journey {
-    --lane-width: 58px;
-    --loop-size: 58px;
-    padding: 1.5rem 0 3rem;
-  }
-
-  .meet20-hero-wrapper {
-    padding: 0 0.75rem 1rem;
-  }
-
-  .meet20-story-wrapper {
-    gap: 0.75rem;
-    padding: 0 0.75rem;
-  }
-
-  .journey-visual-layer {
-    left: 0.75rem;
-  }
-
-  .story-content {
-    margin-left: calc(var(--lane-width) + 0.75rem);
-  }
-
-  .plane {
-    width: 62px;
-    height: 62px;
-  }
-
-  .meet20-journey-title {
-    font-size: 1.3rem;
+  .meet20-story-image {
+    order: 2;
+    width: 100%;
+    height: 46vw;
+    min-height: 260px;
+    max-height: 420px;
   }
 
   .meet20-story-title {
-    font-size: 1.1rem;
+    font-size: clamp(1.6rem, 6vw, 2.25rem);
   }
 
   .meet20-story-text p {
-    font-size: 0.8rem;
+    font-size: 0.92rem;
+    line-height: 1.65;
   }
 
-  .meet20-metrics-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .meet20-metric-item {
-    padding: 1rem;
-  }
-
-  .meet20-metric-number {
-    font-size: 1.3rem;
-  }
-
-  .meet20-quote {
-    padding-left: 0.6rem;
-    font-size: 0.85rem;
+  #story-metrics {
+    margin-top: 2rem;
   }
 }
 
-/* Respect users who request reduced motion. */
 @media (prefers-reduced-motion: reduce) {
-  .journey-visual-layer {
-    display: none;
+  .meet20-story-stage {
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+  }
+
+  .meet20-story-stage .meet20-story-chapter {
+    position: relative !important;
+    inset: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+}
+
+#tiles-animation-section {
+  position: relative;
+  width: 100%;
+  padding: 30px 20px 60px;
+  background: var(--white, #fff);
+  overflow: visible;
+  isolation: isolate;
+}
+
+#tiles-animation-section .team-heading {
+  position: relative;
+  z-index: 5;
+  margin-bottom: 110px;
+}
+
+#tiles-animation-section .tiles-wrap {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 140px 0;
+  width: min(1250px, 100%);
+  margin: 0 auto;
+  overflow: visible;
+}
+
+#tiles-animation-section .tile {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  opacity: 0;
+  transform: translate3d(0, 18vh, 0) rotateZ(0deg) scale(0.75);
+  transform-origin: 50% 100vh;
+  will-change: transform, opacity;
+  contain: layout paint;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: none !important;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#tiles-animation-section .tile img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+#tiles-animation-section .tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08),
+    transparent 40%
+  );
+}
+
+@media (max-width: 900px) {
+  #tiles-animation-section {
+    padding-bottom: 300px;
+  }
+  #tiles-animation-section .team-heading {
+    margin-bottom: 90px;
+  }
+  #tiles-animation-section .tiles-wrap {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    row-gap: 100px;
+  }
+}
+
+@media (max-width: 600px) {
+  #tiles-animation-section {
+    padding: 70px 16px 240px;
+  }
+  #tiles-animation-section .team-heading {
+    margin-bottom: 70px;
+  }
+  #tiles-animation-section .tiles-wrap {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 70px;
+  }
+  #tiles-animation-section .tile {
+    transform-origin: 50% 80vh;
+  }
+}
+
+@media (max-width: 400px) {
+  #tiles-animation-section {
+    padding-bottom: 200px;
+  }
+  #tiles-animation-section .tiles-wrap {
+    row-gap: 50px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #tiles-animation-section .tile {
+    opacity: 1 !important;
+    transform: none !important;
+    will-change: auto;
   }
 }

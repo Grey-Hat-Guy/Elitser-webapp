@@ -14979,6 +14979,42 @@
   object-position: center;
 }
 
+.meet20-scroll-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 2rem 0 1.5rem;
+  background: var(--white);
+}
+
+.meet20-scroll-indicator span {
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+
+.meet20-scroll-indicator i {
+  font-size: 1.2rem;
+  color: var(--red);
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 1;
+  }
+}
+
 /* ========== MEET20 - THANK YOU / 20 YEARS SECTION ========== */
 .meet20-thanks {
   padding: 6rem 2rem;
@@ -15903,7 +15939,7 @@
 
 /* ========== MEET20 - TEAM SECTION ========== */
 .meet20-team {
-  padding: 6rem 2rem 8rem;
+  padding: 2rem 8rem;
   background: var(--white);
   position: relative;
   overflow: hidden;
@@ -16015,6 +16051,60 @@
 .team-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
+}
+
+.team-video-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  background: #000;
+}
+
+.team-video-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.team-card.video-playing .team-card-image-wrap {
+  opacity: 0;
+}
+
+.team-card.video-playing .team-video-container {
+  display: block !important;
+}
+
+.team-video-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 20;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.team-card.video-playing .team-video-close {
+  opacity: 1;
+}
+
+.team-video-close:hover {
+  background: var(--red);
+  transform: scale(1.1);
 }
 
 .team-card-image-wrap {
@@ -16716,7 +16806,7 @@
 
 /* ========== MEET20 - FOOTER SECTION ========== */
 .meet20-footer {
-  padding: 6rem 2rem 0;
+  padding: 2rem 2rem 0;
   background: #0a0a0a;
   position: relative;
   overflow: hidden;
@@ -17054,6 +17144,23 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+#story-metrics .meet20-story-chapter {
+  display: block;
+}
+
+#story-metrics .meet20-story-content {
+  max-width: 100%;
+  text-align: center;
+}
+
+#story-metrics .global-presence {
+  justify-content: center;
+}
+
+#story-metrics .meet20-metrics-grid {
+  margin: 0 auto;
 }
 
 .meet20-story-title {

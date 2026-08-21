@@ -3,389 +3,387 @@ export function initMeet20Animation() {
     return;
   }
 
-  if (typeof gsap === "undefined") {
-    console.warn("GSAP not loaded — Meet20 animation skipped.");
+  initJourneyChapterAnimation();
+
+  initTimelessMomentsAnimation();
+}
+
+function initJourneyChapterAnimation() {
+  const journey = document.querySelector(".meet20-journey");
+  const stage = document.querySelector(".meet20-story-stage");
+
+  if (!journey || !stage) {
+    console.warn("Meet20: #journey or #storyStage not found.");
     return;
   }
 
-  if (typeof ScrollTrigger === "undefined") {
-    console.warn("ScrollTrigger not loaded — Meet20 animation skipped.");
+  const chapters = Array.from(stage.querySelectorAll(".meet20-story-chapter"));
+
+  if (chapters.length < 3) {
+    console.warn("Meet20: Expected at least 3 story chapters.");
     return;
   }
 
-  if (typeof MotionPathPlugin === "undefined") {
-    console.warn("MotionPathPlugin not loaded — Meet20 animation skipped.");
+  if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") {
+    console.warn("Meet20: GSAP / ScrollTrigger not loaded.");
     return;
   }
 
-  gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
+  gsap.registerPlugin(ScrollTrigger);
 
-  const journey = document.querySelector("#journey");
-  const storyWrapper = document.querySelector(".meet20-story-wrapper");
-  const visualLayer = document.querySelector("#animationLane");
-  const svg = document.querySelector("#journeySvg");
-  const plane = document.querySelector("#plane");
-
-  if (!journey || !storyWrapper || !visualLayer || !svg || !plane) {
-    console.warn("Meet20 animation container is missing.");
-    return;
-  }
-
-  const anchors = [
-    document.querySelector("#story-anchor-hero"),
-    document.querySelector("#story-anchor-1"),
-    document.querySelector("#story-anchor-2"),
-    document.querySelector("#story-anchor-3"),
-    document.querySelector("#story-anchor-4"),
-  ];
-
-  const loops = [1, 2, 3, 4].map((index) =>
-    document.querySelector(`#loop${index}`),
-  );
-
-  const connectors = [0, 1, 2, 3].map((index) =>
-    document.querySelector(`#connector${index}`),
-  );
-
-  if (
-    anchors.some((anchor) => !anchor) ||
-    loops.some((loop) => !loop) ||
-    connectors.some((connector) => !connector)
-  ) {
-    console.warn("Meet20 animation anchors or SVG paths are missing.");
-    return;
-  }
-
-  const planeWidth = 86;
-  const planeHeight = 86;
-
-  let timeline = null;
-  let resizeTimer = null;
-  let initialized = false;
-  let lastScrollPosition = null;
-
-  function getLoopRadius() {
-    const journeyStyles = getComputedStyle(journey);
-    const configuredSize = parseFloat(
-      journeyStyles.getPropertyValue("--loop-size"),
-    );
-
-    if (Number.isFinite(configuredSize) && configuredSize > 0) {
-      return configuredSize / 2;
-    }
-
-    if (window.innerWidth <= 480) return 29;
-    if (window.innerWidth <= 768) return 37;
-    if (window.innerWidth <= 1024) return 55;
-
-    return 62;
-  }
-
-  function getDocumentPoint(element) {
-    const rect = element.getBoundingClientRect();
-
-    return {
-      x: rect.left + rect.width / 2 + window.scrollX,
-      y: rect.top + rect.height / 2 + window.scrollY,
-    };
-  }
-
-  function getLocalPoint(element, referenceRect) {
-    const rect = element.getBoundingClientRect();
-
-    return {
-      x: rect.left + rect.width / 2 - referenceRect.left,
-      y: rect.top + rect.height / 2 - referenceRect.top,
-    };
-  }
-
-  function getCirclePath(center, radius) {
-    const startX = center.x;
-    const startY = center.y - radius;
-
-    const oppositeX = center.x;
-    const oppositeY = center.y + radius;
-
-    return [
-      `M ${startX} ${startY}`,
-      `A ${radius} ${radius} 0 1 1 ${oppositeX} ${oppositeY}`,
-      `A ${radius} ${radius} 0 1 1 ${startX} ${startY}`,
-    ].join(" ");
-  }
-
-  function getConnectorPath(from, to) {
-    const distance = Math.abs(to.y - from.y);
-    const direction = to.y >= from.y ? 1 : -1;
-    const curve = Math.max(28, Math.min(100, distance * 0.28));
-
-    const controlPoint1 = {
-      x: from.x,
-      y: from.y + curve * direction,
-    };
-
-    const controlPoint2 = {
-      x: to.x,
-      y: to.y - curve * direction,
-    };
-
-    return [
-      `M ${from.x} ${from.y}`,
-      `C ${controlPoint1.x} ${controlPoint1.y}`,
-      `${controlPoint2.x} ${controlPoint2.y}`,
-      `${to.x} ${to.y}`,
-    ].join(" ");
-  }
-
-  function setPath(element, pathData) {
-    element.setAttribute("d", pathData);
-  }
-
-  function getLayout() {
-    const visualRect = visualLayer.getBoundingClientRect();
-    const wrapperRect = storyWrapper.getBoundingClientRect();
-
-    const svgWidth = Math.max(1, visualRect.width);
-    const svgHeight = Math.max(1, storyWrapper.offsetHeight);
-
-    svg.setAttribute("viewBox", `0 0 ${svgWidth} ${svgHeight}`);
-    svg.setAttribute("width", svgWidth);
-    svg.setAttribute("height", svgHeight);
-
-    const localAnchorPoints = anchors.map((anchor) =>
-      getLocalPoint(anchor, visualRect),
-    );
-
-    const documentAnchorPoints = anchors.map((anchor) =>
-      getDocumentPoint(anchor),
-    );
-
-    const laneCenterX = svgWidth / 2;
-    const loopRadius = getLoopRadius();
-
-    const loopCenters = localAnchorPoints.slice(1).map((point) => ({
-      x: laneCenterX,
-      y: point.y + visualRect.top - wrapperRect.top,
-    }));
-
-    const loopJoinPoints = loopCenters.map((center) => ({
-      x: center.x,
-      y: center.y - loopRadius,
-    }));
-
-    setPath(
-      connectors[0],
-      getConnectorPath(localAnchorPoints[0], loopJoinPoints[0]),
-    );
-
-    setPath(loops[0], getCirclePath(loopCenters[0], loopRadius));
-
-    setPath(
-      connectors[1],
-      getConnectorPath(loopJoinPoints[0], loopJoinPoints[1]),
-    );
-
-    setPath(loops[1], getCirclePath(loopCenters[1], loopRadius));
-
-    setPath(
-      connectors[2],
-      getConnectorPath(loopJoinPoints[1], loopJoinPoints[2]),
-    );
-
-    setPath(loops[2], getCirclePath(loopCenters[2], loopRadius));
-
-    setPath(
-      connectors[3],
-      getConnectorPath(loopJoinPoints[2], loopJoinPoints[3]),
-    );
-
-    setPath(loops[3], getCirclePath(loopCenters[3], loopRadius));
-
-    return {
-      localAnchorPoints,
-      documentAnchorPoints,
-      loopCenters,
-      loopJoinPoints,
-    };
-  }
-
-  function getChapterProgress(documentAnchorPoints) {
-    const firstY = documentAnchorPoints[0].y;
-    const finalY = documentAnchorPoints[documentAnchorPoints.length - 1].y;
-
-    const totalDistance = Math.max(1, finalY - firstY);
-
-    return documentAnchorPoints.map((point) => {
-      return gsap.utils.clamp(0, 1, (point.y - firstY) / totalDistance);
-    });
-  }
-
-  function getPathLengths(pathSequence) {
-    return pathSequence.map((selector) => {
-      const path = document.querySelector(selector);
-
-      if (!path) {
-        return 1;
-      }
-
-      return Math.max(1, path.getTotalLength());
-    });
-  }
-
-  function calculateDurations(chapterProgress, pathSequence) {
-    const chapterSizes = [
-      chapterProgress[1] - chapterProgress[0],
-      chapterProgress[2] - chapterProgress[1],
-      chapterProgress[3] - chapterProgress[2],
-      chapterProgress[4] - chapterProgress[3],
-    ];
-
-    const pathLengths = getPathLengths(pathSequence);
-
-    const chapterGroups = [
-      [0, 1],
-      [2, 3],
-      [4, 5],
-      [6, 7],
-    ];
-
-    const durations = new Array(pathSequence.length).fill(0);
-
-    chapterGroups.forEach((group, chapterIndex) => {
-      const totalPathLength = group.reduce(
-        (total, pathIndex) => total + pathLengths[pathIndex],
-        0,
-      );
-
-      group.forEach((pathIndex) => {
-        const pathShare = pathLengths[pathIndex] / totalPathLength;
-
-        durations[pathIndex] = chapterSizes[chapterIndex] * pathShare;
+  if (window.matchMedia("(max-width: 768px)").matches) {
+    chapters.forEach((chapter) => {
+      gsap.set(chapter, {
+        clearProps: "all",
+        autoAlpha: 1,
+        yPercent: 0,
+        y: 0,
       });
     });
 
-    return durations;
+    ScrollTrigger.getAll().forEach((trigger) => {
+      if (trigger.vars && trigger.vars.id === "meet20-story-timeline") {
+        trigger.kill();
+      }
+    });
+
+    return;
   }
 
-  function getAnchorScrollPosition(anchor) {
-    const rect = anchor.getBoundingClientRect();
-
-    return rect.top + window.scrollY;
-  }
-
-  function killTimeline() {
-    if (timeline) {
-      timeline.kill();
-      timeline = null;
-    }
-
-    const trigger = ScrollTrigger.getById("meet20JourneyTrigger");
-
-    if (trigger) {
+  ScrollTrigger.getAll().forEach((trigger) => {
+    if (trigger.vars && trigger.vars.id === "meet20-story-timeline") {
       trigger.kill();
     }
+  });
+
+  gsap.set(chapters, {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    autoAlpha: 0,
+    yPercent: 100,
+  });
+
+  gsap.set(chapters[0], {
+    autoAlpha: 1,
+    yPercent: 0,
+  });
+
+  const timeline = gsap.timeline({
+    defaults: {
+      ease: "power2.inOut",
+    },
+    scrollTrigger: {
+      id: "meet20-story-timeline",
+      trigger: stage,
+      start: "top top+=40px",
+      end: "+=800",
+      pin: true,
+      pinSpacing: true,
+      scrub: 0.8,
+      anticipatePin: 1,
+      invalidateOnRefresh: true,
+    },
+  });
+
+  timeline.to(
+    chapters[0],
+    {
+      yPercent: -100,
+      autoAlpha: 0,
+      duration: 0.9,
+    },
+    0,
+  );
+
+  timeline.fromTo(
+    chapters[1],
+    {
+      yPercent: 100,
+      autoAlpha: 0,
+    },
+    {
+      yPercent: 0,
+      autoAlpha: 1,
+      duration: 0.9,
+    },
+    "<",
+  );
+
+  timeline.to(
+    {},
+    {
+      duration: 0.2,
+    },
+    "+=0.05",
+  );
+
+  timeline.to(
+    chapters[1],
+    {
+      yPercent: -100,
+      autoAlpha: 0,
+      duration: 0.9,
+    },
+    "+=0.1",
+  );
+
+  timeline.fromTo(
+    chapters[2],
+    {
+      yPercent: 100,
+      autoAlpha: 0,
+    },
+    {
+      yPercent: 0,
+      autoAlpha: 1,
+      duration: 0.9,
+    },
+    "<",
+  );
+
+  timeline.to(
+    {},
+    {
+      duration: 0.25,
+    },
+    "+=0.05",
+  );
+
+  ScrollTrigger.refresh();
+
+  let resizeTimer = null;
+
+  window.addEventListener(
+    "resize",
+    () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 150);
+    },
+    {
+      passive: true,
+    },
+  );
+
+  window.addEventListener(
+    "orientationchange",
+    () => {
+      setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 300);
+    },
+    {
+      passive: true,
+    },
+  );
+}
+
+function initTimelessMomentsAnimation() {
+  const section = document.querySelector("#tiles-animation-section");
+  const wrap = section?.querySelector(".tiles-wrap");
+
+  if (!section || !wrap) {
+    return;
   }
 
-  function buildTimeline(preserveScrollPosition = true) {
-    const currentScrollPosition = window.scrollY;
+  const tiles = Array.from(wrap.querySelectorAll(":scope > .tile"));
 
-    killTimeline();
+  if (!tiles.length) {
+    return;
+  }
 
-    const layout = getLayout();
+  if (typeof gsap !== "undefined") {
+    gsap.killTweensOf(tiles);
+  }
 
-    const pathSequence = [
-      "#connector0",
-      "#loop1",
-      "#connector1",
-      "#loop2",
-      "#connector2",
-      "#loop3",
-      "#connector3",
-      "#loop4",
-    ];
-
-    const chapterProgress = getChapterProgress(layout.documentAnchorPoints);
-
-    const durations = calculateDurations(chapterProgress, pathSequence);
-
-    const heroScrollPosition = getAnchorScrollPosition(anchors[0]);
-
-    const finalStoryScrollPosition = getAnchorScrollPosition(anchors[4]);
-
-    const scrollDistance = Math.max(
-      1,
-      finalStoryScrollPosition - heroScrollPosition,
-    );
-
-    gsap.set(plane, {
-      x: layout.localAnchorPoints[0].x - planeWidth / 2,
-      y: layout.localAnchorPoints[0].y - planeHeight / 2,
-      opacity: 1,
-      transformOrigin: "50% 50%",
+  if (typeof ScrollTrigger !== "undefined") {
+    ScrollTrigger.getAll().forEach((trigger) => {
+      const triggerElement = trigger.trigger;
+      if (
+        triggerElement &&
+        (tiles.includes(triggerElement) || section.contains(triggerElement))
+      ) {
+        trigger.kill();
+      }
     });
+  }
 
-    timeline = gsap.timeline({
-      defaults: {
-        ease: "none",
-      },
+  const ANIMATION_DISTANCE = 1.25;
+  const END_VIEWPORT = 0.55;
+  const START_VIEWPORT = END_VIEWPORT + ANIMATION_DISTANCE;
 
-      scrollTrigger: {
-        id: "meet20JourneyTrigger",
+  let rows = [];
+  let rowPositions = [];
+  let ticking = false;
+  let layoutTimer = null;
+  let initialized = false;
 
-        start: heroScrollPosition,
-        end: heroScrollPosition + scrollDistance,
+  function clamp(value, min, max) {
+    return Math.max(min, Math.min(max, value));
+  }
 
-        scrub: true,
+  function buildRows() {
+    const grouped = [];
+    const tolerance = 3;
 
-        invalidateOnRefresh: true,
-        anticipatePin: 0,
-      },
-    });
+    tiles.forEach((tile) => {
+      let top = tile.offsetTop;
+      let parent = tile.offsetParent;
 
-    let timelineCursor = 0;
+      while (parent && parent !== document.body) {
+        top += parent.offsetTop;
+        parent = parent.offsetParent;
+      }
 
-    pathSequence.forEach((path, index) => {
-      timeline.to(
-        plane,
-        {
-          duration: durations[index],
-          motionPath: {
-            path,
-            align: path,
-            alignOrigin: [0.5, 0.5],
-            autoRotate: true,
-          },
-        },
-        timelineCursor,
+      let row = grouped.find(
+        (candidate) => Math.abs(candidate.top - top) <= tolerance,
       );
 
-      timelineCursor += durations[index];
+      if (!row) {
+        row = {
+          top,
+          tiles: [],
+        };
+        grouped.push(row);
+      }
+
+      row.tiles.push(tile);
     });
 
-    if (preserveScrollPosition && Number.isFinite(currentScrollPosition)) {
-      lastScrollPosition = currentScrollPosition;
-    }
+    grouped.sort((a, b) => a.top - b.top);
+
+    grouped.forEach((row) => {
+      row.tiles.sort((a, b) => a.offsetLeft - b.offsetLeft);
+    });
+
+    rows = grouped;
+    rowPositions = rows.map((row) => row.top);
   }
 
-  function refreshAnimation() {
-    window.clearTimeout(resizeTimer);
+  function getProgress(rowTop, scrollY, viewportHeight) {
+    const start = scrollY + viewportHeight * START_VIEWPORT;
+    const end = scrollY + viewportHeight * END_VIEWPORT;
+    return clamp((start - rowTop) / (start - end), 0, 1);
+  }
 
-    resizeTimer = window.setTimeout(() => {
-      const currentScroll = window.scrollY;
+  function getAnimation(column, columnCount, progress) {
+    const reverse = 1 - progress;
 
-      buildTimeline(true);
+    if (columnCount <= 1) {
+      return {
+        rotate: 0,
+        scale: 0.75 + 0.25 * progress,
+        translateX: 0,
+        translateY: 18 * reverse,
+      };
+    }
 
-      ScrollTrigger.refresh(true);
+    if (columnCount === 2) {
+      const isLeft = column === 0;
+      return {
+        rotate: (isLeft ? -120 : 120) * reverse,
+        scale: 0.05 + 0.95 * progress,
+        translateX: (isLeft ? -30 : 30) * reverse,
+        translateY: 18 * reverse,
+      };
+    }
 
-      requestAnimationFrame(() => {
-        window.scrollTo({
-          top: currentScroll,
-          left: 0,
-          behavior: "auto",
-        });
+    if (columnCount === 3) {
+      if (column === 0) {
+        return {
+          rotate: -120 * reverse,
+          scale: 0.05 + 0.95 * progress,
+          translateX: -30 * reverse,
+          translateY: 18 * reverse,
+        };
+      }
 
-        ScrollTrigger.update();
+      if (column === 1) {
+        return {
+          rotate: 0,
+          scale: 0.75 + 0.25 * progress,
+          translateX: 0,
+          translateY: 18 * reverse,
+        };
+      }
+
+      return {
+        rotate: 120 * reverse,
+        scale: 0.05 + 0.95 * progress,
+        translateX: 30 * reverse,
+        translateY: 18 * reverse,
+      };
+    }
+
+    const middle = (columnCount - 1) / 2;
+    const normalized = middle === 0 ? 0 : (column - middle) / middle;
+
+    return {
+      rotate: 120 * normalized * reverse,
+      scale: 0.75 + 0.25 * progress,
+      translateX: 30 * normalized * reverse,
+      translateY: 18 * reverse,
+    };
+  }
+
+  function applyTile(tile, column, columnCount, progress) {
+    const animation = getAnimation(column, columnCount, progress);
+
+    tile.style.opacity = progress.toFixed(4);
+
+    tile.style.transform =
+      `translate3d(` +
+      `${animation.translateX.toFixed(2)}px, ` +
+      `${animation.translateY.toFixed(2)}vh, ` +
+      `0) ` +
+      `rotateZ(` +
+      `${animation.rotate.toFixed(2)}deg` +
+      `) ` +
+      `scale(` +
+      `${animation.scale.toFixed(4)}` +
+      `)`;
+  }
+
+  function update() {
+    ticking = false;
+
+    const scrollY = window.scrollY;
+    const viewportHeight = window.innerHeight;
+
+    rows.forEach((row, rowIndex) => {
+      const progress = getProgress(
+        rowPositions[rowIndex],
+        scrollY,
+        viewportHeight,
+      );
+
+      const columnCount = row.tiles.length;
+
+      row.tiles.forEach((tile, column) => {
+        applyTile(tile, column, columnCount, progress);
       });
-    }, 120);
+    });
+  }
+
+  function requestUpdate() {
+    if (ticking) {
+      return;
+    }
+
+    ticking = true;
+    requestAnimationFrame(update);
+  }
+
+  function rebuildLayout() {
+    window.clearTimeout(layoutTimer);
+
+    layoutTimer = window.setTimeout(() => {
+      buildRows();
+      requestUpdate();
+    }, 80);
   }
 
   function initialize() {
@@ -395,25 +393,43 @@ export function initMeet20Animation() {
 
     initialized = true;
 
-    buildTimeline(false);
-    ScrollTrigger.refresh(true);
+    buildRows();
+    update();
 
-    window.addEventListener("resize", refreshAnimation, { passive: true });
-
-    window.addEventListener("orientationchange", refreshAnimation, {
+    window.addEventListener("scroll", requestUpdate, {
       passive: true,
     });
 
-    window.addEventListener("load", refreshAnimation, { once: true });
+    window.addEventListener("resize", rebuildLayout, {
+      passive: true,
+    });
 
-    if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(refreshAnimation);
+    window.addEventListener("orientationchange", rebuildLayout, {
+      passive: true,
+    });
+
+    window.addEventListener("load", rebuildLayout, {
+      once: true,
+    });
+
+    if (document.fonts?.ready) {
+      document.fonts.ready.then(rebuildLayout);
     }
   }
 
+  initialize();
+}
+
+if (typeof document !== "undefined") {
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initialize, { once: true });
+    document.addEventListener("DOMContentLoaded", function () {
+      if (typeof initMeet20Animation === "function") {
+        initMeet20Animation();
+      }
+    });
   } else {
-    initialize();
+    if (typeof initMeet20Animation === "function") {
+      initMeet20Animation();
+    }
   }
 }
