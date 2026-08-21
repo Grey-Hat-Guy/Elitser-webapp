@@ -195,6 +195,11 @@ function initTimelessMomentsAnimation() {
     return;
   }
 
+  tiles.forEach((tile) => {
+    tile.style.opacity = "1";
+    tile.style.transform = "none";
+  });
+
   if (typeof gsap !== "undefined") {
     gsap.killTweensOf(tiles);
   }
@@ -212,7 +217,7 @@ function initTimelessMomentsAnimation() {
   }
 
   const ANIMATION_DISTANCE = 1.25;
-  const END_VIEWPORT = 0.55;
+  const END_VIEWPORT = 2.5;
   const START_VIEWPORT = END_VIEWPORT + ANIMATION_DISTANCE;
 
   let rows = [];
@@ -417,6 +422,7 @@ function initTimelessMomentsAnimation() {
     }
   }
 
+  setTimeout(update, 100);
   initialize();
 }
 

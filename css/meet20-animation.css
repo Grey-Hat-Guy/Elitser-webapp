@@ -249,8 +249,10 @@
   width: 100%;
   aspect-ratio: 1 / 1;
   overflow: hidden;
-  opacity: 0;
-  transform: translate3d(0, 18vh, 0) rotateZ(0deg) scale(0.75);
+  /* opacity: 0; */
+  opacity: 1 !important;
+  /* transform: translate3d(0, 18vh, 0) rotateZ(0deg) scale(0.75); */
+  transform: translate3d(0, 0, 0) rotateZ(0deg) scale(1) !important;
   transform-origin: 50% 100vh;
   will-change: transform, opacity;
   contain: layout paint;
@@ -332,18 +334,17 @@
   }
 }
 
+/* Style the video frame */
+video {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
 
- /* Style the video frame */
-        video {
-            width: 100%;
-            max-width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .presence-numbers {
+.presence-numbers {
   font-size: 1.5rem;
   font-weight: 800;
   color: var(--white);
@@ -353,7 +354,6 @@
   font-size: 0.8rem;
   color: var(--grey);
 }
-
 
 .video-grid {
   display: grid;
