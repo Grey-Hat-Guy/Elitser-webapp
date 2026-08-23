@@ -35,6 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initTestimonials();
   initMeet20Animation();
   initTeamVideos();
+  initStatsCounter();
+  setTimeout(updateParchmentUnroll, 100);
 });
 
 window.addEventListener("componentsLoaded", () => {
@@ -906,7 +908,115 @@ gsap.utils.toArray(".tile").forEach((tile, i) => {
     opacity: 0,
     y: 100,
     duration: 0.8,
-    delay: i * 0.1, // Staggered entry
+    delay: i * 0.1,
     ease: "power2.out",
   });
 });
+
+function initStatsCounter() {
+  const counters = document.querySelectorAll(".meet20-stat-number");
+  if (!counters.length) return;
+
+  const speed = 120;
+
+  function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return rect.top <= window.innerHeight && rect.bottom >= 0;
+  }
+
+  function updateCount(counter) {
+    const target = +counter.getAttribute("data-target");
+    const count = +counter.innerText.replace("+", "");
+    const inc = Math.max(1, Math.ceil(target / speed));
+
+    if (count < target) {
+      counter.innerText = Math.min(target, count + inc) + "+";
+      setTimeout(() => updateCount(counter), 20);
+    } else {
+      counter.innerText = target + "+";
+    }
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const counter = entry.target;
+          if (counter.innerText === "0" || counter.innerText === "0+") {
+            updateCount(counter);
+          }
+          observer.unobserve(counter);
+        }
+      });
+    },
+    { threshold: 0.3 },
+  );
+
+  counters.forEach((counter) => {
+    observer.observe(counter);
+  });
+
+  counters.forEach((counter) => {
+    if (
+      isInViewport(counter) &&
+      (counter.innerText === "0" || counter.innerText === "0+")
+    ) {
+      updateCount(counter);
+      observer.unobserve(counter);
+    }
+  });
+}
+
+function updateParchmentUnroll() {
+  const triggerSection = document.getElementById("scrollTriggerSection");
+  const parchmentPaper = document.getElementById("parchmentPaper");
+  const bottomDowel = document.getElementById("bottomDowel");
+
+  if (!triggerSection || !parchmentPaper) return;
+
+  const rect = triggerSection.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+
+  // Start earlier and end later for full unroll
+  const startPoint = windowHeight * 0.5;
+  const endPoint = startPoint + rect.height * 1.0;
+
+  let progress = (startPoint - rect.top) / (endPoint - rect.top);
+  progress = Math.min(Math.max(progress, 0), 1);
+
+  // Smooth easing for natural feel
+  const easedProgress = 1 - Math.pow(1 - progress, 2);
+
+  // Unroll from top (0%) to bottom (100%)
+  const revealedPercentage = easedProgress * 100;
+  parchmentPaper.style.clipPath = `inset(0% 0% ${100 - revealedPercentage}% 0%)`;
+
+  // Fade in as it unrolls
+  parchmentPaper.style.opacity = Math.min(easedProgress * 1.2, 1);
+
+  // Move bottom dowel with the paper edge
+  if (bottomDowel) {
+    const totalPaperHeight = parchmentPaper.scrollHeight || 800;
+    const dowelOffset = (revealedPercentage / 100) * totalPaperHeight;
+    const maxOffset = totalPaperHeight - 40;
+    bottomDowel.style.transform = `translateY(${Math.min(dowelOffset, maxOffset)}px)`;
+    bottomDowel.style.opacity = Math.min(easedProgress * 1.5, 1);
+  }
+}
+
+let ticking = false;
+window.addEventListener(
+  "scroll",
+  function () {
+    if (!ticking) {
+      window.requestAnimationFrame(function () {
+        updateParchmentUnroll();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  },
+  { passive: true },
+);
+
+window.addEventListener("resize", updateParchmentUnroll);
