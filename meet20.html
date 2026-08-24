@@ -17,28 +17,6 @@
     />
 
     <link rel="stylesheet" href="/css/style.css" />
-    <link rel="stylesheet" href="/css/meet20-animation.css" />
-    <style>
-      video {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        display: block;
-        border-radius: 8px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      }
-
-      .presence-numbers {
-        font-size: 1.5rem;
-        font-weight: 800;
-        color: var(--white);
-      }
-
-      .presence-label {
-        font-size: 0.8rem;
-        color: var(--grey);
-      }
-    </style>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -80,162 +58,152 @@
       </div>
     </section>
 
-    <section
-      id="scrollTriggerSection"
-      class="meet20-parchment parchment-viewport"
-    >
-      <div class="parchment-glow"></div>
-
-      <div class="parchment-scroll-container">
-        <!-- Top Wooden Dowel Handle -->
-        <div class="scroll-dowel">
-          <div class="dowel-cap dowel-cap-left"></div>
-          <div class="dowel-cap dowel-cap-right"></div>
-        </div>
-
-        <!-- Parchment Paper Wrapper -->
-        <div id="parchmentPaper" class="parchment-paper">
-          <!-- SVG Watermark Background -->
-          <div class="parchment-watermark">
-            <svg
-              width="450"
-              height="450"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#1a1612"
-              stroke-width="1"
-            >
-              <path
-                d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
-              />
-            </svg>
-          </div>
-
-          <!-- Corner Flourishes -->
+    <div class="scroll-pin-container" id="pinContainer">
+      <section class="vintage-scroll-section">
+        <div class="scroll-wrapper">
           <svg
-            class="corner-flourish corner-tl"
-            viewBox="0 0 100 100"
-            fill="currentColor"
+            class="scroll-svg-top"
+            viewBox="0 0 600 60"
+            preserveAspectRatio="none"
           >
             <path
-              d="M10,10 L40,10 C25,10 10,25 10,40 L10,10 Z M20,20 C35,20 20,35 20,50 C20,35 35,20 50,20 L20,20 Z"
+              d="M120,30 L90,60 L110,60 L135,35 Z"
+              fill="#72231e"
+              opacity="0.9"
             />
-          </svg>
-          <svg
-            class="corner-flourish corner-tr"
-            viewBox="0 0 100 100"
-            fill="currentColor"
-          >
             <path
-              d="M10,10 L40,10 C25,10 10,25 10,40 L10,10 Z M20,20 C35,20 20,35 20,50 C20,35 35,20 50,20 L20,20 Z"
+              d="M480,30 L510,60 L490,60 L465,35 Z"
+              fill="#72231e"
+              opacity="0.9"
             />
-          </svg>
-          <svg
-            class="corner-flourish corner-bl"
-            viewBox="0 0 100 100"
-            fill="currentColor"
-          >
-            <path
-              d="M10,10 L40,10 C25,10 10,25 10,40 L10,10 Z M20,20 C35,20 20,35 20,50 C20,35 35,20 50,20 L20,20 Z"
+            <path d="M100,30 L75,55 L90,55 L110,33 Z" fill="#4d1411" />
+            <path d="M500,30 L525,55 L510,55 L490,33 Z" fill="#4d1411" />
+            <path d="M0,22 Q300,4 600,22 L600,40 L0,40 Z" fill="#1b0f07" />
+            <path d="M0,16 Q300,0 600,16 Q300,9 0,16" fill="#3d220e" />
+            <ellipse
+              cx="300"
+              cy="18"
+              rx="300"
+              ry="7"
+              fill="#5c3415"
+              stroke="#120803"
+              stroke-width="1.5"
             />
-          </svg>
-          <svg
-            class="corner-flourish corner-br"
-            viewBox="0 0 100 100"
-            fill="currentColor"
-          >
-            <path
-              d="M10,10 L40,10 C25,10 10,25 10,40 L10,10 Z M20,20 C35,20 20,35 20,50 C20,35 35,20 50,20 L20,20 Z"
+            <circle
+              cx="16"
+              cy="18"
+              r="6"
+              fill="#1b0f07"
+              stroke="#b0863b"
+              stroke-width="1.5"
+            />
+            <circle
+              cx="584"
+              cy="18"
+              r="6"
+              fill="#1b0f07"
+              stroke="#b0863b"
+              stroke-width="1.5"
             />
           </svg>
 
-          <!-- Commemorative Wax Seal -->
-          <div class="wax-seal-wrapper">
-            <div class="wax-seal">
-              <div class="wax-seal-inner">
-                <span class="wax-seal-flag">UAE</span>
-                <span class="wax-seal-number">20</span>
-                <span class="wax-seal-text">YEARS</span>
+          <div class="scroll-body" id="scrollBody">
+            <div class="letter-content" id="letterContent">
+              <h2>Twenty Years of Excellence</h2>
+              <h3>Elitser &amp; ManageEngine</h3>
+
+              <p class="intro-lead">
+                For 20 years, Elitser has proudly served as the sole partner of
+                ManageEngine in the UAE. Reaching this incredible milestone is a
+                celebration of shared success, built alongside the people who
+                make our journey possible.
+              </p>
+
+              <div class="section-divider-title">
+                Thank you to everyone who made this possible
               </div>
-            </div>
-          </div>
 
-          <h2 class="parchment-heading">Twenty Years of Excellence</h2>
-          <p class="parchment-subheading">Elitser & ManageEngine</p>
-          <div class="parchment-divider"></div>
-
-          <!-- Letter Body -->
-          <div class="parchment-body">
-            <p class="parchment-text">
-              <span class="drop-cap">F</span>or 20 years, Elitser has proudly
-              served as the sole partner of ManageEngine in the UAE. Reaching
-              this incredible milestone is a celebration of shared success,
-              built alongside the people who make our journey possible.
-            </p>
-
-            <div class="thank-you-title">
-              <span>Thank you to everyone who made this possible</span>
-            </div>
-
-            <!-- Pillars Grid -->
-            <div class="pillars-grid">
-              <div class="pillar-card">
-                <div class="pillar-icon">
-                  <i class="fa-solid fa-handshake"></i>
+              <div class="highlight-container">
+                <div class="highlight-box">
+                  <strong>To our customers</strong>
+                  <p style="text-align: justify">
+                    Your trust is the driving force behind everything we do.
+                    Thank you for letting us be part of your IT journey and
+                    growth.
+                  </p>
                 </div>
-                <h3 class="pillar-title">To our customers</h3>
-                <p class="pillar-text">
-                  Your trust is the driving force behind everything we do. Thank
-                  you for letting us be part of your IT journey and growth.
-                </p>
-              </div>
 
-              <div class="pillar-card">
-                <div class="pillar-icon">
-                  <i class="fa-solid fa-shield-halved"></i>
+                <div class="highlight-box">
+                  <strong>To ManageEngine &amp; our partners</strong>
+                  <p style="text-align: justify">
+                    Thank you for your world-class technology, collaboration,
+                    and unwavering support in shaping the UAE's digital
+                    landscape.
+                  </p>
                 </div>
-                <h3 class="pillar-title">To ManageEngine & partners</h3>
-                <p class="pillar-text">
-                  Thank you for your world-class technology, collaboration, and
-                  unwavering support in shaping the UAE's digital landscape.
-                </p>
-              </div>
 
-              <div class="pillar-card">
-                <div class="pillar-icon">
-                  <i class="fa-solid fa-users"></i>
+                <div class="highlight-box">
+                  <strong>To our team &amp; employees</strong>
+                  <p style="text-align: justify">
+                    Your dedication, talent, and passion are the true heartbeat
+                    of Elitser. Thank you for turning vision into reality every
+                    single day.
+                  </p>
                 </div>
-                <h3 class="pillar-title">To our team & employees</h3>
-                <p class="pillar-text">
-                  Your dedication, talent, and passion are the true heartbeat of
-                  Elitser. Thank you for turning vision into reality every
-                  single day.
-                </p>
               </div>
-            </div>
 
-            <!-- Closing Toast -->
-            <div class="closing-toast">
-              <svg class="closing-icon" viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M21.5 2.5c-3.25 0-6.5 1.75-9 4.25-2.25 2.25-3.75 5.25-4.25 8.25l-3.25 3.25c-.25.25-.25.75 0 1l1.5 1.5c.25.25.75.25 1 0l3.25-3.25c3-.5 6-2 8.25-4.25 2.5-2.5 4.25-5.75 4.25-9 0-.5-.5-1-1.75-1.75z"
-                />
-              </svg>
-              <p class="closing-text">
-                "Here's to celebrating the past, present, and an even brighter
-                future together!"
+              <p class="footer-note">
+                Here's to celebrating the past, present, and an even brighter
+                future together!
               </p>
             </div>
           </div>
-        </div>
 
-        <!-- Bottom Wooden Dowel Handle -->
-        <div id="bottomDowel" class="scroll-dowel scroll-dowel-bottom">
-          <div class="dowel-cap dowel-cap-left"></div>
-          <div class="dowel-cap dowel-cap-right"></div>
+          <svg
+            class="scroll-svg-bottom"
+            viewBox="0 0 600 60"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M130,20 L105,0 L120,0 L140,15 Z"
+              fill="#72231e"
+              opacity="0.9"
+            />
+            <path
+              d="M470,20 L495,0 L480,0 L460,15 Z"
+              fill="#72231e"
+              opacity="0.9"
+            />
+            <path d="M0,22 Q300,40 600,22 L600,0 L0,0 Z" fill="#1b0f07" />
+            <ellipse
+              cx="300"
+              cy="22"
+              rx="300"
+              ry="7"
+              fill="#5c3415"
+              stroke="#120803"
+              stroke-width="1.5"
+            />
+            <circle
+              cx="16"
+              cy="22"
+              r="6"
+              fill="#1b0f07"
+              stroke="#b0863b"
+              stroke-width="1.5"
+            />
+            <circle
+              cx="584"
+              cy="22"
+              r="6"
+              fill="#1b0f07"
+              stroke="#b0863b"
+              stroke-width="1.5"
+            />
+          </svg>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
     <section class="meet20-stats">
       <div class="meet20-stats-container">
@@ -1153,6 +1121,47 @@
         </div>
       </div>
     </section>
+
+    <script>
+      const pinContainer = document.getElementById("pinContainer");
+      const scrollBody = document.getElementById("scrollBody");
+      const letterContent = document.getElementById("letterContent");
+
+      let targetProgress = 0;
+      let currentProgress = 0;
+
+      window.addEventListener("scroll", () => {
+        const rect = pinContainer.getBoundingClientRect();
+        const containerHeight = pinContainer.offsetHeight - window.innerHeight;
+
+        targetProgress = -rect.top / containerHeight;
+        targetProgress = Math.max(0, Math.min(1, targetProgress));
+      });
+
+      function animateScroll() {
+        currentProgress += (targetProgress - currentProgress) * 0.1;
+
+        const targetHeight = 880;
+        scrollBody.style.maxHeight = currentProgress * targetHeight + "px";
+
+        const paddingVal = Math.floor(currentProgress * 36);
+        scrollBody.style.paddingTop = paddingVal + "px";
+        scrollBody.style.paddingBottom = paddingVal + "px";
+
+        if (currentProgress > 0.1) {
+          const textProgress = (currentProgress - 0.1) / 0.9;
+          letterContent.style.opacity = textProgress;
+          letterContent.style.transform = `translateY(${(1 - textProgress) * 14}px)`;
+        } else {
+          letterContent.style.opacity = 0;
+          letterContent.style.transform = "translateY(14px)";
+        }
+
+        requestAnimationFrame(animateScroll);
+      }
+
+      requestAnimationFrame(animateScroll);
+    </script>
 
     <script src="/js/loadComponents.js"></script>
     <script type="module" src="/js/main.js"></script>
