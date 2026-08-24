@@ -3,8 +3,6 @@ export function initMeet20Animation() {
     return;
   }
   initTimelineScroll();
-  initLeadershipVideos();
-  initBigVideoClose();
   initElegantTestimonials();
   initPledgeScroll();
 }
@@ -52,62 +50,6 @@ function initTimelineScroll() {
       event.classList.add("visible");
     }
   });
-}
-
-function initLeadershipVideos() {
-  const cards = document.querySelectorAll(".meet20-leadership-card");
-
-  cards.forEach((card) => {
-    const videoContainer = card.querySelector(".meet20-leadership-video");
-    const iframe = videoContainer?.querySelector("iframe");
-    const closeBtn = videoContainer?.querySelector(".video-close-btn");
-    const videoSrc = card.getAttribute("data-video");
-
-    if (!videoContainer || !iframe || !videoSrc) return;
-
-    card.addEventListener("click", function (e) {
-      if (e.target.closest(".video-close-btn")) return;
-
-      cards.forEach((otherCard) => {
-        if (otherCard !== this) {
-          otherCard.classList.remove("video-active");
-          const otherIframe = otherCard.querySelector(
-            ".meet20-leadership-video iframe",
-          );
-          if (otherIframe) {
-            otherIframe.src = "";
-          }
-        }
-      });
-
-      this.classList.add("video-active");
-      iframe.src = videoSrc;
-    });
-
-    if (closeBtn) {
-      closeBtn.addEventListener("click", function (e) {
-        e.stopPropagation();
-        card.classList.remove("video-active");
-        iframe.src = "";
-      });
-    }
-  });
-}
-
-function initBigVideoClose() {
-  const closeBtn = document.querySelector(".video-main-close");
-  const videoMain = document.querySelector(".meet20-leadership-video-main");
-  const iframe = videoMain?.querySelector(".video-main-iframe");
-
-  if (closeBtn && videoMain && iframe) {
-    closeBtn.addEventListener("click", function () {
-      const src = iframe.src;
-      iframe.src = "";
-      setTimeout(() => {
-        iframe.src = src;
-      }, 100);
-    });
-  }
 }
 
 function initElegantTestimonials() {
