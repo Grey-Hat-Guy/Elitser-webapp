@@ -17507,7 +17507,6 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #0c0906;
   font-family: "Poppins", sans-serif;
   overflow-x: hidden;
 }
@@ -17527,6 +17526,7 @@ body {
 .scroll-pin-container {
   height: 250vh;
   position: relative;
+  background-color: #0c0906;
 }
 
 .vintage-scroll-section {
@@ -18263,5 +18263,777 @@ body {
   .meet20-quote {
     font-size: 0.9rem;
     padding-left: 0.8rem;
+  }
+}
+
+/* GIFT 20 page */
+.gift20-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-black, #0a0a0a);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.gift20-hero::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(216, 4, 44, 0.04), transparent 70%);
+  pointer-events: none;
+  border-radius: 50%;
+  animation: giftGlowPulse 8s ease-in-out infinite;
+}
+
+@keyframes giftGlowPulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+.gift20-hero-content {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  width: 100%;
+}
+
+.gift20-logos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.gift20-logo {
+  max-width: 280px;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  animation: giftLogoFade 0.8s ease forwards;
+}
+
+.gift20-logo:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.gift20-logo:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.gift20-logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: brightness(0) invert(1);
+}
+
+@keyframes giftLogoFade {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ===== TEXT ===== */
+.gift20-title {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 700;
+  color: var(--white, #ffffff);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: giftTextFade 0.8s ease 0.5s forwards;
+}
+
+.gift20-title span {
+  background: linear-gradient(90deg, var(--red, #d8042c) 0%, #ffffff 60%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  display: inline-block;
+}
+
+.gift20-title span::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--red, #d8042c) 0%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
+  border-radius: 2px;
+}
+
+@keyframes giftTextFade {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gift20-subtitle {
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 300;
+  letter-spacing: 2px;
+  opacity: 0;
+  animation: giftTextFade 0.8s ease 0.7s forwards;
+}
+
+/* ===== SCROLL INDICATOR ===== */
+.gift20-scroll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 3rem;
+  opacity: 0;
+  animation: giftTextFade 0.8s ease 0.9s forwards;
+}
+
+.gift20-scroll span {
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.gift20-scroll i {
+  font-size: 1.2rem;
+  color: var(--red, #d8042c);
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 1;
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .gift20-logo {
+    max-width: 200px;
+  }
+
+  .gift20-title {
+    font-size: 2.2rem;
+  }
+
+  .gift20-scroll {
+    margin-top: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gift20-logo {
+    max-width: 160px;
+  }
+
+  .gift20-title {
+    font-size: 1.8rem;
+  }
+
+  .gift20-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .gift20-hero {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .gift20-title {
+    font-size: 1.5rem;
+  }
+
+  .gift20-logo {
+    max-width: 130px;
+  }
+}
+
+/* ========== GIFT20 - QUOTE SECTION ========== */
+.gift20-quote {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-black, #0a0a0a);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle red glow */
+.gift20-quote::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(216, 4, 44, 0.04), transparent 70%);
+  pointer-events: none;
+  border-radius: 50%;
+  animation: quoteGlowPulse 10s ease-in-out infinite;
+}
+
+@keyframes quoteGlowPulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.3);
+    opacity: 0.7;
+  }
+}
+
+.gift20-quote-content {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  width: 100%;
+}
+
+/* ===== QUOTE MARK ===== */
+.gift20-quote-mark {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(4rem, 8vw, 7rem);
+  line-height: 1;
+  color: var(--red, #d8042c);
+  opacity: 0.15;
+  margin-bottom: 0.5rem;
+  animation: quoteMarkFade 1s ease forwards;
+}
+
+@keyframes quoteMarkFade {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(-10deg);
+  }
+  100% {
+    opacity: 0.15;
+    transform: scale(1) rotate(0);
+  }
+}
+
+/* ===== QUOTE TEXT ===== */
+.gift20-quote-text {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  font-weight: 400;
+  color: var(--ivory, #f4eee0);
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: quoteTextFade 1s ease 0.3s forwards;
+}
+
+@keyframes quoteTextFade {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== QUOTE AUTHOR ===== */
+.gift20-quote-author {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: quoteAuthorFade 1s ease 0.6s forwards;
+}
+
+.gift20-quote-author::before {
+  content: "— ";
+  color: var(--red, #d8042c);
+  opacity: 0.5;
+}
+
+@keyframes quoteAuthorFade {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== DIVIDER ===== */
+.gift20-quote-divider {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--red, #d8042c),
+    transparent
+  );
+  margin: 1.5rem auto;
+  opacity: 0;
+  animation: quoteDividerFade 0.8s ease 0.5s forwards;
+}
+
+@keyframes quoteDividerFade {
+  0% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .gift20-quote-text {
+    font-size: 1.8rem;
+  }
+
+  .gift20-quote-mark {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gift20-quote {
+    padding: 1.5rem;
+  }
+
+  .gift20-quote-text {
+    font-size: 1.4rem;
+  }
+
+  .gift20-quote-mark {
+    font-size: 3rem;
+  }
+
+  .gift20-quote-author {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+  }
+}
+
+@media (max-width: 360px) {
+  .gift20-quote-text {
+    font-size: 1.2rem;
+  }
+
+  .gift20-quote-divider {
+    width: 50px;
+  }
+}
+
+/* ========== GIFT20 - INTERACTIVE POINTS ========== */
+.gift20-interactive {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background: var(--white, #ffffff);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.gift20-interactive:focus {
+  outline: none;
+}
+
+.gift20-interactive-inner {
+  position: relative;
+  width: 100%;
+  max-width: 1885px;
+  margin: 0 auto;
+}
+
+/* Backgrounds */
+.gift20-backgrounds,
+.gift20-bg-element {
+  position: relative;
+  width: 100%;
+}
+
+.gift20-bg-element {
+  height: 50vh;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+.gift20-static {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  opacity: 0.7;
+  width: 100%;
+  height: auto;
+}
+
+/* Points SVG */
+.gift20-points {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.gift20-point {
+  cursor: pointer;
+  fill: var(--black, #000000);
+  transition: fill 0.3s;
+  animation: pulsepin 2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes pulsepin {
+  0%,
+  100% {
+    opacity: 1;
+    fill: var(--black, #000000);
+  }
+  50% {
+    opacity: 0.6;
+    fill: #666666;
+  }
+}
+
+.gift20-point--active {
+  fill: var(--red, #d8042c);
+  animation: none;
+  opacity: 1;
+}
+
+.gift20-point--hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.gift20-tooltips {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.gift20-tooltips {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.gift20-tooltip {
+  height: 50vh;
+  opacity: 0;
+  transition: opacity 0.3s;
+  position: absolute;
+  margin: 0.75em 0 0 0.25em;
+  pointer-events: none;
+}
+
+.gift20-tooltip--current {
+  opacity: 1;
+}
+
+.gift20-tooltip-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.5rem;
+  line-height: 1;
+  margin: 0 0 0.15em;
+  display: inline-block;
+  background: var(--white, #ffffff);
+  color: var(--black, #000000);
+  padding: 5px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.gift20-tooltip-desc {
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1;
+  display: inline-block;
+  background: var(--white, #ffffff);
+  color: var(--grey, #555555);
+  padding: 5px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.gift20-contents {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+}
+
+.gift20-contents--open {
+  pointer-events: auto;
+  opacity: 1;
+  cursor:
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><text y="28" font-size="28" font-family="Arial" fill="%23ffffff">✕</text></svg>')
+      16 16,
+    pointer;
+}
+
+.gift20-content-wrapper {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  max-height: 80vh;
+  cursor:
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><text y="28" font-size="28" font-family="Arial" fill="%23000000">✕</text></svg>')
+      16 16,
+    pointer;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.gift20-content-left {
+  flex: 1;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.gift20-content-right {
+  flex: 1;
+  min-height: 300px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.gift20-content {
+  display: none;
+}
+
+.gift20-content--current {
+  display: block;
+  animation: fadeInContent 0.4s ease;
+}
+
+@keyframes fadeInContent {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gift20-content-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.5rem;
+  margin: 0 0 0.25rem;
+  color: var(--black, #000000);
+}
+
+.gift20-content-sub {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: bold;
+  margin: 0 0 1rem;
+  display: inline-block;
+  background: var(--red, #d8042c);
+  color: var(--white, #ffffff);
+  padding: 0 15px;
+  line-height: 1.8;
+  font-size: 0.85rem;
+  border-radius: 3px;
+}
+
+.gift20-content-text {
+  font-weight: 400;
+  margin: 0;
+  color: var(--dark-grey, #333333);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* Close hint */
+.gift20-content-close-hint {
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+  color: #999;
+  letter-spacing: 0.5px;
+}
+
+.gift20-content-close-hint i {
+  margin-right: 6px;
+}
+
+@media screen and (max-width: 837px) {
+  .gift20-points {
+    display: none;
+  }
+
+  .gift20-tooltips {
+    display: none;
+  }
+
+  .gift20-contents {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 2rem 0;
+    pointer-events: auto;
+    background: transparent;
+    opacity: 1;
+    height: auto;
+  }
+
+  .gift20-content-wrapper {
+    display: none;
+  }
+
+  .gift20-content {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    padding: 1rem;
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 0.8rem;
+    display: block;
+  }
+
+  .gift20-content > * {
+    opacity: 1;
+    transform: none;
+  }
+
+  .gift20-content-title {
+    font-size: 1.2rem;
+    color: var(--black, #000000);
+  }
+
+  .gift20-content-text {
+    font-size: 0.8rem;
+    color: var(--grey, #555555);
+  }
+
+  .gift20-contents--open {
+    background: transparent;
+  }
+
+  .gift20-static {
+    opacity: 0.04;
+  }
+}
+
+@media (max-width: 480px) {
+  .gift20-contents {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .gift20-content {
+    padding: 0.8rem;
+  }
+
+  .gift20-content-title {
+    font-size: 1rem;
+  }
+
+  .gift20-content-sub {
+    font-size: 0.7rem;
+  }
+}
+
+@media screen and (min-width: 838px) {
+  .gift20-points {
+    display: block;
+  }
+
+  .gift20-backgrounds,
+  .gift20-bg-element {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .gift20-bg-element {
+    opacity: 0;
+    transition: opacity 0.1s;
+  }
+
+  .gift20-tooltip {
+    display: block;
   }
 }
