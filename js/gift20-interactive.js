@@ -417,6 +417,15 @@
 
   function initInteractivePoints() {
     var el = document.getElementById("interactive-gift");
+    if (window.matchMedia("(max-width: 837px)").matches) {
+      return;
+    }
+    var cta = document.querySelector(".gift20-journey-cta");
+    if (cta) {
+      cta.addEventListener("click", function () {
+        window.location.href = "meet20.html";
+      });
+    }
     if (el && typeof PointsMap !== "undefined") {
       new PointsMap(el);
     }
