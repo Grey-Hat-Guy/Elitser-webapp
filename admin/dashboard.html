@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | Elitser Careers</title>
+
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="./css/admin.css" />
+  </head>
+  <body>
+    <div class="dashboard-container" id="dashboardContainer" hidden>
+      <header class="dashboard-header">
+        <div class="dashboard-brand">
+          <h1>ELITSER</h1>
+          <span>Careers Administration</span>
+        </div>
+
+        <div class="admin-profile">
+          <span id="adminEmail"></span>
+          <button id="logoutButton" class="logout-button">Logout</button>
+        </div>
+      </header>
+
+      <main class="dashboard-main">
+        <section class="dashboard-heading">
+          <div>
+            <h2>Dashboard</h2>
+            <p>Manage your organization's career opportunities.</p>
+          </div>
+        </section>
+
+        <section class="stats-grid">
+          <article class="stat-card">
+            <span>Total Vacancies</span>
+            <h3 id="totalJobs">0</h3>
+          </article>
+
+          <article class="stat-card">
+            <span>Published</span>
+            <h3 id="publishedJobs">0</h3>
+          </article>
+
+          <article class="stat-card">
+            <span>Drafts</span>
+            <h3 id="draftJobs">0</h3>
+          </article>
+
+          <article class="stat-card">
+            <span>Closed</span>
+            <h3 id="closedJobs">0</h3>
+          </article>
+        </section>
+
+        <section class="jobs-section">
+          <div class="section-heading">
+            <div>
+              <h2>Job Openings</h2>
+              <p>All vacancies currently managed by HR.</p>
+            </div>
+
+            <button type="button" id="addJobButton" class="primary-button">
+              + Add New Job
+            </button>
+          </div>
+
+          <div id="jobsMessage" class="dashboard-message">
+            Loading vacancies...
+          </div>
+
+          <div class="table-wrapper" id="jobsTableWrapper" hidden>
+            <table class="jobs-table">
+              <thead>
+                <tr>
+                  <th>Job Reference</th>
+                  <th>Job Title</th>
+                  <th>Department</th>
+                  <th>Location</th>
+                  <th>Employment</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="jobsTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <dialog id="jobModal" class="job-modal">
+          <div class="modal-header">
+            <div>
+              <h2 id="modalTitle">Create New Job</h2>
+              <p>Add a new career opportunity to Elitser.</p>
+            </div>
+            <button type="button" id="closeModalButton" class="close-modal">
+              &times;
+            </button>
+          </div>
+
+          <form id="jobForm">
+            <div class="modal-form-grid">
+              <div class="form-group" id="referenceGroup">
+                <label for="jobReference">Job Reference *</label>
+                <input
+                  type="text"
+                  id="jobReference"
+                  placeholder="ERS-RUH-105"
+                  maxlength="50"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="jobTitle">Job Title *</label>
+                <input type="text" id="jobTitle" required maxlength="255" />
+              </div>
+
+              <div class="form-group">
+                <label for="jobDepartment">Department</label>
+                <input type="text" id="jobDepartment" maxlength="150" />
+              </div>
+
+              <div class="form-group">
+                <label for="jobLocation">Location *</label>
+                <input type="text" id="jobLocation" required maxlength="255" />
+              </div>
+
+              <div class="form-group">
+                <label for="employmentType">Employment Type *</label>
+                <select id="employmentType" required>
+                  <option value="">Select employment type</option>
+                  <option value="Full-time">Full-time</option>
+                  <option value="Part-time">Part-time</option>
+                  <option value="Contract">Contract</option>
+                  <option value="Internship">Internship</option>
+                  <option value="Temporary">Temporary</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="salaryRange">Salary Range</label>
+                <input type="text" id="salaryRange" placeholder="Negotiable" />
+              </div>
+
+              <div class="form-group full-width">
+                <label for="jobDescription">Job Description *</label>
+                <textarea
+                  id="jobDescription"
+                  rows="6"
+                  required
+                  placeholder="Enter the job description..."
+                ></textarea>
+              </div>
+
+              <div class="form-group full-width checkbox-group">
+                <input type="checkbox" id="isUrgent" />
+                <label for="isUrgent">Mark this vacancy as urgent</label>
+              </div>
+            </div>
+
+            <p id="formMessage" class="message" role="alert"></p>
+
+            <div class="modal-actions">
+              <button
+                type="button"
+                id="cancelJobButton"
+                class="secondary-button"
+              >
+                Cancel
+              </button>
+              <button type="submit" id="saveJobButton" class="primary-button">
+                Save Job
+              </button>
+            </div>
+          </form>
+        </dialog>
+      </main>
+    </div>
+
+    <script type="module" src="./js/jobs.js"></script>
+  </body>
+</html>

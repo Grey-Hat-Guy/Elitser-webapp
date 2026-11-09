@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apply for a Position | Elitser Group</title>
+
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/apply.css" />
+  </head>
+  <body>
+    <div id="header"></div>
+
+    <main class="application-page">
+      <section class="application-hero">
+        <div class="container">
+          <span class="application-eyebrow">CAREERS AT ELITSER</span>
+          <h1>Take the Next Step in Your Career</h1>
+          <p>Tell us about yourself and submit your application.</p>
+        </div>
+      </section>
+
+      <section class="application-section">
+        <div class="container application-container">
+          <div class="selected-job" id="selectedJob" hidden>
+            <div>
+              <span class="application-eyebrow">YOUR SELECTED POSITION</span>
+              <h2 id="jobTitle">Loading position...</h2>
+              <p id="jobReference"></p>
+            </div>
+            <span class="selected-job-icon">✓</span>
+          </div>
+
+          <div class="application-form-card">
+            <div class="form-heading">
+              <div>
+                <h2>Direct Website CV Submission</h2>
+                <p>Submit your details and resume for consideration.</p>
+              </div>
+              <span class="form-shield">✓</span>
+            </div>
+
+            <div id="pageMessage" class="application-message" hidden></div>
+
+            <form id="applicationForm">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="fullName">Full Name *</label>
+                  <input
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    placeholder="Your full name"
+                    maxlength="150"
+                    autocomplete="name"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Email Address *</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="name@example.com"
+                    maxlength="254"
+                    autocomplete="email"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="mobile">Mobile / WhatsApp Number *</label>
+                  <input
+                    type="tel"
+                    id="mobile"
+                    name="mobile"
+                    placeholder="+971 50 000 0000"
+                    maxlength="25"
+                    autocomplete="tel"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="linkedin">LinkedIn Profile URL (Optional)</label>
+                  <input
+                    type="url"
+                    id="linkedin"
+                    name="linkedin"
+                    placeholder="https://www.linkedin.com/in/your-profile"
+                    maxlength="500"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="location">Current Location *</label>
+                  <select id="location" name="location" required>
+                    <option value="">Select your location</option>
+                    <option value="Dubai, UAE">Dubai, UAE</option>
+                    <option value="Abu Dhabi, UAE">Abu Dhabi, UAE</option>
+                    <option value="Riyadh, Saudi Arabia">
+                      Riyadh, Saudi Arabia
+                    </option>
+                    <option value="Jeddah / Dammam, KSA">
+                      Jeddah / Dammam, KSA
+                    </option>
+                    <option value="GCC / MENA">Other GCC / MENA</option>
+                    <option value="India / Singapore / APAC">
+                      India / Singapore / APAC
+                    </option>
+                    <option value="UK / Europe / International">
+                      UK / Europe / Global
+                    </option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="industry">Primary Industry Sector *</label>
+                  <select id="industry" name="industry" required>
+                    <option value="">Select your industry</option>
+                    <option value="Banking & Financial Services">
+                      Banking & Financial Services
+                    </option>
+                    <option value="Construction & Engineering">
+                      Construction & Engineering
+                    </option>
+                    <option value="IT, Cloud, AI & Cyber">
+                      IT, Cloud, AI & Cyber
+                    </option>
+                    <option value="Corporate Functions">
+                      Corporate Functions
+                    </option>
+                    <option value="Commercial & Sales">
+                      Commercial & Sales
+                    </option>
+                    <option value="Hospitality, Retail & Events">
+                      Hospitality, Retail & Events
+                    </option>
+                    <option value="Pharma & Healthcare">
+                      Pharma & Healthcare
+                    </option>
+                  </select>
+                </div>
+
+                <div class="form-group full-width">
+                  <label>Applying For</label>
+                  <div class="readonly-job" id="applicationJobLabel">
+                    Loading selected position...
+                  </div>
+                </div>
+
+                <div class="form-group full-width">
+                  <label for="resume">Upload Your CV / Resume *</label>
+
+                  <div
+                    class="upload-area"
+                    id="uploadArea"
+                    role="button"
+                    tabindex="0"
+                    aria-label="Choose your CV or drag and drop it here"
+                  >
+                    <span class="upload-icon">↑</span>
+                    <strong id="fileName">
+                      Click to select your CV or drag and drop here
+                    </strong>
+                    <span
+                      >Supported formats: PDF, DOC, DOCX (Maximum 5 MB)</span
+                    >
+                  </div>
+
+                  <input
+                    type="file"
+                    id="resume"
+                    name="resume"
+                    accept=".pdf,.doc,.docx"
+                    class="visually-hidden"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="application-actions">
+                <button type="submit" id="submitApplication">
+                  Submit Application
+                </button>
+                <a
+                  href="https://www.linkedin.com/company/elitser/jobs/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="linkedin-apply"
+                >
+                  Apply via Elitser LinkedIn ↗
+                </a>
+              </div>
+
+              <p class="form-disclaimer">
+                Your information and resume will be handled for recruitment
+                purposes.
+              </p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="footer"></div>
+    <div id="scrollTop"></div>
+
+    <script src="/js/loadComponents.js"></script>
+    <script type="module" src="/js/apply.js"></script>
+  </body>
+</html>

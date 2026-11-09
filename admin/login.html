@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Login | Elitser</title>
-    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="../css/base.css" />
     <link rel="stylesheet" href="./css/admin.css" />
   </head>
   <body>
@@ -45,7 +45,15 @@
 
           <p id="loginMessage" class="message" role="alert"></p>
 
-          <button type="submit" id="loginButton">Sign In</button>
+          <button type="submit" id="loginButton" class="login-button">
+            <span class="button-text">Sign In</span>
+            <span class="login-loader" id="loginLoader" hidden>
+              <span class="lds-ripple">
+                <span></span>
+                <span></span>
+              </span>
+            </span>
+          </button>
         </form>
 
         <p class="login-footer">Elitser Careers Admin Portal</p>
